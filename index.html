@@ -1,1305 +1,2360 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PURE COSMO — العناية والجمال والصحة</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Almarai', sans-serif;
-      background: #fcf8f2;
-      color: #2a2a2a;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    :root {
-      --gold: #b78c5a;
-      --gold-light: #dbbd8f;
-      --gold-pale: #f0e4d4;
-      --beige: #f5ede4;
-      --shadow-card: 0 8px 24px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.02);
-      --radius-card: 20px;
-    }
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    <!-- ========================================= -->
+    <!-- SEO - BASIC META TAGS                      -->
+    <!-- ========================================= -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>PURE COSMO | مستحضرات التجميل والعناية والجمال في مصر</title>
+    <meta name="description" content="اكتشف منتجات PURE COSMO للعناية بالبشرة والشعر والجسم والجمال، مع عروض مميزة وطلب أونلاين وتوصيل داخل مصر. تسوق منتجات مختارة بعناية من علامتنا التجارية الفاخرة." />
+    <meta name="keywords" content="مستحضرات تجميل, منتجات العناية بالبشرة, العناية بالشعر, منتجات العناية بالجسم, منتجات تجميل في مصر, شراء منتجات العناية أونلاين, PURE COSMO, كفر الشيخ" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="author" content="PURE COSMO" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="language" content="Arabic" />
 
-    /* --- Header --- */
-    .sticky-header {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.88); backdrop-filter: blur(6px);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.02);
-      border-bottom: 1px solid rgba(183,140,90,0.12);
-      padding: 10px 0;
-    }
-    .header-inner { display: flex; align-items: center; justify-content: space-between; }
-    .logo h1 { font-size: 1.6rem; font-weight: 800; color: #1a1a1a; }
-    .logo h1 span { color: var(--gold); }
-    .nav-links { display: flex; gap: 24px; font-weight: 400; color: #3a3a3a; }
-    .nav-links a { text-decoration: none; color: inherit; font-size: 0.95rem; transition: 0.2s; }
-    .nav-links a:hover { color: var(--gold); }
-    .header-actions { display: flex; align-items: center; gap: 16px; }
-    .header-actions i { font-size: 1.2rem; color: #3a3a3a; cursor: pointer; transition: 0.2s; }
-    .header-actions i:hover { color: var(--gold); }
-    .cart-badge {
-      position: relative;
-      display: inline-block;
-    }
-    .cart-badge .badge-count {
-      position: absolute;
-      top: -8px;
-      right: -10px;
-      background: #d43f34;
-      color: white;
-      font-size: 0.65rem;
-      font-weight: 700;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Almarai', sans-serif;
-    }
-    .mobile-menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+    <!-- ========================================= -->
+    <!-- CANONICAL URL                             -->
+    <!-- ========================================= -->
+    <link rel="canonical" href="https://purecosmo.shop/" />
 
-    /* --- Hero --- */
-    .hero {
-      padding: 36px 0 48px;
-      background: linear-gradient(135deg, #fcf8f2 0%, #f5ede4 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-    .hero-content .badge {
-      display: inline-block;
-      background: var(--gold-pale);
-      color: #7a5d3a;
-      font-size: 0.8rem;
-      padding: 6px 18px;
-      border-radius: 40px;
-      margin-bottom: 20px;
-      border: 1px solid rgba(183,140,90,0.2);
-    }
-    .hero-content h1 { font-size: 3.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 18px; color: #1a1a1a; }
-    .hero-content h1 span { color: var(--gold); }
-    .hero-content p { font-size: 1.1rem; color: #4f4f4f; max-width: 480px; margin-bottom: 30px; }
-    .hero-buttons { display: flex; flex-wrap: wrap; gap: 14px; }
-    .btn-primary {
-      background: var(--gold); border: none; color: white; padding: 14px 38px;
-      border-radius: 60px; font-weight: 700; font-size: 1rem; cursor: pointer;
-      transition: all 0.25s; box-shadow: 0 6px 16px rgba(183,140,90,0.2);
-      font-family: 'Almarai', sans-serif; display: inline-flex; align-items: center; gap: 8px;
-      text-decoration: none;
-      border: none;
-    }
-    .btn-primary:hover { background: #a07548; transform: translateY(-2px); box-shadow: 0 12px 24px rgba(183,140,90,0.25); }
-    .btn-outline {
-      background: transparent; border: 1.5px solid var(--gold); color: var(--gold);
-      padding: 14px 38px; border-radius: 60px; font-weight: 700; font-size: 1rem;
-      cursor: pointer; transition: 0.25s; font-family: 'Almarai', sans-serif;
-      display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
-    }
-    .btn-outline:hover { background: var(--gold); color: white; }
-    .trust-badges { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 32px; color: #4a4a4a; }
-    .trust-badges span i { color: var(--gold); margin-left: 6px; }
-    .hero-image img { max-width: 100%; height: auto; border-radius: 32px; background: rgba(255,255,255,0.3); padding: 12px; }
+    <!-- ========================================= -->
+    <!-- OPEN GRAPH / SOCIAL MEDIA                 -->
+    <!-- ========================================= -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="PURE COSMO | مستحضرات التجميل والعناية والجمال في مصر" />
+    <meta property="og:description" content="اكتشف منتجات PURE COSMO للعناية بالبشرة والشعر والجسم والجمال، مع عروض مميزة وطلب أونلاين وتوصيل داخل مصر." />
+    <meta property="og:url" content="https://purecosmo.shop/" />
+    <meta property="og:site_name" content="PURE COSMO" />
+    <meta property="og:locale" content="ar_EG" />
+    <meta property="og:image" content="https://purecosmo.shop/images/logo_cosmo.png" />
+    <meta property="og:image:alt" content="PURE COSMO - مستحضرات التجميل والعناية والجمال" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
-    /* --- Trust Bar --- */
-    .trust-bar { background: white; border-top: 1px solid #ece4da; border-bottom: 1px solid #ece4da; padding: 14px 0; margin-bottom: 24px; }
-    .trust-items { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; }
-    .trust-items span { font-size: 0.95rem; color: #3d3d3d; display: flex; align-items: center; gap: 8px; }
-    .trust-items i { color: var(--gold); font-size: 1.1rem; }
+    <!-- ========================================= -->
+    <!-- TWITTER CARD                              -->
+    <!-- ========================================= -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PURE COSMO | مستحضرات التجميل والعناية والجمال في مصر" />
+    <meta name="twitter:description" content="اكتشف منتجات PURE COSMO للعناية بالبشرة والشعر والجسم والجمال، مع عروض مميزة وطلب أونلاين وتوصيل داخل مصر." />
+    <meta name="twitter:image" content="https://purecosmo.shop/images/logo_cosmo.png" />
 
-    /* --- Limited Offer --- */
-    .offer-section {
-      background: linear-gradient(145deg, #f5ede4, #ece0d0);
-      border-radius: 48px;
-      padding: 40px 32px;
-      margin: 40px 0;
-      border: 1px solid rgba(183,140,90,0.2);
-    }
-    .offer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
-    .offer-content .offer-title { font-size: 2.8rem; font-weight: 800; color: #1a1a1a; line-height: 1.2; }
-    .offer-content .offer-title span { color: var(--gold); }
-    .offer-badge {
-      display: inline-block;
-      background: #d43f34;
-      color: white;
-      padding: 8px 24px;
-      border-radius: 60px;
-      font-weight: 700;
-      font-size: 1rem;
-      margin-bottom: 16px;
-    }
-    .countdown { display: flex; gap: 12px; margin: 20px 0; direction: ltr; }
-    .countdown-item {
-      background: white;
-      padding: 12px 10px;
-      border-radius: 16px;
-      min-width: 70px;
-      text-align: center;
-      box-shadow: var(--shadow-card);
-    }
-    .countdown-item .num { font-size: 2.2rem; font-weight: 800; color: #1e1e1e; line-height: 1.2; }
-    .countdown-item .label { font-size: 0.7rem; color: #888; font-weight: 400; }
-    .stock-indicator .stock-text { display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: 700; color: #3d2e1e; }
-    .progress-bar-bg { background: #e8ddd0; border-radius: 40px; height: 8px; width: 100%; margin: 6px 0; overflow: hidden; }
-    .progress-bar-fill { background: var(--gold); height: 100%; width: 90%; border-radius: 40px; transition: width 0.8s ease; }
-    .offer-product {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: rgba(255,255,255,0.3);
-      backdrop-filter: blur(4px);
-      padding: 20px 16px;
-      border-radius: 32px;
-      border: 1px solid rgba(183,140,90,0.1);
-    }
-    .offer-product img { max-width: 100%; max-height: 220px; object-fit: contain; border-radius: 24px; background: #faf6f0; padding: 8px; }
-    .offer-product .old-price { font-size: 1.1rem; text-decoration: line-through; color: #999; margin-left: 12px; }
-    .offer-product .new-price { font-size: 2rem; font-weight: 800; color: #1e1e1e; }
-    .offer-product .btn-offer {
-      background: #d43f34;
-      border: none;
-      color: white;
-      padding: 14px 40px;
-      border-radius: 60px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: 0.2s;
-      font-family: 'Almarai', sans-serif;
-      box-shadow: 0 6px 20px rgba(212,63,52,0.25);
-      margin: 6px 0;
-    }
-    .offer-product .btn-offer:hover { background: #b83228; transform: scale(1.02); }
+    <!-- ========================================= -->
+    <!-- FAVICON                                   -->
+    <!-- ========================================= -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
 
-    /* --- Products Grid --- */
-    .section-title { text-align: center; margin: 40px 0 12px; }
-    .section-title h2 { font-size: 2.4rem; font-weight: 800; color: #1e1e1e; }
-    .section-title p { color: #777; font-size: 1rem; }
-    .product-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 28px; margin: 32px 0 20px; }
-    .product-card {
-      background: white; border-radius: var(--radius-card); padding: 18px 16px 22px;
-      box-shadow: var(--shadow-card); border: 1px solid rgba(183,140,90,0.06);
-      transition: all 0.25s; text-align: center; position: relative; display: flex; flex-direction: column;
-      cursor: pointer;
-    }
-    .product-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.04); border-color: var(--gold-light); }
-    .product-card .badge-offer { position: absolute; top: 14px; left: 14px; background: var(--gold); color: white; font-size: 0.65rem; padding: 4px 14px; border-radius: 40px; font-weight: 700; }
-    .product-card img { max-width: 100%; height: 140px; object-fit: contain; margin-bottom: 10px; background: #faf6f0; border-radius: 16px; padding: 6px; }
-    .product-card h3 { font-size: 1.1rem; font-weight: 700; margin: 6px 0 4px; }
-    .product-card .desc { font-size: 0.8rem; color: #666; margin-bottom: 8px; }
-    .product-card .price { font-weight: 700; font-size: 1.2rem; color: #1e1e1e; }
-    .product-card .old-price { font-size: 0.85rem; color: #999; text-decoration: line-through; margin-right: 10px; }
-    .product-card .btn-view {
-      background: transparent; border: 1.5px solid var(--gold); color: var(--gold);
-      padding: 10px 0; border-radius: 60px; font-weight: 700; margin-top: 14px;
-      transition: 0.2s; cursor: pointer; font-family: 'Almarai', sans-serif; font-size: 0.95rem;
-    }
-    .product-card .btn-view:hover { background: var(--gold); color: white; }
+    <!-- ========================================= -->
+    <!-- FONTS & LIBRARIES                         -->
+    <!-- ========================================= -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
 
-    /* --- Highlight --- */
-    .highlight { background: #f8f2ea; border-radius: 40px; padding: 40px 32px; margin: 50px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 30px; border: 1px solid rgba(183,140,90,0.12); }
-    .highlight-image img { max-width: 100%; max-height: 260px; border-radius: 28px; }
-    .highlight-content h2 { font-size: 2rem; font-weight: 800; margin-bottom: 10px; }
-    .highlight-content ul { list-style: none; margin: 16px 0; }
-    .highlight-content ul li { margin: 8px 0; display: flex; align-items: center; gap: 10px; }
-    .highlight-content ul li i { color: var(--gold); }
+    <!-- ========================================= -->
+    <!-- JSON-LD STRUCTURED DATA                   -->
+    <!-- ========================================= -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "OnlineStore",
+            "name": "PURE COSMO",
+            "url": "https://purecosmo.shop/",
+            "logo": "https://purecosmo.shop/images/logo_cosmo.png",
+            "description": "متجر PURE COSMO متخصص في مستحضرات التجميل ومنتجات العناية بالبشرة والشعر والجسم، مع خدمة توصيل داخل مصر.",
+            "telephone": "+201065031487",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Kafr El Sheikh",
+                "addressCountry": "EG"
+            },
+            "sameAs": [
+                "https://www.facebook.com/purecosmo",
+                "https://www.instagram.com/purecosmo",
+                "https://wa.me/201065031487"
+            ],
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+201065031487",
+                "contactType": "customer service",
+                "availableLanguage": "Arabic"
+            }
+        }
+    </script>
 
-    /* --- Why, Steps, Reviews, CTA --- */
-    .why-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; margin: 30px 0; }
-    .why-item { background: white; padding: 28px 16px; border-radius: var(--radius-card); box-shadow: var(--shadow-card); text-align: center; }
-    .why-item i { font-size: 2.2rem; color: var(--gold); margin-bottom: 12px; }
-    .why-item h4 { font-weight: 700; }
-    .steps { display: flex; justify-content: center; gap: 30px; margin: 30px 0 20px; flex-wrap: wrap; }
-    .step-item { background: white; padding: 24px 30px; border-radius: var(--radius-card); box-shadow: var(--shadow-card); min-width: 150px; border-top: 4px solid var(--gold); text-align: center; }
-    .step-item .number { font-size: 2.8rem; font-weight: 800; color: var(--gold); opacity: 0.3; line-height: 1; }
-    .step-item h4 { font-weight: 700; margin: 6px 0; }
-    .review-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin: 30px 0; }
-    .review-card { background: white; padding: 24px 20px; border-radius: var(--radius-card); box-shadow: var(--shadow-card); border: 1px solid #f0e8de; }
-    .review-card .stars { color: var(--gold); font-size: 1.2rem; }
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "PURE COSMO",
+            "url": "https://purecosmo.shop/",
+            "description": "PURE COSMO هو متجر إلكتروني متخصص في مستحضرات التجميل ومنتجات العناية بالبشرة والشعر والجسم.",
+            "inLanguage": "ar",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://purecosmo.shop/?search={search_term_string}"
+                },
+                "query-input": "required name=search_term_string"
+            }
+        }
+    </script>
 
-    /* --- CTA Section --- */
-    .cta-section {
-      background: #efe5d9;
-      border-radius: 60px;
-      padding: 44px 32px;
-      margin: 50px 0;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-    .cta-content { flex: 1 1 60%; }
-    .cta-content h2 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
-    .cta-content p { margin: 6px 0 16px; font-size: 1rem; color: #4a4a4a; }
-    .cta-image {
-      flex: 0 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .cta-image img {
-      max-height: 300px;
-      width: auto;
-      max-width: 350px;
-      object-fit: contain;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.4);
-      padding: 8px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-      transition: transform 0.3s ease;
-    }
-    .cta-image img:hover { transform: scale(1.04); }
+    <!-- ========================================= -->
+    <!-- CSS STYLES                                -->
+    <!-- ========================================= -->
+    <style>
+        /* ========================================= */
+        /* RESET & BASE                             */
+        /* ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Almarai', sans-serif;
+            background: #fcf8f2;
+            color: #2a2a2a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        :root {
+            --gold: #b78c5a;
+            --gold-light: #dbbd8f;
+            --gold-pale: #f0e4d4;
+            --beige: #f5ede4;
+            --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02);
+            --radius-card: 20px;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-    /* --- Footer --- */
-    footer { background: #1c1c1c; color: #ddd; padding: 40px 0 24px; border-radius: 40px 40px 0 0; margin-top: 40px; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 30px; }
-    .footer-grid .logo h1 { color: #ddd; font-size: 1.4rem; }
-    .footer-grid .logo h1 span { color: var(--gold-light); }
-    .footer-grid .brand-tag { color: var(--gold-light); font-size: 0.8rem; letter-spacing: 1px; }
-    .footer-grid a { color: #bbb; text-decoration: none; display: block; margin: 8px 0; transition: 0.2s; }
-    .footer-grid a:hover { color: var(--gold); }
-    .footer-social i { font-size: 1.3rem; margin-left: 12px; color: #aaa; transition: 0.2s; cursor: pointer; }
-    .footer-social i:hover { color: var(--gold); }
-    .copy { text-align: center; border-top: 1px solid #333; padding-top: 24px; margin-top: 24px; font-size: 0.8rem; color: #888; }
+        /* ========================================= */
+        /* HEADER                                    */
+        /* ========================================= */
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(6px);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+            border-bottom: 1px solid rgba(183, 140, 90, 0.12);
+            padding: 10px 0;
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo h1 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #1a1a1a;
+        }
+        .logo h1 span {
+            color: var(--gold);
+        }
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            font-weight: 400;
+            color: #3a3a3a;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: inherit;
+            font-size: 0.95rem;
+            transition: 0.2s;
+        }
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .header-actions i {
+            font-size: 1.2rem;
+            color: #3a3a3a;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .header-actions i:hover {
+            color: var(--gold);
+        }
+        .cart-badge {
+            position: relative;
+            display: inline-block;
+        }
+        .cart-badge .badge-count {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: #d43f34;
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Almarai', sans-serif;
+        }
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
 
-    /* --- Sticky Offer Bar --- */
-    .sticky-offer-bar {
-      position: fixed; bottom: 0; left: 0; right: 0; z-index: 99;
-      background: rgba(30,30,30,0.92); backdrop-filter: blur(8px); color: white;
-      padding: 10px 20px; display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 8px; border-top: 2px solid var(--gold);
-      direction: rtl;
-    }
-    .sticky-offer-bar .offer-text { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-weight: 700; font-size: 0.95rem; }
-    .sticky-offer-bar .offer-text i { color: var(--gold-light); }
-    .sticky-offer-bar .offer-timer { font-weight: 700; color: var(--gold-light); direction: ltr; }
-    .sticky-offer-bar .btn-sticky {
-      background: var(--gold); border: none; color: white; padding: 8px 24px;
-      border-radius: 60px; font-weight: 700; font-size: 0.9rem; cursor: pointer;
-      font-family: 'Almarai', sans-serif;
-    }
-    .sticky-offer-bar .btn-sticky:hover { background: #a07548; }
+        /* ========================================= */
+        /* HERO                                      */
+        /* ========================================= */
+        .hero {
+            padding: 36px 0 48px;
+            background: linear-gradient(135deg, #fcf8f2 0%, #f5ede4 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .hero-content .badge {
+            display: inline-block;
+            background: var(--gold-pale);
+            color: #7a5d3a;
+            font-size: 0.8rem;
+            padding: 6px 18px;
+            border-radius: 40px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(183, 140, 90, 0.2);
+        }
+        .hero-content h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 18px;
+            color: #1a1a1a;
+        }
+        .hero-content h1 span {
+            color: var(--gold);
+        }
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #4f4f4f;
+            max-width: 480px;
+            margin-bottom: 30px;
+        }
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+        .btn-primary {
+            background: var(--gold);
+            border: none;
+            color: white;
+            padding: 14px 38px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.25s;
+            box-shadow: 0 6px 16px rgba(183, 140, 90, 0.2);
+            font-family: 'Almarai', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            border: none;
+        }
+        .btn-primary:hover {
+            background: #a07548;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(183, 140, 90, 0.25);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid var(--gold);
+            color: var(--gold);
+            padding: 14px 38px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.25s;
+            font-family: 'Almarai', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        .btn-outline:hover {
+            background: var(--gold);
+            color: white;
+        }
+        .trust-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-top: 32px;
+            color: #4a4a4a;
+        }
+        .trust-badges span i {
+            color: var(--gold);
+            margin-left: 6px;
+        }
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 32px;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 12px;
+            width: 100%;
+            height: auto;
+        }
 
-    /* --- Toast --- */
-    .toast {
-      position: fixed; top: 80px; left: 50%; transform: translateX(-50%);
-      background: #1c1c1c; color: white; padding: 14px 28px; border-radius: 60px;
-      font-weight: 700; z-index: 1000; box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-      display: none; align-items: center; gap: 12px; border-right: 4px solid var(--gold);
-      font-family: 'Almarai', sans-serif;
-    }
-    .toast.show { display: flex; animation: slideDown 0.4s ease; }
-    @keyframes slideDown { from { opacity:0; transform: translateX(-50%) translateY(-20px); } to { opacity:1; transform: translateX(-50%) translateY(0); } }
+        /* ========================================= */
+        /* TRUST BAR                                */
+        /* ========================================= */
+        .trust-bar {
+            background: white;
+            border-top: 1px solid #ece4da;
+            border-bottom: 1px solid #ece4da;
+            padding: 14px 0;
+            margin-bottom: 24px;
+        }
+        .trust-items {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .trust-items span {
+            font-size: 0.95rem;
+            color: #3d3d3d;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .trust-items i {
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
 
-    /* --- Search --- */
-    .search-overlay {
-      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.4); backdrop-filter: blur(4px); z-index: 150;
-      justify-content: center; align-items: flex-start; padding-top: 80px;
-    }
-    .search-overlay.show { display: flex; }
-    .search-box {
-      background: white; border-radius: 60px; padding: 8px 20px; width: 90%; max-width: 600px;
-      display: flex; align-items: center; box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-    }
-    .search-box input {
-      flex: 1; border: none; padding: 16px 10px; font-size: 1.1rem;
-      background: transparent; font-family: 'Almarai', sans-serif; outline: none;
-    }
-    .search-box button { background: none; border: none; font-size: 1.2rem; color: var(--gold); cursor: pointer; }
-    .search-results {
-      background: white; border-radius: 24px; margin-top: 16px; padding: 16px;
-      max-width: 600px; width: 90%; max-height: 300px; overflow-y: auto;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-    }
-    .search-results .result-item {
-      display: flex; align-items: center; gap: 12px; padding: 10px 12px;
-      border-bottom: 1px solid #f0ede8; cursor: pointer; transition: 0.2s;
-    }
-    .search-results .result-item:hover { background: #f8f4ee; border-radius: 16px; }
-    .search-results .result-item img { width: 40px; height: 40px; object-fit: contain; background: #f5ede4; border-radius: 12px; padding: 4px; }
-    .search-results .result-item .name { font-weight: 700; }
+        /* ========================================= */
+        /* LIMITED OFFER                            */
+        /* ========================================= */
+        .offer-section {
+            background: linear-gradient(145deg, #f5ede4, #ece0d0);
+            border-radius: 48px;
+            padding: 40px 32px;
+            margin: 40px 0;
+            border: 1px solid rgba(183, 140, 90, 0.2);
+        }
+        .offer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            align-items: center;
+        }
+        .offer-content .offer-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            line-height: 1.2;
+        }
+        .offer-content .offer-title span {
+            color: var(--gold);
+        }
+        .offer-badge {
+            display: inline-block;
+            background: #d43f34;
+            color: white;
+            padding: 8px 24px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+        .countdown {
+            display: flex;
+            gap: 12px;
+            margin: 20px 0;
+            direction: ltr;
+        }
+        .countdown-item {
+            background: white;
+            padding: 12px 10px;
+            border-radius: 16px;
+            min-width: 70px;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+        }
+        .countdown-item .num {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #1e1e1e;
+            line-height: 1.2;
+        }
+        .countdown-item .label {
+            font-size: 0.7rem;
+            color: #888;
+            font-weight: 400;
+        }
+        .stock-indicator .stock-text {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #3d2e1e;
+        }
+        .progress-bar-bg {
+            background: #e8ddd0;
+            border-radius: 40px;
+            height: 8px;
+            width: 100%;
+            margin: 6px 0;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            background: var(--gold);
+            height: 100%;
+            width: 90%;
+            border-radius: 40px;
+            transition: width 0.8s ease;
+        }
+        .offer-product {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(4px);
+            padding: 20px 16px;
+            border-radius: 32px;
+            border: 1px solid rgba(183, 140, 90, 0.1);
+        }
+        .offer-product img {
+            max-width: 100%;
+            max-height: 220px;
+            object-fit: contain;
+            border-radius: 24px;
+            background: #faf6f0;
+            padding: 8px;
+        }
+        .offer-product .old-price {
+            font-size: 1.1rem;
+            text-decoration: line-through;
+            color: #999;
+            margin-left: 12px;
+        }
+        .offer-product .new-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1e1e1e;
+        }
+        .offer-product .btn-offer {
+            background: #d43f34;
+            border: none;
+            color: white;
+            padding: 14px 40px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: 'Almarai', sans-serif;
+            box-shadow: 0 6px 20px rgba(212, 63, 52, 0.25);
+            margin: 6px 0;
+        }
+        .offer-product .btn-offer:hover {
+            background: #b83228;
+            transform: scale(1.02);
+        }
 
-    /* --- Product Modal --- */
-    .product-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.55);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      z-index: 300;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      overflow-y: auto;
-    }
-    .product-modal.show { display: flex; }
-    .product-modal-content {
-      background: white;
-      border-radius: 40px;
-      max-width: 900px;
-      width: 100%;
-      max-height: 90vh;
-      padding: 40px;
-      position: relative;
-      animation: modalFade 0.3s ease;
-      margin: auto;
-      overflow-y: auto;
-    }
-    @keyframes modalFade {
-      from { opacity: 0; transform: scale(0.95) translateY(20px); }
-      to { opacity: 1; transform: scale(1) translateY(0); }
-    }
-    .product-modal-close {
-      position: sticky;
-      float: left;
-      top: 0;
-      z-index: 5;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: #999;
-      transition: 0.2s;
-      width: 44px;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: #f5f0ea;
-      margin-bottom: 10px;
-    }
-    .product-modal-close:hover { background: #eee; color: #333; }
-    .product-modal-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      margin-top: 10px;
-    }
-    .product-modal-image img {
-      width: 100%;
-      border-radius: 28px;
-      background: #faf6f0;
-      padding: 20px;
-      object-fit: contain;
-    }
-    .product-modal-image .thumbs {
-      display: flex;
-      gap: 12px;
-      margin-top: 16px;
-      flex-wrap: wrap;
-    }
-    .product-modal-image .thumbs img {
-      width: 70px;
-      height: 70px;
-      object-fit: contain;
-      border-radius: 16px;
-      background: #f5ede4;
-      padding: 6px;
-      cursor: pointer;
-      border: 2px solid transparent;
-      transition: 0.2s;
-    }
-    .product-modal-image .thumbs img:hover,
-    .product-modal-image .thumbs img.active {
-      border-color: var(--gold);
-    }
-    .product-modal-info .modal-badge {
-      display: inline-block;
-      background: var(--gold);
-      color: white;
-      padding: 4px 16px;
-      border-radius: 40px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .product-modal-info h2 {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-    .product-modal-info .modal-desc {
-      color: #666;
-      margin-bottom: 12px;
-      font-size: 1rem;
-    }
-    .product-modal-info .modal-price {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 8px;
-    }
-    .product-modal-info .modal-price .current {
-      font-size: 1.8rem;
-      font-weight: 800;
-    }
-    .product-modal-info .modal-price .old {
-      font-size: 1.2rem;
-      text-decoration: line-through;
-      color: #999;
-    }
-    .product-modal-info .modal-price .discount {
-      background: #d43f34;
-      color: white;
-      padding: 2px 12px;
-      border-radius: 40px;
-      font-size: 0.8rem;
-      font-weight: 700;
-    }
-    .product-modal-info .modal-stock {
-      color: #4a7a4a;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-    .product-modal-info .modal-size {
-      background: #f8f4ee;
-      border-radius: 20px;
-      padding: 16px;
-      margin: 12px 0;
-    }
-    .product-modal-info .modal-features {
-      list-style: none;
-      padding: 0;
-      margin: 12px 0;
-    }
-    .product-modal-info .modal-features li {
-      padding: 6px 0;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .product-modal-info .modal-features li i {
-      color: var(--gold);
-    }
-    .product-modal-info .modal-actions {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin: 16px 0;
-    }
-    .product-modal-info .modal-actions input[type="number"] {
-      width: 70px;
-      padding: 10px;
-      border-radius: 30px;
-      border: 1px solid #ddd;
-      text-align: center;
-      font-family: 'Almarai', sans-serif;
-    }
-    .product-modal-info .btn-add-cart-modal {
-      background: var(--gold);
-      color: white;
-      border: none;
-      padding: 12px 32px;
-      border-radius: 60px;
-      font-weight: 700;
-      cursor: pointer;
-      font-family: 'Almarai', sans-serif;
-      transition: 0.2s;
-      font-size: 1rem;
-    }
-    .product-modal-info .btn-add-cart-modal:hover {
-      background: #a07548;
-      transform: translateY(-2px);
-    }
-    .product-modal-info .btn-buy-now-modal {
-      background: #d43f34;
-      color: white;
-      border: none;
-      padding: 12px 32px;
-      border-radius: 60px;
-      font-weight: 700;
-      cursor: pointer;
-      font-family: 'Almarai', sans-serif;
-      transition: 0.2s;
-      font-size: 1rem;
-      box-shadow: 0 6px 20px rgba(212,63,52,0.25);
-    }
-    .product-modal-info .btn-buy-now-modal:hover {
-      background: #b83228;
-      transform: scale(1.02);
-    }
+        /* ========================================= */
+        /* PRODUCTS GRID                            */
+        /* ========================================= */
+        .section-title {
+            text-align: center;
+            margin: 40px 0 12px;
+        }
+        .section-title h2 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #1e1e1e;
+        }
+        .section-title p {
+            color: #777;
+            font-size: 1rem;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+            margin: 32px 0 20px;
+        }
+        .product-card {
+            background: white;
+            border-radius: var(--radius-card);
+            padding: 18px 16px 22px;
+            box-shadow: var(--shadow-card);
+            border: 1px solid rgba(183, 140, 90, 0.06);
+            transition: all 0.25s;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+            border-color: var(--gold-light);
+        }
+        .product-card .badge-offer {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: var(--gold);
+            color: white;
+            font-size: 0.65rem;
+            padding: 4px 14px;
+            border-radius: 40px;
+            font-weight: 700;
+        }
+        .product-card img {
+            max-width: 100%;
+            height: 140px;
+            object-fit: contain;
+            margin-bottom: 10px;
+            background: #faf6f0;
+            border-radius: 16px;
+            padding: 6px;
+        }
+        .product-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 6px 0 4px;
+        }
+        .product-card .desc {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        .product-card .price {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #1e1e1e;
+        }
+        .product-card .old-price {
+            font-size: 0.85rem;
+            color: #999;
+            text-decoration: line-through;
+            margin-right: 10px;
+        }
+        .product-card .btn-view {
+            background: transparent;
+            border: 1.5px solid var(--gold);
+            color: var(--gold);
+            padding: 10px 0;
+            border-radius: 60px;
+            font-weight: 700;
+            margin-top: 14px;
+            transition: 0.2s;
+            cursor: pointer;
+            font-family: 'Almarai', sans-serif;
+            font-size: 0.95rem;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+        }
+        .product-card .btn-view:hover {
+            background: var(--gold);
+            color: white;
+        }
 
-    /* --- Mobile Menu --- */
-    .mobile-menu {
-      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(255,255,255,0.98); z-index: 200; padding: 60px 30px;
-      flex-direction: column; gap: 24px; font-size: 1.3rem;
-    }
-    .mobile-menu.show { display: flex; }
-    .mobile-menu a { text-decoration: none; color: #1a1a1a; font-weight: 700; border-bottom: 1px solid #f0ede8; padding: 12px 0; }
-    .mobile-menu .close-menu { position: absolute; top: 20px; left: 24px; font-size: 2rem; cursor: pointer; }
+        /* ========================================= */
+        /* HIGHLIGHT                                */
+        /* ========================================= */
+        .highlight {
+            background: #f8f2ea;
+            border-radius: 40px;
+            padding: 40px 32px;
+            margin: 50px 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+            border: 1px solid rgba(183, 140, 90, 0.12);
+        }
+        .highlight-image img {
+            max-width: 100%;
+            max-height: 260px;
+            border-radius: 28px;
+        }
+        .highlight-content h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .highlight-content ul {
+            list-style: none;
+            margin: 16px 0;
+        }
+        .highlight-content ul li {
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .highlight-content ul li i {
+            color: var(--gold);
+        }
 
-    /* --- Responsive --- */
-    @media (max-width: 992px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .product-grid { grid-template-columns: repeat(2,1fr); }
-      .why-grid { grid-template-columns: repeat(2,1fr); }
-      .review-grid { grid-template-columns: 1fr 1fr; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-      .offer-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-      .mobile-menu-toggle { display: block; }
-      .product-modal-grid { grid-template-columns: 1fr; gap: 24px; }
-      .product-modal-content { padding: 24px; }
-      .cta-section { padding: 36px 28px; border-radius: 40px; }
-      .cta-image img { max-height: 250px; max-width: 300px; }
-      .cta-content h2 { font-size: 1.8rem; }
-    }
-    @media (max-width: 640px) {
-      .hero-content h1 { font-size: 2.2rem; }
-      .product-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
-      .why-grid { grid-template-columns: 1fr; }
-      .review-grid { grid-template-columns: 1fr; }
-      .steps { flex-direction: column; align-items: center; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .highlight { flex-direction: column; text-align: center; }
-      .sticky-offer-bar { flex-direction: column; align-items: stretch; }
-      .sticky-offer-bar .btn-sticky { width: 100%; text-align: center; }
-      .countdown-item { min-width: 50px; padding: 8px 6px; }
-      .countdown-item .num { font-size: 1.6rem; }
-      .offer-section { padding: 28px 18px; }
-      .offer-content .offer-title { font-size: 2rem; }
-      .product-modal-content { padding: 16px; border-radius: 28px; max-height: 95vh; }
-      .product-modal-close { width: 36px; height: 36px; font-size: 1.4rem; }
-      .product-modal-info h2 { font-size: 1.5rem; }
-      .cta-section {
-        flex-direction: column;
-        text-align: center;
-        padding: 28px 20px;
-        border-radius: 32px;
-        margin: 30px 0;
-      }
-      .cta-content { flex: 1 1 auto; width: 100%; }
-      .cta-content h2 { font-size: 1.5rem; }
-      .cta-content p { font-size: 0.9rem; }
-      .cta-image { width: 100%; justify-content: center; margin-top: 4px; }
-      .cta-image img { max-height: 250px; max-width: 300px; padding: 6px; border-radius: 12px; }
-    }
-  </style>
+        /* ========================================= */
+        /* WHY, STEPS, REVIEWS, CTA                 */
+        /* ========================================= */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin: 30px 0;
+        }
+        .why-item {
+            background: white;
+            padding: 28px 16px;
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-card);
+            text-align: center;
+        }
+        .why-item i {
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+        .why-item h4 {
+            font-weight: 700;
+        }
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0 20px;
+            flex-wrap: wrap;
+        }
+        .step-item {
+            background: white;
+            padding: 24px 30px;
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-card);
+            min-width: 150px;
+            border-top: 4px solid var(--gold);
+            text-align: center;
+        }
+        .step-item .number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--gold);
+            opacity: 0.3;
+            line-height: 1;
+        }
+        .step-item h4 {
+            font-weight: 700;
+            margin: 6px 0;
+        }
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 30px 0;
+        }
+        .review-card {
+            background: white;
+            padding: 24px 20px;
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-card);
+            border: 1px solid #f0e8de;
+        }
+        .review-card .stars {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        /* ========================================= */
+        /* CTA SECTION                              */
+        /* ========================================= */
+        .cta-section {
+            background: #efe5d9;
+            border-radius: 60px;
+            padding: 44px 32px;
+            margin: 50px 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+        .cta-content {
+            flex: 1 1 60%;
+        }
+        .cta-content h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .cta-content p {
+            margin: 6px 0 16px;
+            font-size: 1rem;
+            color: #4a4a4a;
+        }
+        .cta-image {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cta-image img {
+            max-height: 300px;
+            width: auto;
+            max-width: 350px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.4);
+            padding: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease;
+        }
+        .cta-image img:hover {
+            transform: scale(1.04);
+        }
+
+        /* ========================================= */
+        /* FOOTER                                   */
+        /* ========================================= */
+        footer {
+            background: #1c1c1c;
+            color: #ddd;
+            padding: 40px 0 24px;
+            border-radius: 40px 40px 0 0;
+            margin-top: 40px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 30px;
+        }
+        .footer-grid .logo h1 {
+            color: #ddd;
+            font-size: 1.4rem;
+        }
+        .footer-grid .logo h1 span {
+            color: var(--gold-light);
+        }
+        .footer-grid .brand-tag {
+            color: var(--gold-light);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+        .footer-grid a {
+            color: #bbb;
+            text-decoration: none;
+            display: block;
+            margin: 8px 0;
+            transition: 0.2s;
+        }
+        .footer-grid a:hover {
+            color: var(--gold);
+        }
+        .footer-social i {
+            font-size: 1.3rem;
+            margin-left: 12px;
+            color: #aaa;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .footer-social i:hover {
+            color: var(--gold);
+        }
+        .copy {
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 24px;
+            margin-top: 24px;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* ========================================= */
+        /* STICKY OFFER BAR                         */
+        /* ========================================= */
+        .sticky-offer-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 99;
+            background: rgba(30, 30, 30, 0.92);
+            backdrop-filter: blur(8px);
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            border-top: 2px solid var(--gold);
+            direction: rtl;
+        }
+        .sticky-offer-bar .offer-text {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+        .sticky-offer-bar .offer-text i {
+            color: var(--gold-light);
+        }
+        .sticky-offer-bar .offer-timer {
+            font-weight: 700;
+            color: var(--gold-light);
+            direction: ltr;
+        }
+        .sticky-offer-bar .btn-sticky {
+            background: var(--gold);
+            border: none;
+            color: white;
+            padding: 8px 24px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            font-family: 'Almarai', sans-serif;
+        }
+        .sticky-offer-bar .btn-sticky:hover {
+            background: #a07548;
+        }
+
+        /* ========================================= */
+        /* TOAST                                    */
+        /* ========================================= */
+        .toast {
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1c1c1c;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 60px;
+            font-weight: 700;
+            z-index: 1000;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            display: none;
+            align-items: center;
+            gap: 12px;
+            border-right: 4px solid var(--gold);
+            font-family: 'Almarai', sans-serif;
+        }
+        .toast.show {
+            display: flex;
+            animation: slideDown 0.4s ease;
+        }
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        /* ========================================= */
+        /* SEARCH                                   */
+        /* ========================================= */
+        .search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            z-index: 150;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 80px;
+        }
+        .search-overlay.show {
+            display: flex;
+        }
+        .search-box {
+            background: white;
+            border-radius: 60px;
+            padding: 8px 20px;
+            width: 90%;
+            max-width: 600px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 16px 10px;
+            font-size: 1.1rem;
+            background: transparent;
+            font-family: 'Almarai', sans-serif;
+            outline: none;
+        }
+        .search-box button {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: var(--gold);
+            cursor: pointer;
+        }
+        .search-results {
+            background: white;
+            border-radius: 24px;
+            margin-top: 16px;
+            padding: 16px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 300px;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+        .search-results .result-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            border-bottom: 1px solid #f0ede8;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .search-results .result-item:hover {
+            background: #f8f4ee;
+            border-radius: 16px;
+        }
+        .search-results .result-item img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            background: #f5ede4;
+            border-radius: 12px;
+            padding: 4px;
+        }
+        .search-results .result-item .name {
+            font-weight: 700;
+        }
+
+        /* ========================================= */
+        /* PRODUCT MODAL                            */
+        /* ========================================= */
+        .product-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 300;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .product-modal.show {
+            display: flex;
+        }
+        .product-modal-content {
+            background: white;
+            border-radius: 40px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            padding: 40px;
+            position: relative;
+            animation: modalFade 0.3s ease;
+            margin: auto;
+            overflow-y: auto;
+        }
+        @keyframes modalFade {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        .product-modal-close {
+            position: sticky;
+            float: left;
+            top: 0;
+            z-index: 5;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #999;
+            transition: 0.2s;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #f5f0ea;
+            margin-bottom: 10px;
+        }
+        .product-modal-close:hover {
+            background: #eee;
+            color: #333;
+        }
+        .product-modal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 10px;
+        }
+        .product-modal-image img {
+            width: 100%;
+            border-radius: 28px;
+            background: #faf6f0;
+            padding: 20px;
+            object-fit: contain;
+        }
+        .product-modal-image .thumbs {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+        .product-modal-image .thumbs img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: #f5ede4;
+            padding: 6px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: 0.2s;
+        }
+        .product-modal-image .thumbs img:hover,
+        .product-modal-image .thumbs img.active {
+            border-color: var(--gold);
+        }
+        .product-modal-info .modal-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .product-modal-info h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .product-modal-info .modal-desc {
+            color: #666;
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+        .product-modal-info .modal-price {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+        .product-modal-info .modal-price .current {
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+        .product-modal-info .modal-price .old {
+            font-size: 1.2rem;
+            text-decoration: line-through;
+            color: #999;
+        }
+        .product-modal-info .modal-price .discount {
+            background: #d43f34;
+            color: white;
+            padding: 2px 12px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+        .product-modal-info .modal-stock {
+            color: #4a7a4a;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .product-modal-info .modal-size {
+            background: #f8f4ee;
+            border-radius: 20px;
+            padding: 16px;
+            margin: 12px 0;
+        }
+        .product-modal-info .modal-features {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+        .product-modal-info .modal-features li {
+            padding: 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .product-modal-info .modal-features li i {
+            color: var(--gold);
+        }
+        .product-modal-info .modal-actions {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin: 16px 0;
+        }
+        .product-modal-info .modal-actions input[type="number"] {
+            width: 70px;
+            padding: 10px;
+            border-radius: 30px;
+            border: 1px solid #ddd;
+            text-align: center;
+            font-family: 'Almarai', sans-serif;
+        }
+        .product-modal-info .btn-add-cart-modal {
+            background: var(--gold);
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 60px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Almarai', sans-serif;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+        .product-modal-info .btn-add-cart-modal:hover {
+            background: #a07548;
+            transform: translateY(-2px);
+        }
+        .product-modal-info .btn-buy-now-modal {
+            background: #d43f34;
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 60px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Almarai', sans-serif;
+            transition: 0.2s;
+            font-size: 1rem;
+            box-shadow: 0 6px 20px rgba(212, 63, 52, 0.25);
+        }
+        .product-modal-info .btn-buy-now-modal:hover {
+            background: #b83228;
+            transform: scale(1.02);
+        }
+
+        /* ========================================= */
+        /* MOBILE MENU                              */
+        /* ========================================= */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            z-index: 200;
+            padding: 60px 30px;
+            flex-direction: column;
+            gap: 24px;
+            font-size: 1.3rem;
+        }
+        .mobile-menu.show {
+            display: flex;
+        }
+        .mobile-menu a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 700;
+            border-bottom: 1px solid #f0ede8;
+            padding: 12px 0;
+        }
+        .mobile-menu .close-menu {
+            position: absolute;
+            top: 20px;
+            left: 24px;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        /* ========================================= */
+        /* RESPONSIVE                               */
+        /* ========================================= */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .review-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .offer-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu-toggle {
+                display: block;
+            }
+            .product-modal-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .product-modal-content {
+                padding: 24px;
+            }
+            .cta-section {
+                padding: 36px 28px;
+                border-radius: 40px;
+            }
+            .cta-image img {
+                max-height: 250px;
+                max-width: 300px;
+            }
+            .cta-content h2 {
+                font-size: 1.8rem;
+            }
+        }
+        @media (max-width: 640px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .product-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+            .review-grid {
+                grid-template-columns: 1fr;
+            }
+            .steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .highlight {
+                flex-direction: column;
+                text-align: center;
+            }
+            .sticky-offer-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .sticky-offer-bar .btn-sticky {
+                width: 100%;
+                text-align: center;
+            }
+            .countdown-item {
+                min-width: 50px;
+                padding: 8px 6px;
+            }
+            .countdown-item .num {
+                font-size: 1.6rem;
+            }
+            .offer-section {
+                padding: 28px 18px;
+            }
+            .offer-content .offer-title {
+                font-size: 2rem;
+            }
+            .product-modal-content {
+                padding: 16px;
+                border-radius: 28px;
+                max-height: 95vh;
+            }
+            .product-modal-close {
+                width: 36px;
+                height: 36px;
+                font-size: 1.4rem;
+            }
+            .product-modal-info h2 {
+                font-size: 1.5rem;
+            }
+            .cta-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 28px 20px;
+                border-radius: 32px;
+                margin: 30px 0;
+            }
+            .cta-content {
+                flex: 1 1 auto;
+                width: 100%;
+            }
+            .cta-content h2 {
+                font-size: 1.5rem;
+            }
+            .cta-content p {
+                font-size: 0.9rem;
+            }
+            .cta-image {
+                width: 100%;
+                justify-content: center;
+                margin-top: 4px;
+            }
+            .cta-image img {
+                max-height: 250px;
+                max-width: 300px;
+                padding: 6px;
+                border-radius: 12px;
+            }
+        }
+
+        /* ========================================= */
+        /* SEO CONTENT SECTION - اختياري للـ SEO     */
+        /* ========================================= */
+        .seo-content {
+            background: white;
+            border-radius: 32px;
+            padding: 32px 28px;
+            margin: 40px 0;
+            box-shadow: var(--shadow-card);
+            border: 1px solid #f0ede8;
+        }
+        .seo-content h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+        .seo-content p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+        .seo-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+        .seo-content ul li {
+            padding: 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #555;
+        }
+        .seo-content ul li i {
+            color: var(--gold);
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Toast -->
-  <div class="toast" id="toast"><i class="fas fa-check-circle" style="color:var(--gold);"></i> <span id="toastMsg">تمت الإضافة</span></div>
+    <!-- ========================================= -->
+    <!-- TOAST                                    -->
+    <!-- ========================================= -->
+    <div class="toast" id="toast"><i class="fas fa-check-circle" style="color:var(--gold);"></i> <span id="toastMsg">تمت الإضافة</span></div>
 
-  <!-- Product Modal -->
-  <div class="product-modal" id="productModal">
-    <div class="product-modal-content">
-      <div class="product-modal-close" id="modalCloseBtn">&times;</div>
-      <div class="product-modal-grid">
-        <div class="product-modal-image">
-          <img src="" alt="" id="modalMainImage">
-          <div class="thumbs" id="modalThumbs"></div>
+    <!-- ========================================= -->
+    <!-- PRODUCT MODAL                            -->
+    <!-- ========================================= -->
+    <div class="product-modal" id="productModal">
+        <div class="product-modal-content">
+            <div class="product-modal-close" id="modalCloseBtn">&times;</div>
+            <div class="product-modal-grid">
+                <div class="product-modal-image">
+                    <img src="" alt="" id="modalMainImage">
+                    <div class="thumbs" id="modalThumbs"></div>
+                </div>
+                <div class="product-modal-info" id="modalInfo">
+                    <!-- يتم تعبئته بواسطة JavaScript -->
+                </div>
+            </div>
         </div>
-        <div class="product-modal-info" id="modalInfo">
-          <!-- يتم تعبئته بواسطة JavaScript -->
+    </div>
+
+    <!-- ========================================= -->
+    <!-- SEARCH OVERLAY                           -->
+    <!-- ========================================= -->
+    <div class="search-overlay" id="searchOverlay">
+        <div style="width:100%; display:flex; flex-direction:column; align-items:center;">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="ابحث عن منتج..." />
+                <button id="searchCloseBtn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="search-results" id="searchResults"></div>
         </div>
-      </div>
     </div>
-  </div>
 
-  <!-- Search Overlay -->
-  <div class="search-overlay" id="searchOverlay">
-    <div style="width:100%; display:flex; flex-direction:column; align-items:center;">
-      <div class="search-box">
-        <input type="text" id="searchInput" placeholder="ابحث عن منتج..." />
-        <button id="searchCloseBtn"><i class="fas fa-times"></i></button>
-      </div>
-      <div class="search-results" id="searchResults"></div>
-    </div>
-  </div>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="close-menu" id="closeMobileMenu">&times;</div>
-    <a href="#">الرئيسية</a>
-    <a href="#products">المنتجات</a>
-    <a href="#limitedOffer">العروض</a>
-    <a href="#">من نحن</a>
-    <a href="#">تواصل معنا</a>
-  </div>
-
-  <!-- Header -->
-  <header class="sticky-header">
-    <div class="container header-inner">
-      <div class="logo"><h1>PURE <span>COSMO</span></h1></div>
-      <div class="nav-links">
-        <a href="#">الرئيسية</a>
+    <!-- ========================================= -->
+    <!-- MOBILE MENU                              -->
+    <!-- ========================================= -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="close-menu" id="closeMobileMenu">&times;</div>
+        <a href="/">الرئيسية</a>
         <a href="#products">المنتجات</a>
         <a href="#limitedOffer">العروض</a>
-        <a href="#">من نحن</a>
-        <a href="#">تواصل معنا</a>
-      </div>
-      <div class="header-actions">
-        <i class="fas fa-search" id="searchIcon"></i>
-        <div class="cart-badge">
-          <i class="fas fa-shopping-bag" id="cartIcon"></i>
-          <span class="badge-count" id="cartCount">0</span>
-        </div>
-        <div class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></div>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <div class="badge"><i class="fas fa-fire"></i> عرض محدود — بادر بالطلب</div>
-          <h1>اكتشف مجموعتك <br><span>المثالية</span> للعناية والصحة</h1>
-          <p>منتجات مختارة بعناية لتمنحك تجربة أفضل، جودة موثوقة، ونتائج تليق بك.</p>
-          <div class="hero-buttons">
-            <a href="#products" class="btn-primary"><i class="fas fa-grid-2"></i> تصفح المنتجات</a>
-            <a href="cart.html" class="btn-outline"><i class="fas fa-shopping-cart"></i> السلة</a>
-          </div>
-          <div class="trust-badges">
-            <span><i class="fas fa-check-circle"></i> جودة موثوقة</span>
-            <span><i class="fas fa-truck"></i> توصيل حتى باب المنزل</span>
-            <span><i class="fas fa-leaf"></i> منتجات مختارة بعناية</span>
-          </div>
-        </div>
-        <div class="hero-image">
-          <img src="images/logo_cosmo.png" alt="PURE COSMO">
-        </div>
-      </div>
-    </section>
-
-    <!-- Trust Bar -->
-    <div class="trust-bar"><div class="container trust-items"><span><i class="fas fa-check-circle"></i> منتجات أصلية</span><span><i class="fas fa-shipping-fast"></i> شحن داخل مصر</span><span><i class="fas fa-clock"></i> طلب سريع</span><span><i class="fas fa-headset"></i> دعم العملاء</span></div></div>
-
-    <!-- Limited Offer -->
-    <div class="container offer-section" id="limitedOffer">
-      <div class="offer-grid">
-        <div class="offer-content">
-          <div class="offer-badge"><i class="fas fa-fire"></i> متبقي فقط 10 قطع!</div>
-          <h2 class="offer-title">🔥 عرض خاص <span>لفترة محدودة!</span></h2>
-          <p class="sub-title" style="font-size:1.2rem;color:#4a3d2e;">الحق العرض قبل ما يخلص!</p>
-          <div class="countdown" id="countdownContainer">
-            <div class="countdown-item"><span class="num" id="days">02</span><span class="label">يوم</span></div>
-            <div class="countdown-item"><span class="num" id="hours">14</span><span class="label">ساعة</span></div>
-            <div class="countdown-item"><span class="num" id="minutes">37</span><span class="label">دقيقة</span></div>
-            <div class="countdown-item"><span class="num" id="seconds">52</span><span class="label">ثانية</span></div>
-          </div>
-          <div class="stock-indicator">
-            <div class="stock-text"><span><i class="fas fa-fire" style="color:#d43f34;"></i> الكمية المتبقية: 10 قطع فقط</span><span>تم بيع 90% من الكمية</span></div>
-            <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill" style="width:90%;"></div></div>
-          </div>
-        </div>
-        <div class="offer-product">
-          <img src="images/Elderi_Marono_Gel.jpg" alt="ELDERI MARONO GEL">
-          <div class="price-block">
-            <span class="old-price">299 جنيه</span>
-            <span class="new-price">199 جنيه</span>
-          </div>
-          <button class="btn-offer" id="offerOrderBtn"><i class="fas fa-fire"></i> اطلب الآن</button>
-        </div>
-      </div>
+        <a href="#about">من نحن</a>
+        <a href="#contact">تواصل معنا</a>
     </div>
 
-    <!-- Products -->
-    <div class="container" id="products">
-      <div class="section-title"><h2>منتجاتنا</h2><p>اكتشف مجموعة مختارة من منتجات PURE COSMO</p></div>
-      <div class="product-grid" id="productGrid"></div>
-    </div>
-
-    <!-- Highlight -->
-    <div class="container highlight">
-      <div class="highlight-image"><img src="images/Elderi_Marono_Gel02.jpg" alt="ELDERI MARONO"></div>
-      <div class="highlight-content">
-        <h2>اختيارك الأفضل <span style="color:var(--gold);">لتجربة مختلفة</span></h2>
-        <ul><li><i class="fas fa-check-circle"></i> تركيبة متطورة للعناية اليومية</li><li><i class="fas fa-check-circle"></i> نتائج ملموسة من الاستخدام الأول</li><li><i class="fas fa-check-circle"></i> خالي من المواد الضارة</li></ul>
-        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
-          <span style="font-size:1.8rem; font-weight:800;">249 جنيه</span>
-          <span style="text-decoration:line-through; color:#999;">390 جنيه</span>
-          <button class="btn-primary" onclick="openProductModal('elderi-marono-gel')">اطلب المنتج الآن</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Why, Steps, Reviews, CTA -->
-    <div class="container"><div class="section-title"><h2>لماذا تختار PURE COSMO؟</h2></div><div class="why-grid"><div class="why-item"><i class="fas fa-shield-alt"></i><h4>جودة موثوقة</h4><p>منتجات مختارة بعناية.</p></div><div class="why-item"><i class="fas fa-shopping-bag"></i><h4>تجربة شراء سهلة</h4><p>اطلب منتجك بسهولة من خلال الموقع.</p></div><div class="why-item"><i class="fas fa-truck"></i><h4>توصيل حتى باب المنزل</h4><p>خدمة توصيل مريحة داخل مصر.</p></div><div class="why-item"><i class="fas fa-headset"></i><h4>دعم ومتابعة</h4><p>فريق جاهز لمساعدتك.</p></div></div></div>
-
-    <div class="container"><div class="section-title"><h2>اطلب منتجك في 3 خطوات</h2></div><div class="steps"><div class="step-item"><div class="number">01</div><h4>اختر المنتج</h4></div><div class="step-item"><div class="number">02</div><h4>أدخل بياناتك</h4></div><div class="step-item"><div class="number">03</div><h4>استلم طلبك</h4></div></div></div>
-
-    <!-- CTA Section -->
-    <div class="container cta-section">
-      <div class="cta-content">
-        <h2>جاهز تختار منتجك؟</h2>
-        <p>تصفح منتجات PURE COSMO واطلب الآن بسهولة.</p>
-        <a href="#products" class="btn-primary">ابدأ طلبك الآن</a>
-      </div>
-      <div class="cta-image">
-        <img src="images/Elderi_Marono_Gel2.jpg" alt="منتجات PURE COSMO" class="cta-product-img">
-      </div>
-    </div>
-  </main>
-
-  <!-- Footer -->
-  <footer><div class="container"><div class="footer-grid"><div><div class="logo"><h1>PURE <span>COSMO</span></h1></div><div class="brand-tag">COSMETICS &amp; NUTRIENTS</div><p style="margin-top:8px;font-size:0.85rem;color:#aaa;">كفر الشيخ، مصر</p></div><div><a href="#">الرئيسية</a><a href="#products">المنتجات</a><a href="#limitedOffer">العروض</a><a href="#">من نحن</a><a href="#">تواصل معنا</a></div><div><div class="footer-social"><i class="fab fa-facebook"></i><i class="fab fa-instagram"></i><i class="fab fa-whatsapp"></i></div><p style="margin-top:12px;direction:ltr;text-align:right;"><a href="tel:01065031487" style="color:#bbb;text-decoration:none;">01065031487</a></p><p style="direction:ltr;text-align:right;"><a href="https://wa.me/201065031487" style="color:#bbb;text-decoration:none;">واتساب</a></p></div><div><p>info@purecosmo.com</p><p>خدمة العملاء: 9ص - 9م</p></div></div><div class="copy">© 2026 PURE COSMO. جميع الحقوق محفوظة.</div></div></footer>
-
-  <!-- Sticky Offer Bar -->
-  <div class="sticky-offer-bar" id="stickyOfferBar">
-    <div class="offer-text">
-      <i class="fas fa-fire"></i> عرض اليوم — متبقي 10 قطع فقط
-      <span class="offer-timer" id="stickyTimer">⏰ ينتهي خلال 02:14:37</span>
-    </div>
-    <button class="btn-sticky" id="stickyOrderBtn"><i class="fas fa-shopping-cart"></i> اطلب الآن</button>
-  </div>
-
-  <script>
-    (function() {
-      // ========== PRODUCT DATA ==========
-      const products = [
-        { 
-          id:1, 
-          slug:'elderi-marono-gel', 
-          name:'ELDERI MARONO GEL', 
-          short_desc:'جيل مؤخر موضعي للأداء والقوة الأصيلة', 
-          description:'صُمم Elderi Marono Gel خصيصاً للرجل الذي يبحث عن القوة، الأداء الممتد، والثقة المطلقة. يجمع هذا الجيل المطور بين الفعالية العالية والتركيبة الآمنة، حيث يحتوي على نسبة 4.3% من مادة الليدوكايين الموضعية المصممة لتقليل الحساسية المفرطة وتأخير القذف بشكل متوازن وبدون التقليل من المتعة.', 
-          size:'30 مل', 
-          price:'199', 
-          old_price:'299', 
-          badge:'الأكثر طلبًا', 
-          img:'images/Elderi_Marono_Gel3.jpg',
-          img2:'images/Elderi_Marono_Gel.jpg',
-          img3:'images/Elderi_Marono_Gel2.jpg',
-          features:[
-            'تركيبة متطورة (4.3% Lidocaine) لتأخير موضعي متوازن',
-            'امتصاص سريع ونسيج خفيف غير زيتي',
-            'جودة صناعة تركية وفق أعلى المعايير',
-            'عبوة بخاخ احترافية لتحديد الجرعة بدقة'
-          ], 
-          usage:'قم بوضع كمية بسيطة (بخّة إلى بخّتين) على المنطقة المطلوبة قبل الجماع بـ 15 إلى 20 دقيقة. يتم تدليك الجيل برفق حتى يمتصه الجلد تماماً. يُفضل غسل المنطقة بالماء الفاتر قبل الجماع للحصول على أفضل تجربة.' 
-        },
-        {         
-          id:2, 
-          slug:'fine-skin-cream', 
-          name:'Fine Skin Cream', 
-          short_desc:'تركيبة متطورة 10% Tranexamic Acid لتفتيح البشرة', 
-          description:'تألقي ببشرة ناصعة ومشرقة مع Fine Skin Cream المقدم من Pure Cosmo. تم تطوير هذا الكريم بتركيبة متقدمة تحتوي على 10% من حمض الترانيكساميك (Tranexamic Acid) المعروف بفاعليته الفائقة في استهداف التصبغات والبقع الداكنة، يعمل على توحيد لون البشرة وإعادة النضارة والإشراقة الطبيعية لها بأمان وبشكل تدريجي.', 
-          size:'50 مل', 
-          price:'249', 
-          old_price:'329', 
-          badge:'عرض خاص', 
-          img:'images/fine_skin_cream.jpg',
-          img2:'images/fine_skin_cream_2.jpg',
-          img3:'images/fine_skin_cream_3.jpg',
-          features:[
-            'تركيبة تفتيح قوية (10% Tranexamic Acid): تساعد على تقليل مظهر التصبغات وآثار الشمس والتصنع الداكن.',
-            'توحيد لون البشرة: يعيد للبشرة توازنها ونضارتها الطبيعية لمظهر أكثر شباباً وحيوية.',
-            'ترطيب وتنعيم: يمنح البشرة ملمساً ناعماً ورطباً دون ترك أي ملمس زيتي ثقيل.',
-            'مناسب للاستخدام اليومي: مصمم بعناية ليناسب مختلف أنواع البشرة.',
-            'عبوة سعة 50 مل (50 ml): مع علبة خارجية أنيقة تحافظ على جودة وفاعلية المكونات.'
-          ], 
-          usage:'تنظف البشرة جيداً وتجفف بلطف. تُوضع كمية مناسبة من الكريم على الوجه أو المناطق المراد تفتيحها. يُدلك بحركات دائرية خفيفة حتى يمتصه الجلد بالكامل. يُفضل الاستخدام مرتين يومياً (صباحاً ومساءً) مع ضرورة استخدام واقي الشمس خلال النهار.'
-        },
-        { 
-          id:3, 
-          slug:'bustobella-cream', 
-          name:'Bustobella Cream',  
-          short_desc:'للعناية المتكاملة بمناطق الأنوثة', 
-          description:'تقدم لكِ Pure Cosmo منتجها المتميز Bustobella Cream المخصص للعناية المتكاملة بمناطق الأنوثة واستعادة مرونة ونضارة البشرة. يعتمد الكريم على تركيبة مغذية ومطورة تعمل على تعزيز مظهر البشرة ومنحها ملمساً مشدوداً وأكثر امتلاءً وتناسقاً بشكل طبيعي وآمن.', 
-          size:'100 جم', 
-          price:'189', 
-          old_price:'259', 
-          badge:'', 
-          img:'images/Bustobella_Cream.jpg',
-          img2:'images/Bustobella_Cream_2.jpg',
-          img3:'images/Bustobella_Cream_3.jpg',
-          features:[
-            'عناية متكاملة للأنوثة: مصمم خصيصاً لتغدية وتحسين مظهر مناطق الأنوثة (مثل منطقة الصدر).',
-            'دعم مرونة البشرة: يساعد في تحسين مرونة الجلد وشده لمنحك مظهراً متناسقاً ومفعماً بالحيوية.',
-            'تركيبة غنية وسريعة الامتصاص: كريم ناعم يمتصه الجلد بسهولة دون ترك أي أثر دهني.',
-            'عبوة بحجم 100 جم (Net Weight: 100 gm): توفر لكِ استخداماً ممتداً ونتائج ملحوظة مع الانتظام.',
-            'جودة عالية أصلية: إحدى إبداعات علامة Pure Cosmo للعناية والجمال.'
-          ], 
-          usage:'تنظف المنطقة المستهدفة جيداً بماء فاتر وتجفف بلطف. تُوضع كمية مناسبة من كريم بوستوبيلا على الكفين. يُدلك الكريم بحركات دائرية خفيفة من الأسفل إلى الأعلى لمدة 5 إلى 10 دقائق حتى يمتصه الجلد تماماً. يُفضل الاستخدام مرتين يومياً (صباحاً ومساءً) للحصول على أفضل النتائج.'
-        },
-        { 
-          id:4, 
-          slug:'grofast-weight-gainer', 
-          name:'Grofast Weight Gainer', 
-          short_desc:'فاتح للشهية وداعم للمناعة لزيادة الوزن الصحي', 
-          description:'تُمثل عبوة Grofast Weight Gainer الحل الأمثل والآمن لكل من يسعى لزيادة وزنه وبناء جسم صحي ومثالي. يعتمد كبسولات جروفاست على تركيبات غذائية غنية تجمع بين الفيتامينات الأساسية (Vit C, Vit E, Zinc)، الأحماض الأمينية، والمعادن لفتح الشهية بطريقة طبيعية وتحسين عملية التمثيل الغذائي.', 
-          size:'30 كبسولة', 
-          price:'159', 
-          old_price:'219', 
-          badge:'عرض خاص', 
-          img:'images/GrofastWeightGainer.jpg',
-          img2:'images/GrofastWeightGainer_2.jpg',
-          img3:'images/GrofastWeightGainer_3.jpg',
-          features:[
-            'فاتح للشهية طبيعي (Increase Appetite): يساعد على تحفيز الرغبة في تناول الطعام بانتظام.',
-            'يعزز زيادة الوزن الصحي (Promote Weight Gain): يزود الجسم بالعناصر والبروتينات اللازمة لبناء كتلة صحية.',
-            'غني بالفيتامينات والمعادن: يحتوي على فيتامين C وفيتامين E والزنك لدعم الصحة العامة.',
-            'يدعم المناعة (Immunity Booster): بفضل تركيبة الأحماض الأمينية الأساسية ومضادات الأكسدة.',
-            'عبوة تحتوي على 30 كبسولة (30 Capsules): مصممة بجرعات دقيقة لنتائج ممتازة.'
-          ], 
-          usage:'تُؤخذ كبسولتان مرتين يومياً (بعد وجبتي الإفطار والعشاء) أو حسب إرشادات الطبيب/المختص.'
-        },
-        { 
-          id:5, 
-          slug:'agility-firming-gel', 
-          name:'Agility Firming Gel', 
-          short_desc:'شد الترهلات وتقليل علامات التمدد بتركيبة طبيعية فعالة', 
-          description:'احصلي على بشرة مشدودة ونشطة مع Agility Firming Gel المطور من Pure Cosmo (النقاوة كوزمو). يعتمد هذا الجيل المبتكر على قوة الخلاصة الطبيعية المركزة مثل الكافيين، مستخلص الشاي الأخضر، وزيت شجرة الشاي (Caffeine, Green Tea Extract, Tea Tree Oil) ليعمل بفعالية على شد الترهلات، تقليل مظهر علامات التمدد (Stretch Marks)، وتنعيم البشرة في المناطق المستهدفة كالمعدة، الأرداف، الفخذين، والذراعين.', 
-          size:'120 جم', 
-          price:'169', 
-          old_price:'239', 
-          badge:'', 
-          img:'images/AgilityFirmingGel.jpg',
-          img2:'images/AgilityFirmingGel_2.jpg',
-          img3:'images/AgilityFirmingGel_3.jpg',
-          features:[
-            'شد الترهلات وتقليل علامات التمدد: يساعد على تحسين مرونة الجلد وتقليل الخطوط البيضاء والحمراء.',
-            'تركيبة طبيعية فعالة: يحتوي على الكافيين والشاي الأخضر وزيت شجرة الشاي والصبار لتحفيز الدورة الدموية وتغذية الجلد.',
-            'ترطيب عميق ومستمر: ينعم البشرة ويحافظ على رطوبتها حتى 8 ساعات متواصلة.',
-            'سهل الامتصاص: جيل خفيف لا يترك أثراً دهنياً، ومناسب للاستخدام اليومي دون الحاجة للشطف.',
-            'عبوة بحجم 120 غرام (Net Weight: 120g): توفر لكِ استخداماً منتظماً لنتائج ملحوظة.'
-          ], 
-          usage:'توضع كمية مناسبة من الجيل على المناطق المراد العناية بها (المعدة، الأرداف، الفخذين، أو الذراعين). يُدلك الجيل برفق بحركات دائرية حتى يتم امتصاصه بالكامل (بدون شطف). يُكرر الاستخدام من 2 إلى 3 مرات يومياً للحصول على أفضل النتائج.'
-        },
-        {  
-          id:6, 
-          slug:'honey-baby-cream', 
-          name:'Honey Baby Cream', 
-          short_desc:'مهدئ ومطهر لالتهابات الحفاض والبشرة الحساسة', 
-          description:'يقدم كريم Honey-Baby Antiseptic Healing Cream العناية الحانية والحماية المتكاملة لبشرة طفلك الرقيقة والأنواع المختلفة من الجلد الحساس. يعمل هذا الكريم كمطهر ومهدئ ممتاز يُشكل طبقة حماية عازلة تعزل الرطوبة والتهيج الخارجي عن جلد الطفل، مما يساعد على سرعة التئام البشرة وتهدئة احمرارها.', 
-          size:'60 جم', 
-          price:'99', 
-          old_price:'149', 
-          badge:'', 
-          img:'images/Honey-Baby.jpg',
-          img2:'images/Honey-Baby_2.jpg',
-          img3:'images/Honey-Baby_3.jpg',
-          features:[
-            'حماية وعزل للتهيج (Protective Barrier): يشكل طبقة عازلة تحمي بشرة الطفل من الرطوبة والمثيرات الخارجية الناتجة عن الحفاض.',
-            'مهدئ ومطهر (Antiseptic Healing): يخفف الانزعاج، الحكة، واحمرار الجلد بشكل سريع وفعال.',
-            'متعدد الاستخدامات: يدعم علاج التهابات الحفاض (Nappy Rash)، الأكزيما (Eczema)، الجروح السطحية (Surface Wounds)، حروق الشمس البسيطة، وحبوب البشرة.',
-            'ترطيب وتغذية فائقة: يعزز تجدد خلايا البشرة ويحافظ على ملمسها ناعماً وطبيعياً.',
-            'عبوة عملية سعة 60 غرام (60g e): محكمة الإغلاق ومناسبة لحقيبة الطفل اليومية.'
-          ], 
-          usage:'تُنظف المنطقة المصابة أو منطقة الحفاض جيداً وتُجفف بلطف. تُوضع طبقة رقيقة من كريم Honey-Baby وتُوزع برفق على الجلد. يُستخدم عند كل تغيير للحفاض أو عند الحاجة لتهدئة تهيج البشرة.'
-        },
-        {         
-          id:7, 
-          slug:'agility-massage-gel', 
-          name:'Agility Massage Gel', 
-          short_desc:'تسكين فوري لآلام العضلات والمفاصل والكدمات', 
-          description:'يقدم لك Agility Massage Gel من Pure Cosmo الحل السريع والفعال لتسكين الآلام المزعجة وتخفيف الشد العضلي. يتميز الجل بتركيبة متطورة وسريعة الامتصاص تعمل على تهدئة الأنسجة المتهبة، تحسين مرونة الحركة، وتوفير راحة فورية للعضلات والمفاصل بعد التمارين الرياضية أو المجهود اليومي.', 
-          size:'60 جم', 
-          price:'139', 
-          old_price:'199', 
-          badge:'', 
-          img:'images/AgilityMassageGel.jpg',
-          img2:'images/AgilityMassageGel_2.jpg',
-          img3:'images/AgilityMassageGel_3.jpg',
-          features:[
-            'تسكين فوري للآلام: يخفف آلام العضلات، المفاصل، الكدمات، والروماتيزم بفاعلية وسرعة.',
-            'تحسين الحركة ومرونة الأنسجة: يساعد على الاسترخاء العضلي وعلاج الأنسجة المجهدة.',
-            'آمن وخالٍ من المواد الضارة: خالي من المواد الضارة والمواد المسرطنة لضمان استخدام آمن ومستمر.',
-            'تركيبة منعشة: تحتوي على مستخلصات مهدئة تمنح شعوراً بالانتعاش والراحة عند التدليك.',
-            'عبوة بحجم 60 غرام (60 gm): حجم مثالي ومناسب للاستخدام اليومي وحمله في الحقيبة الرياضية.'
-          ], 
-          usage:'توضع كمية مناسبة من جل أجيليتي على المنطقة المصابة. يُدلك المكان برفق بحركات دائرية حتى يمتص الجلد الجل بالكامل. يُكرر الاستخدام من 2 إلى 3 مرات يومياً عند الحاجة.'
-        },
-        { 
-          id:8, 
-          slug:'lissaney-hair-serum', 
-          name:'Lissaney Hair Serum', 
-          short_desc:'تغذية عميقة ولمعان فوري برائحة فاخرة', 
-          description:'انقلي العناية بشعرك وشعر طفلتك إلى مستوى آخر من الفخامة مع Lissaney Hair Serum المطور من Pure Cosmo. مصمم خصيصاً ليمنح الشعر مظهراً حيوياً ولامعاً كالأميرات، مع تركيبة خفيفة تغذي ألياف الشعر بعمق، تقلل الهيشان، وتوفر حماية يومية ضد العوامل الخارجية دون أي ملمس دهني ثقيل.', 
-          size:'70 مل', 
-          price:'179', 
-          old_price:'249', 
-          badge:'', 
-          img:'images/LissaneyHairSerum.jpg',
-          img2:'images/LissaneyHairSerum_2.jpg',
-          img3:'images/LissaneyHairSerum_3.jpg',
-          features:[
-            'تغذية عميقة وفعالة (Helps Nourish Hair Deeply): يمر بتركيبته الغنية إلى أعماق ألياف الشعر لتقويته وحمايته من التقصف.',
-            'لمعان فوري وسحر طبيعي (Instant Shine): يعيد للشعر إشراقته وحيويته فور وضعه لمظهر ناعم وحريري.',
-            'لمسة عطرية فاخرة: معزز بنفحات عطرية ساحرة مستوحاة من عطور Victoria\'s Secret لمنح الشعر رائحة عذبة تدوم طوال اليوم.',
-            'سهل التصفيف وفك التشابك: يجعل تمشيط الشعر تجربة سهلة وممتعة، خصوصاً لشعر الأطفال.',
-            'تركيبة غنية بمكونات طبيعية: تحتوي على الليمونين واللينالول (Limonene & Linalool) لحماية الشعر وإضفاء النضارة.',
-            'حجم العبوة (70 ml): عبوة ضاغطة عملية وأنيقة سهلة الاستخدام والتحكم في الجرعة.'
-          ], 
-          usage:'توضع بضع قطرات من السيروم على راحة اليد. يُوزع السيروم بالتساوي على شعر رطب أو جاف، مع التركيز على الأطراف والمناطق الجافة أو المجهدة. يُصفف الشعر كالمعتاد بمشط أو فرشة واسعة الأسنان. يمكن استخدامه يومياً قبل التصفيف أو كـ Finishing Touch لإضافة لمعان ورائحة مميزة.'
-        }
-      ];
-
-      // ========== CART (localStorage) ==========
-      const CART_KEY = 'pure_cosmo_cart';
-      const VISITOR_KEY = 'pure_cosmo_visitor_id';
-
-      function getVisitorId() {
-        let id = localStorage.getItem(VISITOR_KEY);
-        if (!id) { id = crypto.randomUUID(); localStorage.setItem(VISITOR_KEY, id); }
-        return id;
-      }
-
-      function getCart() {
-        try {
-          const data = JSON.parse(localStorage.getItem(CART_KEY));
-          if (data && data.visitor_id === getVisitorId()) return data;
-        } catch(e) {}
-        return { visitor_id: getVisitorId(), items: [], total: 0, updated_at: new Date().toISOString() };
-      }
-
-      function saveCart(cart) {
-        cart.visitor_id = getVisitorId();
-        cart.updated_at = new Date().toISOString();
-        cart.total = cart.items.reduce((sum, item) => sum + (parseFloat(item.price) * item.qty), 0);
-        localStorage.setItem(CART_KEY, JSON.stringify(cart));
-        updateCartCounter();
-      }
-
-      function addToCart(productId, qty = 1) {
-        const product = products.find(p => p.id === productId);
-        if (!product) return;
-        const cart = getCart();
-        const existing = cart.items.find(item => item.id === productId);
-        if (existing) existing.qty += qty;
-        else cart.items.push({ id: productId, slug: product.slug, name: product.name, price: product.price, qty: qty, image: product.img, size: product.size || '' });
-        saveCart(cart);
-        showToast(`✅ تمت إضافة ${product.name} إلى السلة`);
-      }
-
-      function removeFromCart(productId) {
-        const cart = getCart();
-        cart.items = cart.items.filter(item => item.id !== productId);
-        saveCart(cart);
-      }
-
-      function updateCartCounter() {
-        const cart = getCart();
-        const count = cart.items.reduce((sum, item) => sum + item.qty, 0);
-        const counter = document.getElementById('cartCount');
-        if (counter) counter.textContent = count;
-      }
-
-      function showToast(msg) {
-        const toast = document.getElementById('toast');
-        const msgEl = document.getElementById('toastMsg');
-        if (toast && msgEl) {
-          msgEl.textContent = msg;
-          toast.classList.add('show');
-          setTimeout(() => toast.classList.remove('show'), 3000);
-        }
-      }
-
-      // ========== فتح الـ Modal ==========
-      function openProductModal(slug) {
-        const product = products.find(p => p.slug === slug);
-        if (!product) return;
-
-        const modal = document.getElementById('productModal');
-        const mainImage = document.getElementById('modalMainImage');
-        const thumbs = document.getElementById('modalThumbs');
-        const info = document.getElementById('modalInfo');
-
-        // الصورة الرئيسية
-        mainImage.src = product.img;
-        mainImage.alt = product.name;
-
-        // الصور المصغرة - تعرض حسب العدد المتوفر
-        const availableImages = [];
-        if (product.img) availableImages.push(product.img);
-        if (product.img2) availableImages.push(product.img2);
-        if (product.img3) availableImages.push(product.img3);
-        
-        if (product.images && product.images.length > 0) {
-          availableImages.length = 0;
-          product.images.forEach(img => {
-            if (img) availableImages.push(img);
-          });
-        }
-
-        if (availableImages.length === 0) {
-          availableImages.push('https://placehold.co/400x400/F5EDE4/B78C5A?text=No+Image');
-        }
-
-        thumbs.innerHTML = availableImages.map((img, index) => `
-          <img src="${img}" class="${index === 0 ? 'active' : ''}" 
-               onclick="document.getElementById('modalMainImage').src=this.src; 
-                        document.querySelectorAll('#modalThumbs img').forEach(t=>t.classList.remove('active')); 
-                        this.classList.add('active');"
-               alt="${product.name} - صورة ${index + 1}">
-        `).join('');
-
-        // المعلومات
-        const discount = product.old_price ? Math.round((1 - parseFloat(product.price)/parseFloat(product.old_price)) * 100) : 0;
-
-        info.innerHTML = `
-          ${product.badge ? `<span class="modal-badge">${product.badge}</span>` : ''}
-          <h2>${product.name}</h2>
-          <p class="modal-desc">${product.description || product.short_desc}</p>
-          <div class="modal-price">
-            <span class="current">${product.price} جنيه</span>
-            ${product.old_price ? `<span class="old">${product.old_price} جنيه</span>` : ''}
-            ${discount > 0 ? `<span class="discount">خصم ${discount}%</span>` : ''}
-          </div>
-          <div class="modal-stock">✅ متوفر في المخزون</div>
-          <div class="modal-size">
-            <p><strong>الحجم:</strong> ${product.size || 'غير محدد'}</p>
-          </div>
-          <h4 style="margin:12px 0 6px;">المميزات</h4>
-          <ul class="modal-features">
-            ${product.features.map(f => `<li><i class="fas fa-check-circle"></i> ${f}</li>`).join('')}
-          </ul>
-          <div class="modal-actions">
-            <label style="font-weight:700;">الكمية:</label>
-            <input type="number" id="modalQty" value="1" min="1">
-            <button class="btn-add-cart-modal" data-id="${product.id}"><i class="fas fa-cart-plus"></i> أضف إلى السلة</button>
-            <button class="btn-buy-now-modal" data-id="${product.id}"><i class="fas fa-bolt"></i> اطلب الآن</button>
-          </div>
-        `;
-
-        // ربط أزرار الـ Modal
-        info.querySelector('.btn-add-cart-modal').addEventListener('click', function() {
-          const id = parseInt(this.dataset.id);
-          const qty = parseInt(document.getElementById('modalQty').value) || 1;
-          addToCart(id, qty);
-        });
-
-        info.querySelector('.btn-buy-now-modal').addEventListener('click', function() {
-          const id = parseInt(this.dataset.id);
-          const qty = parseInt(document.getElementById('modalQty').value) || 1;
-          addToCart(id, qty);
-          window.location.href = 'cart.html';
-        });
-
-        // ====== إظهار الـ Modal مع تجميد التمرير ======
-        const scrollY = window.scrollY;
-        modal.classList.add('show');
-        document.body.style.overflow = 'hidden';
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${scrollY}px`;
-        document.body.style.width = '100%';
-      }
-
-      // ========== إغلاق الـ Modal ==========
-      function closeProductModal() {
-        const modal = document.getElementById('productModal');
-        const scrollY = document.body.style.top;
-        modal.classList.remove('show');
-        document.body.style.overflow = '';
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.width = '';
-        if (scrollY) {
-          window.scrollTo(0, parseInt(scrollY || '0') * -1);
-        }
-      }
-
-      // ========== PRODUCT GRID ==========
-      function renderProducts() {
-        const grid = document.getElementById('productGrid');
-        if (!grid) return;
-        grid.innerHTML = '';
-        products.forEach(p => {
-          const card = document.createElement('div');
-          card.className = 'product-card';
-          const displayImg = p.img || 'https://placehold.co/400x400/F5EDE4/B78C5A?text=No+Image';
-          card.innerHTML = `
-            ${p.badge ? `<span class="badge-offer">${p.badge}</span>` : ''}
-            <img src="${displayImg}" alt="${p.name}" loading="lazy">
-            <h3>${p.name}</h3>
-            <div class="desc">${p.short_desc}</div>
-            <div><span class="price">${p.price} جنيه</span> ${p.old_price ? `<span class="old-price">${p.old_price} جنيه</span>` : ''}</div>
-            <button class="btn-view" data-slug="${p.slug}">عرض المنتج</button>
-          `;
-          grid.appendChild(card);
-        });
-
-        // أزرار "عرض المنتج" - تفتح الـ Modal
-        document.querySelectorAll('.btn-view').forEach(btn => {
-          btn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            openProductModal(this.dataset.slug);
-          });
-        });
-
-        // الضغط على البطاقة بأكملها يفتح الـ Modal
-        document.querySelectorAll('.product-card').forEach(card => {
-          card.addEventListener('click', function(e) {
-            if (e.target.closest('.btn-view')) return;
-            const slug = this.querySelector('.btn-view')?.dataset.slug;
-            if (slug) openProductModal(slug);
-          });
-        });
-      }
-
-      // ========== MODAL EVENTS ==========
-      document.getElementById('modalCloseBtn').addEventListener('click', closeProductModal);
-      document.getElementById('productModal').addEventListener('click', function(e) {
-        if (e.target === this) closeProductModal();
-      });
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closeProductModal();
-      });
-
-      // ========== SEARCH ==========
-      function searchProducts(query) {
-        if (!query.trim()) return [];
-        const q = query.trim().toLowerCase();
-        return products.filter(p => p.name.toLowerCase().includes(q) || p.short_desc.toLowerCase().includes(q));
-      }
-
-      const searchIcon = document.getElementById('searchIcon');
-      if (searchIcon) {
-        searchIcon.addEventListener('click', function() {
-          const overlay = document.getElementById('searchOverlay');
-          if (overlay) {
-            overlay.classList.add('show');
-            document.getElementById('searchInput').focus();
-          }
-        });
-      }
-
-      const searchCloseBtn = document.getElementById('searchCloseBtn');
-      if (searchCloseBtn) {
-        searchCloseBtn.addEventListener('click', function() {
-          document.getElementById('searchOverlay').classList.remove('show');
-        });
-      }
-
-      const searchOverlay = document.getElementById('searchOverlay');
-      if (searchOverlay) {
-        searchOverlay.addEventListener('click', function(e) {
-          if (e.target === this) this.classList.remove('show');
-        });
-      }
-
-      const searchInput = document.getElementById('searchInput');
-      if (searchInput) {
-        searchInput.addEventListener('input', function() {
-          const results = searchProducts(this.value);
-          const container = document.getElementById('searchResults');
-          if (!container) return;
-          if (results.length === 0) { container.innerHTML = '<p style="text-align:center;color:#999;padding:20px;">لا توجد نتائج</p>'; return; }
-          container.innerHTML = results.map(p => `
-            <div class="result-item" data-slug="${p.slug}">
-              <img src="${p.img}" alt="${p.name}" loading="lazy">
-              <span class="name">${p.name}</span>
-              <span style="color:var(--gold);font-weight:700;">${p.price} جنيه</span>
+    <!-- ========================================= -->
+    <!-- HEADER                                   -->
+    <!-- ========================================= -->
+    <header class="sticky-header">
+        <div class="container header-inner">
+            <div class="logo">
+                <h1>PURE <span>COSMO</span></h1>
             </div>
-          `).join('');
-          container.querySelectorAll('.result-item').forEach(item => {
-            item.addEventListener('click', function() {
-              closeProductModal();
-              openProductModal(this.dataset.slug);
+            <nav class="nav-links" aria-label="القائمة الرئيسية">
+                <a href="/">الرئيسية</a>
+                <a href="#products">المنتجات</a>
+                <a href="#limitedOffer">العروض</a>
+                <a href="#about">من نحن</a>
+                <a href="#contact">تواصل معنا</a>
+            </nav>
+            <div class="header-actions">
+                <i class="fas fa-search" id="searchIcon" aria-label="بحث"></i>
+                <div class="cart-badge">
+                    <i class="fas fa-shopping-bag" id="cartIcon" aria-label="سلة التسوق"></i>
+                    <span class="badge-count" id="cartCount">0</span>
+                </div>
+                <div class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="القائمة"><i class="fas fa-bars"></i></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================= -->
+    <!-- MAIN CONTENT                             -->
+    <!-- ========================================= -->
+    <main>
+
+        <!-- ====== HERO SECTION ====== -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="badge"><i class="fas fa-fire"></i> عرض محدود — بادر بالطلب</div>
+                    <h1>اكتشف مجموعتك <br><span>المثالية</span> للعناية والصحة</h1>
+                    <p>منتجات مختارة بعناية لتمنحك تجربة أفضل، جودة موثوقة، ونتائج تليق بك.</p>
+                    <div class="hero-buttons">
+                        <a href="#products" class="btn-primary"><i class="fas fa-grid-2"></i> تصفح المنتجات</a>
+                        <a href="cart.html" class="btn-outline"><i class="fas fa-shopping-cart"></i> السلة</a>
+                    </div>
+                    <div class="trust-badges">
+                        <span><i class="fas fa-check-circle"></i> جودة موثوقة</span>
+                        <span><i class="fas fa-truck"></i> توصيل حتى باب المنزل</span>
+                        <span><i class="fas fa-leaf"></i> منتجات مختارة بعناية</span>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="images/logo_cosmo.png" alt="PURE COSMO - متجر مستحضرات التجميل والعناية في مصر" fetchpriority="high" width="400" height="400" decoding="async">
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== TRUST BAR ====== -->
+        <div class="trust-bar">
+            <div class="container trust-items">
+                <span><i class="fas fa-check-circle"></i> منتجات أصلية</span>
+                <span><i class="fas fa-shipping-fast"></i> شحن داخل مصر</span>
+                <span><i class="fas fa-clock"></i> طلب سريع</span>
+                <span><i class="fas fa-headset"></i> دعم العملاء</span>
+            </div>
+        </div>
+
+        <!-- ====== LIMITED OFFER ====== -->
+        <section class="container offer-section" id="limitedOffer">
+            <div class="offer-grid">
+                <div class="offer-content">
+                    <div class="offer-badge"><i class="fas fa-fire"></i> متبقي فقط 10 قطع!</div>
+                    <h2 class="offer-title">🔥 عرض خاص <span>لفترة محدودة!</span></h2>
+                    <p class="sub-title" style="font-size:1.2rem;color:#4a3d2e;">الحق العرض قبل ما يخلص!</p>
+                    <div class="countdown" id="countdownContainer">
+                        <div class="countdown-item"><span class="num" id="days">02</span><span class="label">يوم</span></div>
+                        <div class="countdown-item"><span class="num" id="hours">14</span><span class="label">ساعة</span></div>
+                        <div class="countdown-item"><span class="num" id="minutes">37</span><span class="label">دقيقة</span></div>
+                        <div class="countdown-item"><span class="num" id="seconds">52</span><span class="label">ثانية</span></div>
+                    </div>
+                    <div class="stock-indicator">
+                        <div class="stock-text"><span><i class="fas fa-fire" style="color:#d43f34;"></i> الكمية المتبقية: 10 قطع فقط</span><span>تم بيع 90% من الكمية</span></div>
+                        <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill" style="width:90%;"></div></div>
+                    </div>
+                </div>
+                <div class="offer-product">
+                    <img src="images/Elderi_Marono_Gel.jpg" alt="ELDERI MARONO GEL من PURE COSMO" loading="lazy" width="300" height="300">
+                    <div class="price-block">
+                        <span class="old-price">299 جنيه</span>
+                        <span class="new-price">199 جنيه</span>
+                    </div>
+                    <button class="btn-offer" id="offerOrderBtn"><i class="fas fa-fire"></i> اطلب الآن</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== PRODUCTS GRID ====== -->
+        <section class="container" id="products">
+            <div class="section-title">
+                <h2>منتجاتنا</h2>
+                <p>اكتشف مجموعة مختارة من منتجات PURE COSMO</p>
+            </div>
+            <div class="product-grid" id="productGrid">
+                <!-- يتم تعبئته بواسطة JavaScript -->
+            </div>
+        </section>
+
+        <!-- ====== HIGHLIGHT ====== -->
+        <section class="container highlight">
+            <div class="highlight-image">
+                <img src="images/Elderi_Marono_Gel02.jpg" alt="ELDERI MARONO GEL - منتج مميز من PURE COSMO" loading="lazy" width="300" height="300">
+            </div>
+            <div class="highlight-content">
+                <h2>اختيارك الأفضل <span style="color:var(--gold);">لتجربة مختلفة</span></h2>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> تركيبة متطورة للعناية اليومية</li>
+                    <li><i class="fas fa-check-circle"></i> نتائج ملموسة من الاستخدام الأول</li>
+                    <li><i class="fas fa-check-circle"></i> خالي من المواد الضارة</li>
+                </ul>
+                <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+                    <span style="font-size:1.8rem; font-weight:800;">249 جنيه</span>
+                    <span style="text-decoration:line-through; color:#999;">390 جنيه</span>
+                    <button class="btn-primary" onclick="openProductModal('elderi-marono-gel')">اطلب المنتج الآن</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== WHY CHOOSE US ====== -->
+        <section class="container">
+            <div class="section-title">
+                <h2>لماذا تختار PURE COSMO؟</h2>
+            </div>
+            <div class="why-grid">
+                <div class="why-item"><i class="fas fa-shield-alt"></i><h4>جودة موثوقة</h4><p>منتجات مختارة بعناية.</p></div>
+                <div class="why-item"><i class="fas fa-shopping-bag"></i><h4>تجربة شراء سهلة</h4><p>اطلب منتجك بسهولة من خلال الموقع.</p></div>
+                <div class="why-item"><i class="fas fa-truck"></i><h4>توصيل حتى باب المنزل</h4><p>خدمة توصيل مريحة داخل مصر.</p></div>
+                <div class="why-item"><i class="fas fa-headset"></i><h4>دعم ومتابعة</h4><p>فريق جاهز لمساعدتك.</p></div>
+            </div>
+        </section>
+
+        <!-- ====== STEPS ====== -->
+        <section class="container">
+            <div class="section-title">
+                <h2>اطلب منتجك في 3 خطوات</h2>
+            </div>
+            <div class="steps">
+                <div class="step-item"><div class="number">01</div><h4>اختر المنتج</h4></div>
+                <div class="step-item"><div class="number">02</div><h4>أدخل بياناتك</h4></div>
+                <div class="step-item"><div class="number">03</div><h4>استلم طلبك</h4></div>
+            </div>
+        </section>
+
+        <!-- ====== SEO CONTENT - محتوى محسن لمحركات البحث ====== -->
+        <section class="container" id="about">
+            <div class="seo-content">
+                <h2>PURE COSMO للعناية والجمال</h2>
+                <p>
+                    <strong>PURE COSMO</strong> هو متجر إلكتروني متخصص في <strong>مستحضرات التجميل</strong> و<strong>منتجات العناية بالبشرة</strong> و<strong>العناية بالشعر</strong> و<strong>العناية بالجسم</strong>،
+                    يقدم مجموعة مختارة من المنتجات عالية الجودة المصممة بعناية لتلبي احتياجاتك الجمالية والصحية.
+                </p>
+                <p>
+                    نحرص في <strong>PURE COSMO</strong> على توفير منتجات أصلية وفعالة، مع خدمة <strong>طلب أونلاين</strong> و<strong>توصيل داخل مصر</strong>.
+                    سواء كنت تبحث عن منتجات لتفتيح البشرة، ترطيب عميق، أو دعم الصحة العامة، فإن <strong>متجر PURE COSMO</strong> يوفر لك كل ما تحتاجه.
+                </p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <strong>منتجات العناية بالبشرة:</strong> كريمات، سيرومات، وماسكات طبيعية.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>منتجات العناية بالشعر:</strong> سيرومات، زيوت، وعلاجات متخصصة.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>منتجات العناية بالجسم:</strong> جيل شد، كريمات ترطيب، ومستحضرات متخصصة.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>منتجات صحية وغذائية:</strong> مكملات غذائية لدعم الصحة العامة والمناعة.</li>
+                </ul>
+                <p>
+                    <strong>PURE COSMO</strong> مقرها في <strong>كفر الشيخ، مصر</strong>، وتقدم خدماتها للعملاء في جميع أنحاء الجمهورية.
+                    يمكنك التواصل معنا عبر الهاتف أو واتساب لطلب المنتجات والاستفسار عن العروض المتاحة.
+                </p>
+            </div>
+        </section>
+
+        <!-- ====== CTA SECTION ====== -->
+        <section class="container cta-section">
+            <div class="cta-content">
+                <h2>جاهز تختار منتجك؟</h2>
+                <p>تصفح منتجات PURE COSMO واطلب الآن بسهولة.</p>
+                <a href="#products" class="btn-primary">ابدأ طلبك الآن</a>
+            </div>
+            <div class="cta-image">
+                <img src="images/Elderi_Marono_Gel2.jpg" alt="منتجات PURE COSMO المتنوعة" loading="lazy" width="300" height="250" class="cta-product-img">
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================= -->
+    <!-- FOOTER                                   -->
+    <!-- ========================================= -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="logo"><h1>PURE <span>COSMO</span></h1></div>
+                    <div class="brand-tag">COSMETICS &amp; NUTRIENTS</div>
+                    <p style="margin-top:8px;font-size:0.85rem;color:#aaa;">كفر الشيخ، مصر</p>
+                </div>
+                <div>
+                    <a href="/">الرئيسية</a>
+                    <a href="#products">المنتجات</a>
+                    <a href="#limitedOffer">العروض</a>
+                    <a href="#about">من نحن</a>
+                    <a href="#contact">تواصل معنا</a>
+                </div>
+                <div>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/purecosmo" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/purecosmo" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/201065031487" target="_blank" rel="noopener noreferrer" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <p style="margin-top:12px;direction:ltr;text-align:right;">
+                        <a href="tel:01065031487" style="color:#bbb;text-decoration:none;">01065031487</a>
+                    </p>
+                    <p style="direction:ltr;text-align:right;">
+                        <a href="https://wa.me/201065031487" style="color:#bbb;text-decoration:none;">واتساب</a>
+                    </p>
+                </div>
+                <div>
+                    <p>info@purecosmo.com</p>
+                    <p>خدمة العملاء: 9ص - 9م</p>
+                </div>
+            </div>
+            <div class="copy">© 2026 PURE COSMO. جميع الحقوق محفوظة.</div>
+        </div>
+    </footer>
+
+    <!-- ========================================= -->
+    <!-- STICKY OFFER BAR                         -->
+    <!-- ========================================= -->
+    <div class="sticky-offer-bar" id="stickyOfferBar">
+        <div class="offer-text">
+            <i class="fas fa-fire"></i> عرض اليوم — متبقي 10 قطع فقط
+            <span class="offer-timer" id="stickyTimer">⏰ ينتهي خلال 02:14:37</span>
+        </div>
+        <button class="btn-sticky" id="stickyOrderBtn"><i class="fas fa-shopping-cart"></i> اطلب الآن</button>
+    </div>
+
+    <!-- ========================================= -->
+    <!-- JAVASCRIPT                               -->
+    <!-- ========================================= -->
+    <script>
+        (function() {
+            // =============================================
+            // CONFIGURATION - SEO & SOCIAL LINKS
+            // =============================================
+            const SITE_URL = 'https://purecosmo.shop/';
+            const SITE_NAME = 'PURE COSMO';
+            const SITE_DESCRIPTION = 'متجر PURE COSMO متخصص في مستحضرات التجميل ومنتجات العناية بالبشرة والشعر والجسم، مع خدمة توصيل داخل مصر.';
+            const SOCIAL_LINKS = {
+                facebook: 'https://www.facebook.com/purecosmo',
+                instagram: 'https://www.instagram.com/purecosmo',
+                whatsapp: 'https://wa.me/201065031487'
+            };
+            const BUSINESS_INFO = {
+                name: 'PURE COSMO',
+                category: 'COSMETICS & NUTRIENTS',
+                phone: '01065031487',
+                whatsapp: 'https://wa.me/201065031487',
+                location: 'كفر الشيخ، مصر',
+                email: 'info@purecosmo.com'
+            };
+
+            // =============================================
+            // PRODUCT DATA
+            // =============================================
+            const products = [{
+                id: 1,
+                slug: 'elderi-marono-gel',
+                name: 'ELDERI MARONO GEL',
+                short_desc: 'جيل مؤخر موضعي للأداء والقوة الأصيلة',
+                description: 'صُمم Elderi Marono Gel خصيصاً للرجل الذي يبحث عن القوة، الأداء الممتد، والثقة المطلقة. يجمع هذا الجيل المطور بين الفعالية العالية والتركيبة الآمنة، حيث يحتوي على نسبة 4.3% من مادة الليدوكايين الموضعية المصممة لتقليل الحساسية المفرطة وتأخير القذف بشكل متوازن وبدون التقليل من المتعة.',
+                size: '30 مل',
+                price: '199',
+                old_price: '299',
+                badge: 'الأكثر طلبًا',
+                img: 'images/Elderi_Marono_Gel3.jpg',
+                img2: 'images/Elderi_Marono_Gel.jpg',
+                img3: 'images/Elderi_Marono_Gel2.jpg',
+                features: [
+                    'تركيبة متطورة (4.3% Lidocaine) لتأخير موضعي متوازن',
+                    'امتصاص سريع ونسيج خفيف غير زيتي',
+                    'جودة صناعة تركية وفق أعلى المعايير',
+                    'عبوة بخاخ احترافية لتحديد الجرعة بدقة'
+                ],
+                usage: 'قم بوضع كمية بسيطة (بخّة إلى بخّتين) على المنطقة المطلوبة قبل الجماع بـ 15 إلى 20 دقيقة. يتم تدليك الجيل برفق حتى يمتصه الجلد تماماً. يُفضل غسل المنطقة بالماء الفاتر قبل الجماع للحصول على أفضل تجربة.'
+            }, {
+                id: 2,
+                slug: 'fine-skin-cream',
+                name: 'Fine Skin Cream',
+                short_desc: 'تركيبة متطورة 10% Tranexamic Acid لتفتيح البشرة',
+                description: 'تألقي ببشرة ناصعة ومشرقة مع Fine Skin Cream المقدم من Pure Cosmo. تم تطوير هذا الكريم بتركيبة متقدمة تحتوي على 10% من حمض الترانيكساميك (Tranexamic Acid) المعروف بفاعليته الفائقة في استهداف التصبغات والبقع الداكنة، يعمل على توحيد لون البشرة وإعادة النضارة والإشراقة الطبيعية لها بأمان وبشكل تدريجي.',
+                size: '50 مل',
+                price: '249',
+                old_price: '329',
+                badge: 'عرض خاص',
+                img: 'images/fine_skin_cream.jpg',
+                img2: 'images/fine_skin_cream_2.jpg',
+                img3: 'images/fine_skin_cream_3.jpg',
+                features: [
+                    'تركيبة تفتيح قوية (10% Tranexamic Acid): تساعد على تقليل مظهر التصبغات وآثار الشمس والتصنع الداكن.',
+                    'توحيد لون البشرة: يعيد للبشرة توازنها ونضارتها الطبيعية لمظهر أكثر شباباً وحيوية.',
+                    'ترطيب وتنعيم: يمنح البشرة ملمساً ناعماً ورطباً دون ترك أي ملمس زيتي ثقيل.',
+                    'مناسب للاستخدام اليومي: مصمم بعناية ليناسب مختلف أنواع البشرة.',
+                    'عبوة سعة 50 مل (50 ml): مع علبة خارجية أنيقة تحافظ على جودة وفاعلية المكونات.'
+                ],
+                usage: 'تنظف البشرة جيداً وتجفف بلطف. تُوضع كمية مناسبة من الكريم على الوجه أو المناطق المراد تفتيحها. يُدلك بحركات دائرية خفيفة حتى يمتصه الجلد بالكامل. يُفضل الاستخدام مرتين يومياً (صباحاً ومساءً) مع ضرورة استخدام واقي الشمس خلال النهار.'
+            }, {
+                id: 3,
+                slug: 'bustobella-cream',
+                name: 'Bustobella Cream',
+                short_desc: 'للعناية المتكاملة بمناطق الأنوثة',
+                description: 'تقدم لكِ Pure Cosmo منتجها المتميز Bustobella Cream المخصص للعناية المتكاملة بمناطق الأنوثة واستعادة مرونة ونضارة البشرة. يعتمد الكريم على تركيبة مغذية ومطورة تعمل على تعزيز مظهر البشرة ومنحها ملمساً مشدوداً وأكثر امتلاءً وتناسقاً بشكل طبيعي وآمن.',
+                size: '100 جم',
+                price: '189',
+                old_price: '259',
+                badge: '',
+                img: 'images/Bustobella_Cream.jpg',
+                img2: 'images/Bustobella_Cream_2.jpg',
+                img3: 'images/Bustobella_Cream_3.jpg',
+                features: [
+                    'عناية متكاملة للأنوثة: مصمم خصيصاً لتغدية وتحسين مظهر مناطق الأنوثة (مثل منطقة الصدر).',
+                    'دعم مرونة البشرة: يساعد في تحسين مرونة الجلد وشده لمنحك مظهراً متناسقاً ومفعماً بالحيوية.',
+                    'تركيبة غنية وسريعة الامتصاص: كريم ناعم يمتصه الجلد بسهولة دون ترك أي أثر دهني.',
+                    'عبوة بحجم 100 جم (Net Weight: 100 gm): توفر لكِ استخداماً ممتداً ونتائج ملحوظة مع الانتظام.',
+                    'جودة عالية أصلية: إحدى إبداعات علامة Pure Cosmo للعناية والجمال.'
+                ],
+                usage: 'تنظف المنطقة المستهدفة جيداً بماء فاتر وتجفف بلطف. تُوضع كمية مناسبة من كريم بوستوبيلا على الكفين. يُدلك الكريم بحركات دائرية خفيفة من الأسفل إلى الأعلى لمدة 5 إلى 10 دقائق حتى يمتصه الجلد تماماً. يُفضل الاستخدام مرتين يومياً (صباحاً ومساءً) للحصول على أفضل النتائج.'
+            }, {
+                id: 4,
+                slug: 'grofast-weight-gainer',
+                name: 'Grofast Weight Gainer',
+                short_desc: 'فاتح للشهية وداعم للمناعة لزيادة الوزن الصحي',
+                description: 'تُمثل عبوة Grofast Weight Gainer الحل الأمثل والآمن لكل من يسعى لزيادة وزنه وبناء جسم صحي ومثالي. يعتمد كبسولات جروفاست على تركيبات غذائية غنية تجمع بين الفيتامينات الأساسية (Vit C, Vit E, Zinc)، الأحماض الأمينية، والمعادن لفتح الشهية بطريقة طبيعية وتحسين عملية التمثيل الغذائي.',
+                size: '30 كبسولة',
+                price: '159',
+                old_price: '219',
+                badge: 'عرض خاص',
+                img: 'images/GrofastWeightGainer.jpg',
+                img2: 'images/GrofastWeightGainer_2.jpg',
+                img3: 'images/GrofastWeightGainer_3.jpg',
+                features: [
+                    'فاتح للشهية طبيعي (Increase Appetite): يساعد على تحفيز الرغبة في تناول الطعام بانتظام.',
+                    'يعزز زيادة الوزن الصحي (Promote Weight Gain): يزود الجسم بالعناصر والبروتينات اللازمة لبناء كتلة صحية.',
+                    'غني بالفيتامينات والمعادن: يحتوي على فيتامين C وفيتامين E والزنك لدعم الصحة العامة.',
+                    'يدعم المناعة (Immunity Booster): بفضل تركيبة الأحماض الأمينية الأساسية ومضادات الأكسدة.',
+                    'عبوة تحتوي على 30 كبسولة (30 Capsules): مصممة بجرعات دقيقة لنتائج ممتازة.'
+                ],
+                usage: 'تُؤخذ كبسولتان مرتين يومياً (بعد وجبتي الإفطار والعشاء) أو حسب إرشادات الطبيب/المختص.'
+            }, {
+                id: 5,
+                slug: 'agility-firming-gel',
+                name: 'Agility Firming Gel',
+                short_desc: 'شد الترهلات وتقليل علامات التمدد بتركيبة طبيعية فعالة',
+                description: 'احصلي على بشرة مشدودة ونشطة مع Agility Firming Gel المطور من Pure Cosmo (النقاوة كوزمو). يعتمد هذا الجيل المبتكر على قوة الخلاصة الطبيعية المركزة مثل الكافيين، مستخلص الشاي الأخضر، وزيت شجرة الشاي (Caffeine, Green Tea Extract, Tea Tree Oil) ليعمل بفعالية على شد الترهلات، تقليل مظهر علامات التمدد (Stretch Marks)، وتنعيم البشرة في المناطق المستهدفة كالمعدة، الأرداف، الفخذين، والذراعين.',
+                size: '120 جم',
+                price: '169',
+                old_price: '239',
+                badge: '',
+                img: 'images/AgilityFirmingGel.jpg',
+                img2: 'images/AgilityFirmingGel_2.jpg',
+                img3: 'images/AgilityFirmingGel_3.jpg',
+                features: [
+                    'شد الترهلات وتقليل علامات التمدد: يساعد على تحسين مرونة الجلد وتقليل الخطوط البيضاء والحمراء.',
+                    'تركيبة طبيعية فعالة: يحتوي على الكافيين والشاي الأخضر وزيت شجرة الشاي والصبار لتحفيز الدورة الدموية وتغذية الجلد.',
+                    'ترطيب عميق ومستمر: ينعم البشرة ويحافظ على رطوبتها حتى 8 ساعات متواصلة.',
+                    'سهل الامتصاص: جيل خفيف لا يترك أثراً دهنياً، ومناسب للاستخدام اليومي دون الحاجة للشطف.',
+                    'عبوة بحجم 120 غرام (Net Weight: 120g): توفر لكِ استخداماً منتظماً لنتائج ملحوظة.'
+                ],
+                usage: 'توضع كمية مناسبة من الجيل على المناطق المراد العناية بها (المعدة، الأرداف، الفخذين، أو الذراعين). يُدلك الجيل برفق بحركات دائرية حتى يتم امتصاصه بالكامل (بدون شطف). يُكرر الاستخدام من 2 إلى 3 مرات يومياً للحصول على أفضل النتائج.'
+            }, {
+                id: 6,
+                slug: 'honey-baby-cream',
+                name: 'Honey Baby Cream',
+                short_desc: 'مهدئ ومطهر لالتهابات الحفاض والبشرة الحساسة',
+                description: 'يقدم كريم Honey-Baby Antiseptic Healing Cream العناية الحانية والحماية المتكاملة لبشرة طفلك الرقيقة والأنواع المختلفة من الجلد الحساس. يعمل هذا الكريم كمطهر ومهدئ ممتاز يُشكل طبقة حماية عازلة تعزل الرطوبة والتهيج الخارجي عن جلد الطفل، مما يساعد على سرعة التئام البشرة وتهدئة احمرارها.',
+                size: '60 جم',
+                price: '99',
+                old_price: '149',
+                badge: '',
+                img: 'images/Honey-Baby2.jpg',
+                img2: 'images/Honey-Baby.jpg',
+                img3: 'images/Honey-Baby_3.jpg',
+                features: [
+                    'حماية وعزل للتهيج (Protective Barrier): يشكل طبقة عازلة تحمي بشرة الطفل من الرطوبة والمثيرات الخارجية الناتجة عن الحفاض.',
+                    'مهدئ ومطهر (Antiseptic Healing): يخفف الانزعاج، الحكة، واحمرار الجلد بشكل سريع وفعال.',
+                    'متعدد الاستخدامات: يدعم علاج التهابات الحفاض (Nappy Rash)، الأكزيما (Eczema)، الجروح السطحية (Surface Wounds)، حروق الشمس البسيطة، وحبوب البشرة.',
+                    'ترطيب وتغذية فائقة: يعزز تجدد خلايا البشرة ويحافظ على ملمسها ناعماً وطبيعياً.',
+                    'عبوة عملية سعة 60 غرام (60g e): محكمة الإغلاق ومناسبة لحقيبة الطفل اليومية.'
+                ],
+                usage: 'تُنظف المنطقة المصابة أو منطقة الحفاض جيداً وتُجفف بلطف. تُوضع طبقة رقيقة من كريم Honey-Baby وتُوزع برفق على الجلد. يُستخدم عند كل تغيير للحفاض أو عند الحاجة لتهدئة تهيج البشرة.'
+            }, {
+                id: 7,
+                slug: 'agility-massage-gel',
+                name: 'Agility Massage Gel',
+                short_desc: 'تسكين فوري لآلام العضلات والمفاصل والكدمات',
+                description: 'يقدم لك Agility Massage Gel من Pure Cosmo الحل السريع والفعال لتسكين الآلام المزعجة وتخفيف الشد العضلي. يتميز الجل بتركيبة متطورة وسريعة الامتصاص تعمل على تهدئة الأنسجة المتهبة، تحسين مرونة الحركة، وتوفير راحة فورية للعضلات والمفاصل بعد التمارين الرياضية أو المجهود اليومي.',
+                size: '60 جم',
+                price: '139',
+                old_price: '199',
+                badge: '',
+                img: 'images/AgilityMassageGel.jpg',
+                img2: 'images/AgilityMassageGel_2.jpg',
+                img3: 'images/AgilityMassageGel_3.jpg',
+                features: [
+                    'تسكين فوري للآلام: يخفف آلام العضلات، المفاصل، الكدمات، والروماتيزم بفاعلية وسرعة.',
+                    'تحسين الحركة ومرونة الأنسجة: يساعد على الاسترخاء العضلي وعلاج الأنسجة المجهدة.',
+                    'آمن وخالٍ من المواد الضارة: خالي من المواد الضارة والمواد المسرطنة لضمان استخدام آمن ومستمر.',
+                    'تركيبة منعشة: تحتوي على مستخلصات مهدئة تمنح شعوراً بالانتعاش والراحة عند التدليك.',
+                    'عبوة بحجم 60 غرام (60 gm): حجم مثالي ومناسب للاستخدام اليومي وحمله في الحقيبة الرياضية.'
+                ],
+                usage: 'توضع كمية مناسبة من جل أجيليتي على المنطقة المصابة. يُدلك المكان برفق بحركات دائرية حتى يمتص الجلد الجل بالكامل. يُكرر الاستخدام من 2 إلى 3 مرات يومياً عند الحاجة.'
+            }, {
+                id: 8,
+                slug: 'lissaney-hair-serum',
+                name: 'Lissaney Hair Serum',
+                short_desc: 'تغذية عميقة ولمعان فوري برائحة فاخرة',
+                description: 'انقلي العناية بشعرك وشعر طفلتك إلى مستوى آخر من الفخامة مع Lissaney Hair Serum المطور من Pure Cosmo. مصمم خصيصاً ليمنح الشعر مظهراً حيوياً ولامعاً كالأميرات، مع تركيبة خفيفة تغذي ألياف الشعر بعمق، تقلل الهيشان، وتوفر حماية يومية ضد العوامل الخارجية دون أي ملمس دهني ثقيل.',
+                size: '70 مل',
+                price: '179',
+                old_price: '249',
+                badge: '',
+                img: 'images/LissaneyHairSerum.jpg',
+                img2: 'images/LissaneyHairSerum_2.jpg',
+                img3: 'images/LissaneyHairSerum_3.jpg',
+                features: [
+                    'تغذية عميقة وفعالة (Helps Nourish Hair Deeply): يمر بتركيبته الغنية إلى أعماق ألياف الشعر لتقويته وحمايته من التقصف.',
+                    'لمعان فوري وسحر طبيعي (Instant Shine): يعيد للشعر إشراقته وحيويته فور وضعه لمظهر ناعم وحريري.',
+                    'لمسة عطرية فاخرة: معزز بنفحات عطرية ساحرة مستوحاة من عطور Victoria\'s Secret لمنح الشعر رائحة عذبة تدوم طوال اليوم.',
+                    'سهل التصفيف وفك التشابك: يجعل تمشيط الشعر تجربة سهلة وممتعة، خصوصاً لشعر الأطفال.',
+                    'تركيبة غنية بمكونات طبيعية: تحتوي على الليمونين واللينالول (Limonene & Linalool) لحماية الشعر وإضفاء النضارة.',
+                    'حجم العبوة (70 ml): عبوة ضاغطة عملية وأنيقة سهلة الاستخدام والتحكم في الجرعة.'
+                ],
+                usage: 'توضع بضع قطرات من السيروم على راحة اليد. يُوزع السيروم بالتساوي على شعر رطب أو جاف، مع التركيز على الأطراف والمناطق الجافة أو المجهدة. يُصفف الشعر كالمعتاد بمشط أو فرشة واسعة الأسنان. يمكن استخدامه يومياً قبل التصفيف أو كـ Finishing Touch لإضافة لمعان ورائحة مميزة.'
+            }];
+
+            // =============================================
+            // CART (localStorage)
+            // =============================================
+            const CART_KEY = 'pure_cosmo_cart';
+            const VISITOR_KEY = 'pure_cosmo_visitor_id';
+
+            function getVisitorId() {
+                let id = localStorage.getItem(VISITOR_KEY);
+                if (!id) { id = crypto.randomUUID();
+                    localStorage.setItem(VISITOR_KEY, id); }
+                return id;
+            }
+
+            function getCart() {
+                try {
+                    const data = JSON.parse(localStorage.getItem(CART_KEY));
+                    if (data && data.visitor_id === getVisitorId()) return data;
+                } catch (e) {}
+                return { visitor_id: getVisitorId(), items: [], total: 0, updated_at: new Date().toISOString() };
+            }
+
+            function saveCart(cart) {
+                cart.visitor_id = getVisitorId();
+                cart.updated_at = new Date().toISOString();
+                cart.total = cart.items.reduce((sum, item) => sum + (parseFloat(item.price) * item.qty), 0);
+                localStorage.setItem(CART_KEY, JSON.stringify(cart));
+                updateCartCounter();
+            }
+
+            function addToCart(productId, qty = 1) {
+                const product = products.find(p => p.id === productId);
+                if (!product) return;
+                const cart = getCart();
+                const existing = cart.items.find(item => item.id === productId);
+                if (existing) existing.qty += qty;
+                else cart.items.push({ id: productId, slug: product.slug, name: product.name, price: product.price, qty: qty,
+                    image: product.img, size: product.size || '' });
+                saveCart(cart);
+                showToast(`✅ تمت إضافة ${product.name} إلى السلة`);
+            }
+
+            function removeFromCart(productId) {
+                const cart = getCart();
+                cart.items = cart.items.filter(item => item.id !== productId);
+                saveCart(cart);
+            }
+
+            function updateCartCounter() {
+                const cart = getCart();
+                const count = cart.items.reduce((sum, item) => sum + item.qty, 0);
+                const counter = document.getElementById('cartCount');
+                if (counter) counter.textContent = count;
+            }
+
+            function showToast(msg) {
+                const toast = document.getElementById('toast');
+                const msgEl = document.getElementById('toastMsg');
+                if (toast && msgEl) {
+                    msgEl.textContent = msg;
+                    toast.classList.add('show');
+                    setTimeout(() => toast.classList.remove('show'), 3000);
+                }
+            }
+
+            // =============================================
+            // PRODUCT MODAL
+            // =============================================
+            function openProductModal(slug) {
+                const product = products.find(p => p.slug === slug);
+                if (!product) return;
+
+                const modal = document.getElementById('productModal');
+                const mainImage = document.getElementById('modalMainImage');
+                const thumbs = document.getElementById('modalThumbs');
+                const info = document.getElementById('modalInfo');
+
+                mainImage.src = product.img;
+                mainImage.alt = product.name;
+
+                const availableImages = [];
+                if (product.img) availableImages.push(product.img);
+                if (product.img2) availableImages.push(product.img2);
+                if (product.img3) availableImages.push(product.img3);
+
+                if (product.images && product.images.length > 0) {
+                    availableImages.length = 0;
+                    product.images.forEach(img => {
+                        if (img) availableImages.push(img);
+                    });
+                }
+
+                if (availableImages.length === 0) {
+                    availableImages.push('https://placehold.co/400x400/F5EDE4/B78C5A?text=No+Image');
+                }
+
+                thumbs.innerHTML = availableImages.map((img, index) => `
+                        <img src="${img}" class="${index === 0 ? 'active' : ''}" 
+                             onclick="document.getElementById('modalMainImage').src=this.src; 
+                                      document.querySelectorAll('#modalThumbs img').forEach(t=>t.classList.remove('active')); 
+                                      this.classList.add('active');"
+                             alt="${product.name} - صورة ${index + 1}">
+                    `).join('');
+
+                const discount = product.old_price ? Math.round((1 - parseFloat(product.price) / parseFloat(product
+                    .old_price)) * 100) : 0;
+
+                info.innerHTML = `
+                        ${product.badge ? `<span class="modal-badge">${product.badge}</span>` : ''}
+                        <h2>${product.name}</h2>
+                        <p class="modal-desc">${product.description || product.short_desc}</p>
+                        <div class="modal-price">
+                            <span class="current">${product.price} جنيه</span>
+                            ${product.old_price ? `<span class="old">${product.old_price} جنيه</span>` : ''}
+                            ${discount > 0 ? `<span class="discount">خصم ${discount}%</span>` : ''}
+                        </div>
+                        <div class="modal-stock">✅ متوفر في المخزون</div>
+                        <div class="modal-size">
+                            <p><strong>الحجم:</strong> ${product.size || 'غير محدد'}</p>
+                        </div>
+                        <h4 style="margin:12px 0 6px;">المميزات</h4>
+                        <ul class="modal-features">
+                            ${product.features.map(f => `<li><i class="fas fa-check-circle"></i> ${f}</li>`).join('')}
+                        </ul>
+                        <div class="modal-actions">
+                            <label style="font-weight:700;">الكمية:</label>
+                            <input type="number" id="modalQty" value="1" min="1">
+                            <button class="btn-add-cart-modal" data-id="${product.id}"><i class="fas fa-cart-plus"></i> أضف إلى السلة</button>
+                            <button class="btn-buy-now-modal" data-id="${product.id}"><i class="fas fa-bolt"></i> اطلب الآن</button>
+                        </div>
+                    `;
+
+                info.querySelector('.btn-add-cart-modal').addEventListener('click', function() {
+                    const id = parseInt(this.dataset.id);
+                    const qty = parseInt(document.getElementById('modalQty').value) || 1;
+                    addToCart(id, qty);
+                });
+
+                info.querySelector('.btn-buy-now-modal').addEventListener('click', function() {
+                    const id = parseInt(this.dataset.id);
+                    const qty = parseInt(document.getElementById('modalQty').value) || 1;
+                    addToCart(id, qty);
+                    window.location.href = 'cart.html';
+                });
+
+                const scrollY = window.scrollY;
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+                document.body.style.position = 'fixed';
+                document.body.style.top = `-${scrollY}px`;
+                document.body.style.width = '100%';
+            }
+
+            function closeProductModal() {
+                const modal = document.getElementById('productModal');
+                const scrollY = document.body.style.top;
+                modal.classList.remove('show');
+                document.body.style.overflow = '';
+                document.body.style.position = '';
+                document.body.style.top = '';
+                document.body.style.width = '';
+                if (scrollY) {
+                    window.scrollTo(0, parseInt(scrollY || '0') * -1);
+                }
+            }
+
+            // =============================================
+            // PRODUCT GRID
+            // =============================================
+            function renderProducts() {
+                const grid = document.getElementById('productGrid');
+                if (!grid) return;
+                grid.innerHTML = '';
+                products.forEach(p => {
+                    const card = document.createElement('article');
+                    card.className = 'product-card';
+                    const displayImg = p.img || 'https://placehold.co/400x400/F5EDE4/B78C5A?text=No+Image';
+                    const productUrl = `product.html?slug=${p.slug}`;
+                    card.innerHTML = `
+                            ${p.badge ? `<span class="badge-offer">${p.badge}</span>` : ''}
+                            <a href="${productUrl}" style="text-decoration:none;color:inherit;display:block;">
+                                <img src="${displayImg}" alt="${p.name} من PURE COSMO" loading="lazy" width="200" height="200">
+                                <h3>${p.name}</h3>
+                                <div class="desc">${p.short_desc}</div>
+                                <div><span class="price">${p.price} جنيه</span> ${p.old_price ? `<span class="old-price">${p.old_price} جنيه</span>` : ''}</div>
+                            </a>
+                            <a href="${productUrl}" class="btn-view" data-slug="${p.slug}">عرض المنتج</a>
+                        `;
+                    grid.appendChild(card);
+                });
+
+                // فتح الـ Modal عند الضغط على "عرض المنتج" (مع منع الانتقال)
+                document.querySelectorAll('.btn-view').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        openProductModal(this.dataset.slug);
+                    });
+                });
+
+                // الضغط على البطاقة يفتح الـ Modal
+                document.querySelectorAll('.product-card').forEach(card => {
+                    card.addEventListener('click', function(e) {
+                        if (e.target.closest('.btn-view') || e.target.closest('a')) return;
+                        const slug = this.querySelector('.btn-view')?.dataset.slug;
+                        if (slug) openProductModal(slug);
+                    });
+                });
+            }
+
+            // =============================================
+            // MODAL EVENTS
+            // =============================================
+            document.getElementById('modalCloseBtn').addEventListener('click', closeProductModal);
+            document.getElementById('productModal').addEventListener('click', function(e) {
+                if (e.target === this) closeProductModal();
             });
-          });
-        });
-      }
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeProductModal();
+            });
 
-      // ========== OFFER BUTTONS ==========
-      const offerBtn = document.getElementById('offerOrderBtn');
-      if (offerBtn) {
-        offerBtn.addEventListener('click', function() {
-          addToCart(1, 1);
-          showToast('✅ تم إضافة ELDERI MARONO GEL إلى السلة');
-        });
-      }
+            // =============================================
+            // SEARCH
+            // =============================================
+            function searchProducts(query) {
+                if (!query.trim()) return [];
+                const q = query.trim().toLowerCase();
+                return products.filter(p => p.name.toLowerCase().includes(q) || p.short_desc.toLowerCase().includes(q));
+            }
 
-      const stickyBtn = document.getElementById('stickyOrderBtn');
-      if (stickyBtn) {
-        stickyBtn.addEventListener('click', function() {
-          addToCart(1, 1);
-          showToast('✅ تم إضافة ELDERI MARONO GEL إلى السلة');
-        });
-      }
+            const searchIcon = document.getElementById('searchIcon');
+            if (searchIcon) {
+                searchIcon.addEventListener('click', function() {
+                    const overlay = document.getElementById('searchOverlay');
+                    if (overlay) {
+                        overlay.classList.add('show');
+                        document.getElementById('searchInput').focus();
+                    }
+                });
+            }
 
-      // ========== CART ICON ==========
-      const cartIcon = document.getElementById('cartIcon');
-      if (cartIcon) {
-        cartIcon.addEventListener('click', function() {
-          window.location.href = 'cart.html';
-        });
-      }
+            const searchCloseBtn = document.getElementById('searchCloseBtn');
+            if (searchCloseBtn) {
+                searchCloseBtn.addEventListener('click', function() {
+                    document.getElementById('searchOverlay').classList.remove('show');
+                });
+            }
 
-      // ========== MOBILE MENU ==========
-      const menuToggle = document.getElementById('mobileMenuToggle');
-      if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-          document.getElementById('mobileMenu').classList.add('show');
-        });
-      }
+            const searchOverlay = document.getElementById('searchOverlay');
+            if (searchOverlay) {
+                searchOverlay.addEventListener('click', function(e) {
+                    if (e.target === this) this.classList.remove('show');
+                });
+            }
 
-      const closeMenu = document.getElementById('closeMobileMenu');
-      if (closeMenu) {
-        closeMenu.addEventListener('click', function() {
-          document.getElementById('mobileMenu').classList.remove('show');
-        });
-      }
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const results = searchProducts(this.value);
+                    const container = document.getElementById('searchResults');
+                    if (!container) return;
+                    if (results.length === 0) { container.innerHTML =
+                            '<p style="text-align:center;color:#999;padding:20px;">لا توجد نتائج</p>'; return; }
+                    container.innerHTML = results.map(p => `
+                            <div class="result-item" data-slug="${p.slug}">
+                                <img src="${p.img}" alt="${p.name}" loading="lazy" width="40" height="40">
+                                <span class="name">${p.name}</span>
+                                <span style="color:var(--gold);font-weight:700;">${p.price} جنيه</span>
+                            </div>
+                        `).join('');
+                    container.querySelectorAll('.result-item').forEach(item => {
+                        item.addEventListener('click', function() {
+                            closeProductModal();
+                            openProductModal(this.dataset.slug);
+                        });
+                    });
+                });
+            }
 
-      // ========== COUNTDOWN ==========
-      let endTime = new Date();
-      endTime.setDate(endTime.getDate() + 2);
-      endTime.setHours(endTime.getHours() + 14);
-      endTime.setMinutes(endTime.getMinutes() + 37);
-      endTime.setSeconds(endTime.getSeconds() + 52);
+            // =============================================
+            // OFFER BUTTONS
+            // =============================================
+            const offerBtn = document.getElementById('offerOrderBtn');
+            if (offerBtn) {
+                offerBtn.addEventListener('click', function() {
+                    addToCart(1, 1);
+                    showToast('✅ تم إضافة ELDERI MARONO GEL إلى السلة');
+                });
+            }
 
-      function updateCountdown() {
-        const now = new Date();
-        let diff = Math.max(0, Math.floor((endTime - now) / 1000));
-        const days = Math.floor(diff / 86400); diff -= days * 86400;
-        const hours = Math.floor(diff / 3600); diff -= hours * 3600;
-        const minutes = Math.floor(diff / 60); const seconds = diff % 60;
-        const daysEl = document.getElementById('days');
-        const hoursEl = document.getElementById('hours');
-        const minutesEl = document.getElementById('minutes');
-        const secondsEl = document.getElementById('seconds');
-        const stickyTimer = document.getElementById('stickyTimer');
-        if (daysEl) daysEl.textContent = String(days).padStart(2,'0');
-        if (hoursEl) hoursEl.textContent = String(hours).padStart(2,'0');
-        if (minutesEl) minutesEl.textContent = String(minutes).padStart(2,'0');
-        if (secondsEl) secondsEl.textContent = String(seconds).padStart(2,'0');
-        if (stickyTimer) stickyTimer.textContent = `⏰ ينتهي خلال ${String(days).padStart(2,'0')}:${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
-        if (diff <= 0) { clearInterval(timerInterval); document.querySelector('.countdown').innerHTML = '<div style="font-size:1.8rem;color:#d43f34;">انتهى العرض</div>'; }
-      }
-      updateCountdown();
-      const timerInterval = setInterval(updateCountdown, 1000);
+            const stickyBtn = document.getElementById('stickyOrderBtn');
+            if (stickyBtn) {
+                stickyBtn.addEventListener('click', function() {
+                    addToCart(1, 1);
+                    showToast('✅ تم إضافة ELDERI MARONO GEL إلى السلة');
+                });
+            }
 
-      // ========== PROGRESS BAR (demo) ==========
-      let progress = 90;
-      setInterval(() => {
-        if (progress > 70) { 
-          progress -= 0.5;
-          const fill = document.getElementById('progressFill');
-          const stockText = document.querySelector('.stock-indicator .stock-text span:last-child');
-          if (fill) fill.style.width = progress + '%';
-          if (stockText) stockText.textContent = `تم بيع ${Math.round(progress)}% من الكمية`;
-        }
-      }, 8000);
+            // =============================================
+            // CART ICON
+            // =============================================
+            const cartIcon = document.getElementById('cartIcon');
+            if (cartIcon) {
+                cartIcon.addEventListener('click', function() {
+                    window.location.href = 'cart.html';
+                });
+            }
 
-      // ========== INIT ==========
-      renderProducts();
-      updateCartCounter();
+            // =============================================
+            // MOBILE MENU
+            // =============================================
+            const menuToggle = document.getElementById('mobileMenuToggle');
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    document.getElementById('mobileMenu').classList.add('show');
+                });
+            }
 
-      // ========== EXPOSE FOR INLINE ==========
-      window.openProductModal = openProductModal;
+            const closeMenu = document.getElementById('closeMobileMenu');
+            if (closeMenu) {
+                closeMenu.addEventListener('click', function() {
+                    document.getElementById('mobileMenu').classList.remove('show');
+                });
+            }
 
-      console.log('🚀 PURE COSMO Store loaded successfully!');
-      console.log('📦 Cart:', getCart());
-      console.log('👤 Visitor ID:', getVisitorId());
+            // =============================================
+            // COUNTDOWN
+            // =============================================
+            let endTime = new Date();
+            endTime.setDate(endTime.getDate() + 2);
+            endTime.setHours(endTime.getHours() + 14);
+            endTime.setMinutes(endTime.getMinutes() + 37);
+            endTime.setSeconds(endTime.getSeconds() + 52);
 
-    })();
-  </script>
+            function updateCountdown() {
+                const now = new Date();
+                let diff = Math.max(0, Math.floor((endTime - now) / 1000));
+                const days = Math.floor(diff / 86400);
+                diff -= days * 86400;
+                const hours = Math.floor(diff / 3600);
+                diff -= hours * 3600;
+                const minutes = Math.floor(diff / 60);
+                const seconds = diff % 60;
+                const daysEl = document.getElementById('days');
+                const hoursEl = document.getElementById('hours');
+                const minutesEl = document.getElementById('minutes');
+                const secondsEl = document.getElementById('seconds');
+                const stickyTimer = document.getElementById('stickyTimer');
+                if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
+                if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+                if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+                if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+                if (stickyTimer) stickyTimer.textContent =
+                    `⏰ ينتهي خلال ${String(days).padStart(2,'0')}:${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
+                if (diff <= 0) { clearInterval(timerInterval);
+                    document.querySelector('.countdown').innerHTML =
+                        '<div style="font-size:1.8rem;color:#d43f34;">انتهى العرض</div>'; }
+            }
+            updateCountdown();
+            const timerInterval = setInterval(updateCountdown, 1000);
+
+            // =============================================
+            // PROGRESS BAR (demo)
+            // =============================================
+            let progress = 90;
+            setInterval(() => {
+                if (progress > 70) {
+                    progress -= 0.5;
+                    const fill = document.getElementById('progressFill');
+                    const stockText = document.querySelector('.stock-indicator .stock-text span:last-child');
+                    if (fill) fill.style.width = progress + '%';
+                    if (stockText) stockText.textContent = `تم بيع ${Math.round(progress)}% من الكمية`;
+                }
+            }, 8000);
+
+            // =============================================
+            // INIT
+            // =============================================
+            renderProducts();
+            updateCartCounter();
+
+            // Expose for inline
+            window.openProductModal = openProductModal;
+
+            console.log('🚀 PURE COSMO Store loaded successfully!');
+            console.log('📦 Cart:', getCart());
+            console.log('👤 Visitor ID:', getVisitorId());
+
+            // =============================================
+            // PRODUCT SCHEMA (JSON-LD) - يتم إضافته ديناميكياً
+            // =============================================
+            function generateProductSchema() {
+                const script = document.createElement('script');
+                script.type = 'application/ld+json';
+                const productSchemas = products.map(p => ({
+                    "@context": "https://schema.org",
+                    "@type": "Product",
+                    "name": p.name,
+                    "description": p.description || p.short_desc,
+                    "image": `${SITE_URL}${p.img}`,
+                    "brand": {
+                        "@type": "Brand",
+                        "name": "PURE COSMO"
+                    },
+                    "offers": {
+                        "@type": "Offer",
+                        "price": p.price,
+                        "priceCurrency": "EGP",
+                        "availability": "https://schema.org/InStock",
+                        "url": `${SITE_URL}product.html?slug=${p.slug}`,
+                        "priceValidUntil": new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
+                    }
+                }));
+                script.textContent = JSON.stringify(productSchemas);
+                document.head.appendChild(script);
+            }
+
+            // =============================================
+            // BREADCRUMB LIST SCHEMA
+            // =============================================
+            function generateBreadcrumbSchema() {
+                const script = document.createElement('script');
+                script.type = 'application/ld+json';
+                const breadcrumb = {
+                    "@context": "https://schema.org",
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [{
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "الرئيسية",
+                        "item": SITE_URL
+                    }, {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "المنتجات",
+                        "item": `${SITE_URL}#products`
+                    }]
+                };
+                script.textContent = JSON.stringify(breadcrumb);
+                document.head.appendChild(script);
+            }
+
+            // =============================================
+            // WEBSITE SCHEMA (تم إضافته بالفعل في HTML)
+            // =============================================
+            // تم إضافته في الـ head
+
+            // =============================================
+            // PRODUCT PAGE ROUTING (SPA)
+            // =============================================
+            // عند تحميل الصفحة مع ?slug=xxx نعرض المنتج في الـ Modal
+            const urlParams = new URLSearchParams(window.location.search);
+            const productSlug = urlParams.get('slug');
+            if (productSlug) {
+                // تأجيل فتح الـ Modal حتى يتم تحميل الصفحة بالكامل
+                setTimeout(() => {
+                    openProductModal(productSlug);
+                    // تغيير عنوان الصفحة
+                    const product = products.find(p => p.slug === productSlug);
+                    if (product) {
+                        document.title = `${product.name} - PURE COSMO`;
+                    }
+                }, 500);
+            }
+
+            // =============================================
+            // GENERATE SCHEMAS
+            // =============================================
+            generateProductSchema();
+            generateBreadcrumbSchema();
+
+        })();
+    </script>
 </body>
 </html>
