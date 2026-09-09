@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>سلة التسوق - PURE COSMO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Almarai', sans-serif;
+      background: #fcf8f2;
+      color: #2a2a2a;
+      line-height: 1.6;
+    }
+    :root {
+      --gold: #b78c5a;
+      --gold-light: #dbbd8f;
+      --gold-pale: #f0e4d4;
+      --beige: #f5ede4;
+      --shadow-card: 0 8px 24px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.02);
+      --radius-card: 20px;
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    .sticky-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.88); backdrop-filter: blur(6px);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.02);
+      border-bottom: 1px solid rgba(183,140,90,0.12);
+      padding: 10px 0;
+    }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; }
+    .logo h1 { font-size: 1.6rem; font-weight: 800; color: #1a1a1a; }
+    .logo h1 span { color: var(--gold); }
+    .nav-links { display: flex; gap: 24px; font-weight: 400; color: #3a3a3a; }
+    .nav-links a { text-decoration: none; color: inherit; font-size: 0.95rem; transition: 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .header-actions { display: flex; align-items: center; gap: 16px; }
+    .header-actions i { font-size: 1.2rem; color: #3a3a3a; cursor: pointer; transition: 0.2s; }
+    .header-actions i:hover { color: var(--gold); }
+    .cart-badge { position: relative; display: inline-block; }
+    .cart-badge .badge-count {
+      position: absolute; top: -8px; right: -10px;
+      background: #d43f34; color: white; font-size: 0.65rem; font-weight: 700;
+      width: 20px; height: 20px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .mobile-menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+
+    /* Cart Page */
+    .cart-page { padding: 30px 0 60px; }
+    .cart-title { font-size: 2.4rem; font-weight: 800; margin-bottom: 4px; }
+    .cart-subtitle { color: #888; margin-bottom: 30px; }
+
+    .cart-grid { display: grid; grid-template-columns: 1fr 340px; gap: 40px; }
+    .cart-items { background: white; border-radius: 32px; padding: 24px; box-shadow: var(--shadow-card); }
+    .cart-item {
+      display: grid;
+      grid-template-columns: 100px 1fr auto;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid #f0ede8;
+      align-items: center;
+    }
+    .cart-item:last-child { border-bottom: none; }
+    .cart-item img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      background: #faf6f0;
+      border-radius: 16px;
+      padding: 8px;
+    }
+    .cart-item .item-info h4 { font-weight: 700; font-size: 1.05rem; }
+    .cart-item .item-info .item-meta { color: #888; font-size: 0.85rem; }
+    .cart-item .item-info .item-price { font-weight: 700; color: var(--gold); font-size: 1.1rem; margin-top: 4px; }
+    .cart-item .qty-control {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #f5ede4;
+      border-radius: 60px;
+      padding: 4px;
+    }
+    .cart-item .qty-control button {
+      background: transparent; border: none;
+      width: 36px; height: 36px;
+      border-radius: 40px;
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #333;
+    }
+    .cart-item .qty-control button:hover { background: var(--gold); color: white; }
+    .cart-item .qty-control span {
+      font-size: 1.2rem; font-weight: 700;
+      min-width: 32px; text-align: center;
+    }
+    .cart-item .item-total {
+      font-weight: 700;
+      font-size: 1.1rem;
+      min-width: 80px;
+      text-align: left;
+    }
+    .cart-item .remove-btn {
+      background: none; border: none;
+      color: #d43f34; font-size: 1.3rem;
+      cursor: pointer; transition: 0.2s;
+      padding: 0 8px;
+    }
+    .cart-item .remove-btn:hover { color: #a0281e; transform: scale(1.1); }
+
+    /* Cart Summary */
+    .cart-summary {
+      background: white;
+      border-radius: 32px;
+      padding: 28px 24px;
+      box-shadow: var(--shadow-card);
+      position: sticky;
+      top: 100px;
+      align-self: start;
+    }
+    .cart-summary h3 { font-weight: 800; font-size: 1.3rem; margin-bottom: 16px; }
+    .cart-summary .summary-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      font-size: 0.95rem;
+      color: #555;
+    }
+    .cart-summary .summary-total {
+      display: flex;
+      justify-content: space-between;
+      padding: 14px 0 8px;
+      font-weight: 800;
+      font-size: 1.3rem;
+      border-top: 2px solid var(--gold);
+      margin-top: 8px;
+    }
+    .cart-summary .summary-total span:last-child { color: var(--gold); }
+    .cart-summary .btn-checkout {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      background: var(--gold);
+      color: white;
+      border: none;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.25s;
+      font-family: 'Almarai', sans-serif;
+      text-align: center;
+      text-decoration: none;
+      margin-top: 16px;
+    }
+    .cart-summary .btn-checkout:hover { background: #a07548; transform: translateY(-2px); }
+    .cart-summary .btn-shop {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      background: transparent;
+      color: var(--gold);
+      border: 1.5px solid var(--gold);
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.25s;
+      font-family: 'Almarai', sans-serif;
+      text-align: center;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+    .cart-summary .btn-shop:hover { background: var(--gold); color: white; }
+
+    /* Empty Cart */
+    .empty-cart {
+      text-align: center;
+      padding: 60px 20px;
+      background: white;
+      border-radius: 32px;
+      box-shadow: var(--shadow-card);
+    }
+    .empty-cart i { font-size: 4rem; color: #ddd; margin-bottom: 16px; }
+    .empty-cart h3 { font-size: 1.4rem; margin-bottom: 8px; }
+    .empty-cart p { color: #888; margin-bottom: 20px; }
+
+    /* Toast */
+    .toast {
+      position: fixed; top: 80px; left: 50%; transform: translateX(-50%);
+      background: #1c1c1c; color: white; padding: 14px 28px; border-radius: 60px;
+      font-weight: 700; z-index: 200; box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+      display: none; align-items: center; gap: 12px; border-right: 4px solid var(--gold);
+      font-family: 'Almarai', sans-serif;
+    }
+    .toast.show { display: flex; animation: slideDown 0.4s ease; }
+    @keyframes slideDown { from { opacity:0; transform: translateX(-50%) translateY(-20px); } to { opacity:1; transform: translateX(-50%) translateY(0); } }
+
+    /* Footer */
+    footer { background: #1c1c1c; color: #ddd; padding: 40px 0 24px; border-radius: 40px 40px 0 0; margin-top: 40px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 30px; }
+    .footer-grid .logo h1 { color: #ddd; font-size: 1.4rem; }
+    .footer-grid .logo h1 span { color: var(--gold-light); }
+    .footer-grid .brand-tag { color: var(--gold-light); font-size: 0.8rem; letter-spacing: 1px; }
+    .footer-grid a { color: #bbb; text-decoration: none; display: block; margin: 8px 0; transition: 0.2s; }
+    .footer-grid a:hover { color: var(--gold); }
+    .footer-social i { font-size: 1.3rem; margin-left: 12px; color: #aaa; transition: 0.2s; cursor: pointer; }
+    .footer-social i:hover { color: var(--gold); }
+    .copy { text-align: center; border-top: 1px solid #333; padding-top: 24px; margin-top: 24px; font-size: 0.8rem; color: #888; }
+
+    @media (max-width: 992px) {
+      .cart-grid { grid-template-columns: 1fr; }
+      .cart-summary { position: static; }
+      .nav-links { display: none; }
+      .mobile-menu-toggle { display: block; }
+    }
+    @media (max-width: 640px) {
+      .cart-item { grid-template-columns: 70px 1fr; gap: 10px; }
+      .cart-item img { width: 70px; height: 70px; }
+      .cart-item .item-total { grid-column: span 2; text-align: right; }
+      .cart-item .remove-btn { grid-column: span 1; justify-self: end; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"><i class="fas fa-check-circle" style="color:var(--gold);"></i> <span id="toastMsg">تم التحديث</span></div>
+
+  <!-- Header -->
+  <header class="sticky-header">
+    <div class="container header-inner">
+      <div class="logo"><h1>PURE <span>COSMO</span></h1></div>
+      <div class="nav-links">
+        <a href="index.html">الرئيسية</a>
+        <a href="index.html#products">المنتجات</a>
+        <a href="index.html#limitedOffer">العروض</a>
+        <a href="#">من نحن</a>
+        <a href="#">تواصل معنا</a>
+      </div>
+      <div class="header-actions">
+        <i class="fas fa-search" id="searchIcon"></i>
+        <div class="cart-badge">
+          <i class="fas fa-shopping-bag" id="cartIcon"></i>
+          <span class="badge-count" id="cartCount">0</span>
+        </div>
+        <div class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Cart Page -->
+  <main class="cart-page">
+    <div class="container">
+      <h1 class="cart-title">🛒 سلة التسوق</h1>
+      <p class="cart-subtitle">مراجعة منتجاتك قبل إتمام الطلب</p>
+
+      <div id="cartContent">
+        <!-- سيتم تعبئتها بواسطة JavaScript -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo"><h1>PURE <span>COSMO</span></h1></div>
+          <div class="brand-tag">COSMETICS &amp; NUTRIENTS</div>
+          <p style="margin-top:8px;font-size:0.85rem;color:#aaa;">كفر الشيخ، مصر</p>
+        </div>
+        <div>
+          <a href="index.html">الرئيسية</a>
+          <a href="index.html#products">المنتجات</a>
+          <a href="index.html#limitedOffer">العروض</a>
+          <a href="#">من نحن</a>
+          <a href="#">تواصل معنا</a>
+        </div>
+        <div>
+          <div class="footer-social">
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <p style="margin-top:12px;direction:ltr;text-align:right;">
+            <a href="tel:01065031487" style="color:#bbb;text-decoration:none;">01065031487</a>
+          </p>
+          <p style="direction:ltr;text-align:right;">
+            <a href="https://wa.me/201065031487" style="color:#bbb;text-decoration:none;">واتساب</a>
+          </p>
+        </div>
+        <div>
+          <p>info@purecosmo.com</p>
+          <p>خدمة العملاء: 9ص - 9م</p>
+        </div>
+      </div>
+      <div class="copy">© 2026 PURE COSMO. جميع الحقوق محفوظة.</div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      // ========== PRODUCT DATA ==========
+      const products = [
+        { id:1, slug:'elderi-marono-gel', name:'ELDERI MARONO GEL', short_desc:'عناية متقدمة للبشرة', price:'199', old_price:'299', badge:'الأكثر طلبًا', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=ELDERI+GEL', size:'100 مل' },
+        { id:2, slug:'vitamin-c-serum', name:'سيروم فيتامين سي', short_desc:'إشراق ونضارة', price:'169', old_price:'249', badge:'عرض خاص', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Vitamin+C', size:'30 مل' },
+        { id:3, slug:'pure-moisturizer', name:'كريم ترطيب نقي', short_desc:'ترطيب عميق', price:'129', old_price:'', badge:'', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Moisturizer', size:'50 مل' },
+        { id:4, slug:'omega-3-supplement', name:'مكمل غذائي أوميغا', short_desc:'دعم الصحة العامة', price:'215', old_price:'280', badge:'', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Omega+3', size:'60 كبسولة' },
+        { id:5, slug:'green-tea-slim', name:'شاي التخسيس الأخضر', short_desc:'نشاط وحرق', price:'89', old_price:'', badge:'', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Green+Tea', size:'20 كيس' },
+        { id:6, slug:'golden-clay-mask', name:'ماسك الطين الذهبي', short_desc:'تنقية البشرة', price:'149', old_price:'199', badge:'', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Clay+Mask', size:'100 جم' },
+        { id:7, slug:'argan-oil', name:'زيت الأرجان العضوي', short_desc:'ترطيب الشعر والبشرة', price:'179', old_price:'239', badge:'', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Argan+Oil', size:'50 مل' },
+        { id:8, slug:'marine-collagen', name:'كولاجين بحري', short_desc:'شد البشرة', price:'259', old_price:'349', badge:'', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Collagen', size:'150 جم' },
+        { id:9, slug:'gentle-face-wash', name:'غسول لطيف للبشرة', short_desc:'للبشرة الحساسة', price:'109', old_price:'', badge:'', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Face+Wash', size:'200 مل' },
+        { id:10, slug:'retinol-serum', name:'مصل الريتينول', short_desc:'تجديد الخلايا', price:'224', old_price:'299', badge:'', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Retinol', size:'30 مل' }
+      ];
+
+      // ========== CART (localStorage) ==========
+      const CART_KEY = 'pure_cosmo_cart';
+      const VISITOR_KEY = 'pure_cosmo_visitor_id';
+
+      function getVisitorId() {
+        let id = localStorage.getItem(VISITOR_KEY);
+        if (!id) { id = crypto.randomUUID(); localStorage.setItem(VISITOR_KEY, id); }
+        return id;
+      }
+
+      function getCart() {
+        try {
+          const data = JSON.parse(localStorage.getItem(CART_KEY));
+          if (data && data.visitor_id === getVisitorId()) return data;
+        } catch(e) {}
+        return { visitor_id: getVisitorId(), items: [], total: 0, updated_at: new Date().toISOString() };
+      }
+
+      function saveCart(cart) {
+        cart.visitor_id = getVisitorId();
+        cart.updated_at = new Date().toISOString();
+        cart.total = cart.items.reduce((sum, item) => sum + (parseFloat(item.price) * item.qty), 0);
+        localStorage.setItem(CART_KEY, JSON.stringify(cart));
+        updateCartCounter();
+      }
+
+      function updateCartCounter() {
+        const cart = getCart();
+        const count = cart.items.reduce((sum, item) => sum + item.qty, 0);
+        document.getElementById('cartCount').textContent = count;
+      }
+
+      function showToast(msg) {
+        const toast = document.getElementById('toast');
+        document.getElementById('toastMsg').textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+      }
+
+      // ========== RENDER CART ==========
+      function renderCart() {
+        const cart = getCart();
+        const container = document.getElementById('cartContent');
+
+        if (cart.items.length === 0) {
+          container.innerHTML = `
+            <div class="empty-cart">
+              <i class="fas fa-shopping-bag"></i>
+              <h3>سلة فارغة</h3>
+              <p>لم تقم بإضافة أي منتجات بعد</p>
+              <a href="index.html#products" class="btn-primary" style="display:inline-block;padding:14px 40px;background:var(--gold);color:white;border-radius:60px;text-decoration:none;font-weight:700;">تصفح المنتجات</a>
+            </div>
+          `;
+          return;
+        }
+
+        let itemsHtml = cart.items.map(item => {
+          const product = products.find(p => p.id === item.id) || item;
+          const total = (parseFloat(item.price) * item.qty).toFixed(0);
+          return `
+            <div class="cart-item" data-id="${item.id}">
+              <img src="${item.image || product.img}" alt="${item.name}" loading="lazy">
+              <div class="item-info">
+                <h4>${item.name}</h4>
+                <div class="item-meta">${item.size || ''}</div>
+                <div class="item-price">${item.price} جنيه</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                <div class="qty-control">
+                  <button class="qty-dec">−</button>
+                  <span class="qty-val">${item.qty}</span>
+                  <button class="qty-inc">+</button>
+                </div>
+                <div class="item-total">${total} جنيه</div>
+                <button class="remove-btn" title="حذف">✕</button>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        container.innerHTML = `
+          <div class="cart-grid">
+            <div class="cart-items">
+              ${itemsHtml}
+            </div>
+            <div class="cart-summary">
+              <h3>ملخص الطلب</h3>
+              <div class="summary-row"><span>المنتجات</span><span>${cart.items.length}</span></div>
+              <div class="summary-row"><span>إجمالي المنتجات</span><span>${cart.total} جنيه</span></div>
+              <div class="summary-total"><span>الإجمالي</span><span>${cart.total} جنيه</span></div>
+              <a href="Checkout.html" class="btn-checkout">متابعة الطلب</a>
+              <a href="index.html#products" class="btn-shop">متابعة التسوق</a>
+            </div>
+          </div>
+        `;
+
+        // ===== ربط الأحداث =====
+        document.querySelectorAll('.cart-item').forEach(itemEl => {
+          const id = parseInt(itemEl.dataset.id);
+
+          // زيادة
+          itemEl.querySelector('.qty-inc').addEventListener('click', function() {
+            const cart = getCart();
+            const item = cart.items.find(i => i.id === id);
+            if (item) { item.qty++; saveCart(cart); renderCart(); showToast('✅ تم تحديث الكمية'); }
+          });
+
+          // نقص
+          itemEl.querySelector('.qty-dec').addEventListener('click', function() {
+            const cart = getCart();
+            const item = cart.items.find(i => i.id === id);
+            if (item && item.qty > 1) { item.qty--; saveCart(cart); renderCart(); showToast('✅ تم تحديث الكمية'); }
+          });
+
+          // حذف
+          itemEl.querySelector('.remove-btn').addEventListener('click', function() {
+            if (confirm('هل تريد حذف هذا المنتج من السلة؟')) {
+              const cart = getCart();
+              cart.items = cart.items.filter(i => i.id !== id);
+              saveCart(cart);
+              renderCart();
+              showToast('🗑️ تم حذف المنتج');
+            }
+          });
+        });
+
+        updateCartCounter();
+      }
+
+      // ========== INIT ==========
+      renderCart();
+      updateCartCounter();
+
+      // ========== SEARCH ICON (placeholder) ==========
+      document.getElementById('searchIcon').addEventListener('click', function() {
+        alert('🔍 سيتم تفعيل البحث قريباً');
+      });
+
+      // ========== CART ICON ==========
+      document.getElementById('cartIcon').addEventListener('click', function() {
+        window.location.href = 'cart.html';
+      });
+
+      // ========== MOBILE MENU ==========
+      document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+        // تنفيذ بسيط: يمكن إضافة قائمة منبثقة
+        alert('📱 سيتم تفعيل القائمة الجانبية قريباً');
+      });
+
+      console.log('🛒 Cart Page loaded successfully!');
+      console.log('📦 Cart:', getCart());
+
+    })();
+  </script>
+</body>
+</html>

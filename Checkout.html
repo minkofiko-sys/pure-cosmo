@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>إتمام الطلب - PURE COSMO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Almarai', sans-serif;
+      background: #fcf8f2;
+      color: #2a2a2a;
+      line-height: 1.6;
+    }
+    :root {
+      --gold: #b78c5a;
+      --gold-light: #dbbd8f;
+      --gold-pale: #f0e4d4;
+      --beige: #f5ede4;
+      --shadow-card: 0 8px 24px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.02);
+      --radius-card: 20px;
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    .sticky-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.88); backdrop-filter: blur(6px);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.02);
+      border-bottom: 1px solid rgba(183,140,90,0.12);
+      padding: 10px 0;
+    }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; }
+    .logo h1 { font-size: 1.6rem; font-weight: 800; color: #1a1a1a; }
+    .logo h1 span { color: var(--gold); }
+    .nav-links { display: flex; gap: 24px; font-weight: 400; color: #3a3a3a; }
+    .nav-links a { text-decoration: none; color: inherit; font-size: 0.95rem; transition: 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .header-actions { display: flex; align-items: center; gap: 16px; }
+    .header-actions i { font-size: 1.2rem; color: #3a3a3a; cursor: pointer; transition: 0.2s; }
+    .header-actions i:hover { color: var(--gold); }
+    .cart-badge { position: relative; display: inline-block; }
+    .cart-badge .badge-count {
+      position: absolute; top: -8px; right: -10px;
+      background: #d43f34; color: white; font-size: 0.65rem; font-weight: 700;
+      width: 20px; height: 20px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .mobile-menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+
+    /* Checkout Page */
+    .checkout-page { padding: 30px 0 60px; }
+    .checkout-title { font-size: 2.4rem; font-weight: 800; margin-bottom: 4px; }
+    .checkout-subtitle { color: #888; margin-bottom: 30px; }
+
+    .checkout-grid { display: grid; grid-template-columns: 1fr 380px; gap: 40px; }
+    .checkout-form {
+      background: white;
+      border-radius: 32px;
+      padding: 32px 28px;
+      box-shadow: var(--shadow-card);
+    }
+    .checkout-form .form-title {
+      font-weight: 800;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--gold-pale);
+    }
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+      color: #333;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 30px;
+      border: 1.5px solid #e8e0d8;
+      font-family: 'Almarai', sans-serif;
+      background: #fcf9f5;
+      font-size: 0.95rem;
+      transition: 0.2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(183,140,90,0.1);
+    }
+    .form-group textarea { border-radius: 20px; resize: vertical; min-height: 60px; }
+
+    /* Order Summary */
+    .order-summary {
+      background: white;
+      border-radius: 32px;
+      padding: 28px 24px;
+      box-shadow: var(--shadow-card);
+      position: sticky;
+      top: 100px;
+      align-self: start;
+    }
+    .order-summary h3 { font-weight: 800; font-size: 1.3rem; margin-bottom: 16px; }
+    .order-items {
+      max-height: 300px;
+      overflow-y: auto;
+      margin-bottom: 16px;
+    }
+    .order-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0ede8;
+    }
+    .order-item img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      background: #faf6f0;
+      border-radius: 12px;
+      padding: 6px;
+    }
+    .order-item .info { flex: 1; }
+    .order-item .info .name { font-weight: 700; font-size: 0.9rem; }
+    .order-item .info .meta { font-size: 0.75rem; color: #888; }
+    .order-item .qty-price {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      font-size: 0.95rem;
+      color: #555;
+    }
+    .summary-total {
+      display: flex;
+      justify-content: space-between;
+      padding: 14px 0 8px;
+      font-weight: 800;
+      font-size: 1.3rem;
+      border-top: 2px solid var(--gold);
+      margin-top: 8px;
+    }
+    .summary-total span:last-child { color: var(--gold); }
+
+    .btn-confirm {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      background: var(--gold);
+      color: white;
+      border: none;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.25s;
+      font-family: 'Almarai', sans-serif;
+      text-align: center;
+      margin-top: 16px;
+    }
+    .btn-confirm:hover { background: #a07548; transform: translateY(-2px); }
+    .btn-confirm:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .btn-back {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      background: transparent;
+      color: var(--gold);
+      border: 1.5px solid var(--gold);
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.25s;
+      font-family: 'Almarai', sans-serif;
+      text-align: center;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+    .btn-back:hover { background: var(--gold); color: white; }
+
+    /* Empty State */
+    .empty-checkout {
+      text-align: center;
+      padding: 60px 20px;
+      background: white;
+      border-radius: 32px;
+      box-shadow: var(--shadow-card);
+    }
+    .empty-checkout i { font-size: 4rem; color: #ddd; margin-bottom: 16px; }
+    .empty-checkout h3 { font-size: 1.4rem; margin-bottom: 8px; }
+    .empty-checkout p { color: #888; margin-bottom: 20px; }
+
+    /* Toast */
+    .toast {
+      position: fixed; top: 80px; left: 50%; transform: translateX(-50%);
+      background: #1c1c1c; color: white; padding: 14px 28px; border-radius: 60px;
+      font-weight: 700; z-index: 200; box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+      display: none; align-items: center; gap: 12px; border-right: 4px solid var(--gold);
+      font-family: 'Almarai', sans-serif;
+    }
+    .toast.show { display: flex; animation: slideDown 0.4s ease; }
+    @keyframes slideDown { from { opacity:0; transform: translateX(-50%) translateY(-20px); } to { opacity:1; transform: translateX(-50%) translateY(0); } }
+
+    /* Success Modal */
+    .success-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(6px);
+      z-index: 300;
+      justify-content: center;
+      align-items: center;
+    }
+    .success-overlay.show { display: flex; }
+    .success-modal {
+      background: white;
+      border-radius: 40px;
+      padding: 48px 40px;
+      max-width: 480px;
+      width: 92%;
+      text-align: center;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+      animation: modalFade 0.4s ease;
+    }
+    @keyframes modalFade { from { opacity:0; transform: scale(0.95); } to { opacity:1; transform: scale(1); } }
+    .success-modal i { font-size: 4rem; color: #2d7a4a; margin-bottom: 16px; }
+    .success-modal h2 { font-weight: 800; font-size: 1.6rem; margin-bottom: 8px; }
+    .success-modal p { color: #666; margin-bottom: 20px; }
+    .success-modal .btn-home {
+      display: inline-block;
+      padding: 14px 40px;
+      background: var(--gold);
+      color: white;
+      border: none;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.25s;
+      font-family: 'Almarai', sans-serif;
+      text-decoration: none;
+    }
+    .success-modal .btn-home:hover { background: #a07548; }
+
+    /* Footer */
+    footer { background: #1c1c1c; color: #ddd; padding: 40px 0 24px; border-radius: 40px 40px 0 0; margin-top: 40px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 30px; }
+    .footer-grid .logo h1 { color: #ddd; font-size: 1.4rem; }
+    .footer-grid .logo h1 span { color: var(--gold-light); }
+    .footer-grid .brand-tag { color: var(--gold-light); font-size: 0.8rem; letter-spacing: 1px; }
+    .footer-grid a { color: #bbb; text-decoration: none; display: block; margin: 8px 0; transition: 0.2s; }
+    .footer-grid a:hover { color: var(--gold); }
+    .footer-social i { font-size: 1.3rem; margin-left: 12px; color: #aaa; transition: 0.2s; cursor: pointer; }
+    .footer-social i:hover { color: var(--gold); }
+    .copy { text-align: center; border-top: 1px solid #333; padding-top: 24px; margin-top: 24px; font-size: 0.8rem; color: #888; }
+
+    @media (max-width: 992px) {
+      .checkout-grid { grid-template-columns: 1fr; }
+      .order-summary { position: static; }
+      .nav-links { display: none; }
+      .mobile-menu-toggle { display: block; }
+    }
+    @media (max-width: 640px) {
+      .checkout-form { padding: 24px 16px; }
+      .success-modal { padding: 32px 24px; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"><i class="fas fa-check-circle" style="color:var(--gold);"></i> <span id="toastMsg">تم التحديث</span></div>
+
+  <!-- Success Modal -->
+  <div class="success-overlay" id="successOverlay">
+    <div class="success-modal">
+      <i class="fas fa-check-circle"></i>
+      <h2>✅ تم استلام طلبك!</h2>
+      <p>شكراً لك على ثقتك بمنتجات PURE COSMO. سنقوم بتأكيد الطلب والتواصل معك قريباً.</p>
+      <a href="index.html" class="btn-home">العودة للرئيسية</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky-header">
+    <div class="container header-inner">
+      <div class="logo"><h1>PURE <span>COSMO</span></h1></div>
+      <div class="nav-links">
+        <a href="index.html">الرئيسية</a>
+        <a href="index.html#products">المنتجات</a>
+        <a href="index.html#limitedOffer">العروض</a>
+        <a href="#">من نحن</a>
+        <a href="#">تواصل معنا</a>
+      </div>
+      <div class="header-actions">
+        <i class="fas fa-search" id="searchIcon"></i>
+        <div class="cart-badge">
+          <i class="fas fa-shopping-bag" id="cartIcon"></i>
+          <span class="badge-count" id="cartCount">0</span>
+        </div>
+        <div class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Checkout Page -->
+  <main class="checkout-page">
+    <div class="container">
+      <h1 class="checkout-title">📋 إتمام الطلب</h1>
+      <p class="checkout-subtitle">أدخل بياناتك لتأكيد طلبك</p>
+
+      <div id="checkoutContent">
+        <!-- سيتم تعبئتها بواسطة JavaScript -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo"><h1>PURE <span>COSMO</span></h1></div>
+          <div class="brand-tag">COSMETICS &amp; NUTRIENTS</div>
+          <p style="margin-top:8px;font-size:0.85rem;color:#aaa;">كفر الشيخ، مصر</p>
+        </div>
+        <div>
+          <a href="index.html">الرئيسية</a>
+          <a href="index.html#products">المنتجات</a>
+          <a href="index.html#limitedOffer">العروض</a>
+          <a href="#">من نحن</a>
+          <a href="#">تواصل معنا</a>
+        </div>
+        <div>
+          <div class="footer-social">
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <p style="margin-top:12px;direction:ltr;text-align:right;">
+            <a href="tel:01065031487" style="color:#bbb;text-decoration:none;">01065031487</a>
+          </p>
+          <p style="direction:ltr;text-align:right;">
+            <a href="https://wa.me/201065031487" style="color:#bbb;text-decoration:none;">واتساب</a>
+          </p>
+        </div>
+        <div>
+          <p>info@purecosmo.com</p>
+          <p>خدمة العملاء: 9ص - 9م</p>
+        </div>
+      </div>
+      <div class="copy">© 2026 PURE COSMO. جميع الحقوق محفوظة.</div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      // ========== PRODUCT DATA ==========
+      const products = [
+        { id:1, slug:'elderi-marono-gel', name:'ELDERI MARONO GEL', price:'199', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=ELDERI+GEL', size:'100 مل' },
+        { id:2, slug:'vitamin-c-serum', name:'سيروم فيتامين سي', price:'169', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Vitamin+C', size:'30 مل' },
+        { id:3, slug:'pure-moisturizer', name:'كريم ترطيب نقي', price:'129', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Moisturizer', size:'50 مل' },
+        { id:4, slug:'omega-3-supplement', name:'مكمل غذائي أوميغا', price:'215', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Omega+3', size:'60 كبسولة' },
+        { id:5, slug:'green-tea-slim', name:'شاي التخسيس الأخضر', price:'89', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Green+Tea', size:'20 كيس' },
+        { id:6, slug:'golden-clay-mask', name:'ماسك الطين الذهبي', price:'149', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Clay+Mask', size:'100 جم' },
+        { id:7, slug:'argan-oil', name:'زيت الأرجان العضوي', price:'179', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Argan+Oil', size:'50 مل' },
+        { id:8, slug:'marine-collagen', name:'كولاجين بحري', price:'259', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Collagen', size:'150 جم' },
+        { id:9, slug:'gentle-face-wash', name:'غسول لطيف للبشرة', price:'109', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Face+Wash', size:'200 مل' },
+        { id:10, slug:'retinol-serum', name:'مصل الريتينول', price:'224', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Retinol', size:'30 مل' }
+      ];
+
+      // ========== CART (localStorage) ==========
+      const CART_KEY = 'pure_cosmo_cart';
+      const VISITOR_KEY = 'pure_cosmo_visitor_id';
+
+      function getVisitorId() {
+        let id = localStorage.getItem(VISITOR_KEY);
+        if (!id) { id = crypto.randomUUID(); localStorage.setItem(VISITOR_KEY, id); }
+        return id;
+      }
+
+      function getCart() {
+        try {
+          const data = JSON.parse(localStorage.getItem(CART_KEY));
+          if (data && data.visitor_id === getVisitorId()) return data;
+        } catch(e) {}
+        return { visitor_id: getVisitorId(), items: [], total: 0, updated_at: new Date().toISOString() };
+      }
+
+      function saveCart(cart) {
+        cart.visitor_id = getVisitorId();
+        cart.updated_at = new Date().toISOString();
+        cart.total = cart.items.reduce((sum, item) => sum + (parseFloat(item.price) * item.qty), 0);
+        localStorage.setItem(CART_KEY, JSON.stringify(cart));
+        updateCartCounter();
+      }
+
+      function updateCartCounter() {
+        const cart = getCart();
+        const count = cart.items.reduce((sum, item) => sum + item.qty, 0);
+        document.getElementById('cartCount').textContent = count;
+      }
+
+      function showToast(msg) {
+        const toast = document.getElementById('toast');
+        document.getElementById('toastMsg').textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+      }
+
+      // ========== RENDER CHECKOUT ==========
+      function renderCheckout() {
+        const cart = getCart();
+        const container = document.getElementById('checkoutContent');
+
+        if (cart.items.length === 0) {
+          container.innerHTML = `
+            <div class="empty-checkout">
+              <i class="fas fa-shopping-bag"></i>
+              <h3>السلة فارغة</h3>
+              <p>أضف منتجات أولاً ثم عد لإتمام الطلب</p>
+              <a href="index.html#products" class="btn-primary" style="display:inline-block;padding:14px 40px;background:var(--gold);color:white;border-radius:60px;text-decoration:none;font-weight:700;">تصفح المنتجات</a>
+            </div>
+          `;
+          return;
+        }
+
+        let itemsHtml = cart.items.map(item => {
+          const product = products.find(p => p.id === item.id) || item;
+          const total = (parseFloat(item.price) * item.qty).toFixed(0);
+          return `
+            <div class="order-item">
+              <img src="${item.image || product.img}" alt="${item.name}" loading="lazy">
+              <div class="info">
+                <div class="name">${item.name}</div>
+                <div class="meta">${item.size || ''}</div>
+              </div>
+              <div class="qty-price">${item.qty} × ${item.price} جنيه</div>
+            </div>
+          `;
+        }).join('');
+
+        container.innerHTML = `
+          <div class="checkout-grid">
+            <div class="checkout-form">
+              <div class="form-title">👤 بيانات العميل</div>
+
+              <div class="form-group">
+                <label for="checkName">الاسم بالكامل *</label>
+                <input type="text" id="checkName" placeholder="أدخل الاسم الكامل">
+              </div>
+
+              <div class="form-group">
+                <label for="checkPhone">رقم الهاتف *</label>
+                <input type="tel" id="checkPhone" placeholder="010 1234 5678">
+              </div>
+
+              <div class="form-group">
+                <label for="checkCity">المحافظة</label>
+                <input type="text" id="checkCity" placeholder="مثل: القاهرة">
+              </div>
+
+              <div class="form-group">
+                <label for="checkAddress">العنوان بالتفصيل</label>
+                <textarea rows="2" id="checkAddress" placeholder="الشارع، المنطقة، ..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="checkNotes">ملاحظات الطلب</label>
+                <textarea rows="2" id="checkNotes" placeholder="أي ملاحظات إضافية"></textarea>
+              </div>
+            </div>
+
+            <div class="order-summary">
+              <h3>📦 ملخص الطلب</h3>
+              <div class="order-items">
+                ${itemsHtml}
+              </div>
+
+              <div class="summary-row"><span>عدد المنتجات</span><span>${cart.items.length}</span></div>
+              <div class="summary-row"><span>إجمالي المنتجات</span><span>${cart.total} جنيه</span></div>
+              <div class="summary-total"><span>الإجمالي</span><span>${cart.total} جنيه</span></div>
+
+              <button class="btn-confirm" id="confirmOrderBtn">✅ تأكيد الطلب</button>
+              <a href="cart.html" class="btn-back">← العودة إلى السلة</a>
+            </div>
+          </div>
+        `;
+
+        // ===== ربط زر التأكيد =====
+        document.getElementById('confirmOrderBtn').addEventListener('click', function() {
+          const name = document.getElementById('checkName').value.trim();
+          const phone = document.getElementById('checkPhone').value.trim();
+
+          if (!name || !phone) {
+            showToast('⚠️ يرجى إدخال الاسم ورقم الهاتف');
+            return;
+          }
+
+          const city = document.getElementById('checkCity').value.trim();
+          const address = document.getElementById('checkAddress').value.trim();
+          const notes = document.getElementById('checkNotes').value.trim();
+          const cart = getCart();
+
+          if (cart.items.length === 0) {
+            showToast('⚠️ السلة فارغة');
+            return;
+          }
+
+          // تخزين الطلب مؤقتاً
+          const orderData = {
+            visitor_id: getVisitorId(),
+            name, phone, city, address, notes,
+            items: cart.items,
+            total: cart.total,
+            date: new Date().toISOString()
+          };
+          localStorage.setItem('pure_cosmo_last_order', JSON.stringify(orderData));
+
+          // تفريغ السلة
+          saveCart({ visitor_id: getVisitorId(), items: [], total: 0, updated_at: new Date().toISOString() });
+
+          // عرض رسالة النجاح
+          document.getElementById('successOverlay').classList.add('show');
+          updateCartCounter();
+
+          console.log('✅ Order placed:', orderData);
+        });
+
+        updateCartCounter();
+      }
+
+      // ========== INIT ==========
+      renderCheckout();
+      updateCartCounter();
+
+      // ========== SEARCH ICON ==========
+      document.getElementById('searchIcon').addEventListener('click', function() {
+        alert('🔍 سيتم تفعيل البحث قريباً');
+      });
+
+      // ========== CART ICON ==========
+      document.getElementById('cartIcon').addEventListener('click', function() {
+        window.location.href = 'cart.html';
+      });
+
+      // ========== MOBILE MENU ==========
+      document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+        alert('📱 سيتم تفعيل القائمة الجانبية قريباً');
+      });
+
+      console.log('📋 Checkout Page loaded successfully!');
+      console.log('📦 Cart:', getCart());
+
+    })();
+  </script>
+</body>
+</html>
