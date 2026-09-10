@@ -2,12 +2,81 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>سلة التسوق - PURE COSMO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  
+  <!-- ========================================= -->
+  <!-- SEO - BASIC META TAGS                      -->
+  <!-- ========================================= -->
+  <title>سلة التسوق | PURE COSMO</title>
+  <meta name="description" content="سلة التسوق الخاصة بك من PURE COSMO. راجع منتجاتك، عدّل الكميات، وأكمل طلبك بسهولة مع توصيل داخل مصر." />
+  <meta name="keywords" content="سلة التسوق, PURE COSMO, طلب منتجات, مستحضرات تجميل, العناية بالبشرة" />
+  
+  <!-- ========================================= -->
+  <!-- IMPORTANT: NOINDEX FOR CART PAGE          -->
+  <!-- صفحة السلة لا يجب فهرستها في محركات البحث -->
+  <!-- ========================================= -->
+  <meta name="robots" content="noindex, follow" />
+  <meta name="author" content="PURE COSMO" />
+  <meta name="language" content="Arabic" />
+  <link rel="canonical" href="https://purecosmo.shop/cart.html" />
+
+  <!-- ========================================= -->
+  <!-- OPEN GRAPH                                 -->
+  <!-- ========================================= -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="سلة التسوق | PURE COSMO" />
+  <meta property="og:description" content="راجع منتجاتك وأكمل طلبك من PURE COSMO." />
+  <meta property="og:url" content="https://purecosmo.shop/cart.html" />
+  <meta property="og:site_name" content="PURE COSMO" />
+  <meta property="og:locale" content="ar_EG" />
+  <meta property="og:image" content="https://purecosmo.shop/images/logo_cosmo.png" />
+  <meta property="og:image:alt" content="PURE COSMO - سلة التسوق" />
+
+  <!-- ========================================= -->
+  <!-- TWITTER CARD                              -->
+  <!-- ========================================= -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="سلة التسوق | PURE COSMO" />
+  <meta name="twitter:description" content="راجع منتجاتك وأكمل طلبك من PURE COSMO." />
+  <meta name="twitter:image" content="https://purecosmo.shop/images/logo_cosmo.png" />
+
+  <!-- ========================================= -->
+  <!-- FAVICON                                   -->
+  <!-- ========================================= -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+  <!-- ========================================= -->
+  <!-- FONTS & LIBRARIES                         -->
+  <!-- ========================================= -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- ========================================= -->
+  <!-- JSON-LD BREADCRUMB SCHEMA                 -->
+  <!-- ========================================= -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "الرئيسية",
+          "item": "https://purecosmo.shop/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "سلة التسوق",
+          "item": "https://purecosmo.shop/cart.html"
+        }
+      ]
+    }
+  </script>
+
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -15,6 +84,7 @@
       background: #fcf8f2;
       color: #2a2a2a;
       line-height: 1.6;
+      overflow-x: hidden;
     }
     :root {
       --gold: #b78c5a;
@@ -37,6 +107,7 @@
     .header-inner { display: flex; align-items: center; justify-content: space-between; }
     .logo h1 { font-size: 1.6rem; font-weight: 800; color: #1a1a1a; }
     .logo h1 span { color: var(--gold); }
+    .logo a { text-decoration: none; color: inherit; }
     .nav-links { display: flex; gap: 24px; font-weight: 400; color: #3a3a3a; }
     .nav-links a { text-decoration: none; color: inherit; font-size: 0.95rem; transition: 0.2s; }
     .nav-links a:hover { color: var(--gold); }
@@ -52,8 +123,21 @@
     }
     .mobile-menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
 
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: #888;
+      margin: 24px 0 12px;
+      flex-wrap: wrap;
+    }
+    .breadcrumb a { color: #888; text-decoration: none; transition: 0.2s; }
+    .breadcrumb a:hover { color: var(--gold); }
+    .breadcrumb .current { color: var(--gold); font-weight: 700; }
+
     /* Cart Page */
-    .cart-page { padding: 30px 0 60px; }
+    .cart-page { padding: 10px 0 60px; }
     .cart-title { font-size: 2.4rem; font-weight: 800; margin-bottom: 4px; }
     .cart-subtitle { color: #888; margin-bottom: 30px; }
 
@@ -215,8 +299,8 @@
     .footer-grid .brand-tag { color: var(--gold-light); font-size: 0.8rem; letter-spacing: 1px; }
     .footer-grid a { color: #bbb; text-decoration: none; display: block; margin: 8px 0; transition: 0.2s; }
     .footer-grid a:hover { color: var(--gold); }
-    .footer-social i { font-size: 1.3rem; margin-left: 12px; color: #aaa; transition: 0.2s; cursor: pointer; }
-    .footer-social i:hover { color: var(--gold); }
+    .footer-social i, .footer-social a { font-size: 1.3rem; margin-left: 12px; color: #aaa; transition: 0.2s; cursor: pointer; display: inline-block; }
+    .footer-social i:hover, .footer-social a:hover { color: var(--gold); }
     .copy { text-align: center; border-top: 1px solid #333; padding-top: 24px; margin-top: 24px; font-size: 0.8rem; color: #888; }
 
     @media (max-width: 992px) {
@@ -224,8 +308,10 @@
       .cart-summary { position: static; }
       .nav-links { display: none; }
       .mobile-menu-toggle { display: block; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 640px) {
+      .cart-title { font-size: 1.8rem; }
       .cart-item { grid-template-columns: 70px 1fr; gap: 10px; }
       .cart-item img { width: 70px; height: 70px; }
       .cart-item .item-total { grid-column: span 2; text-align: right; }
@@ -237,26 +323,29 @@
 <body>
 
   <!-- Toast -->
-  <div class="toast" id="toast"><i class="fas fa-check-circle" style="color:var(--gold);"></i> <span id="toastMsg">تم التحديث</span></div>
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <i class="fas fa-check-circle" style="color:var(--gold);"></i> 
+    <span id="toastMsg">تم التحديث</span>
+  </div>
 
   <!-- Header -->
   <header class="sticky-header">
     <div class="container header-inner">
-      <div class="logo"><h1>PURE <span>COSMO</span></h1></div>
-      <div class="nav-links">
+      <div class="logo"><a href="index.html"><h1>PURE <span>COSMO</span></h1></a></div>
+      <nav class="nav-links" aria-label="القائمة الرئيسية">
         <a href="index.html">الرئيسية</a>
         <a href="index.html#products">المنتجات</a>
         <a href="index.html#limitedOffer">العروض</a>
-        <a href="#">من نحن</a>
-        <a href="#">تواصل معنا</a>
-      </div>
+        <a href="index.html#about">من نحن</a>
+        <a href="index.html#contact">تواصل معنا</a>
+      </nav>
       <div class="header-actions">
-        <i class="fas fa-search" id="searchIcon"></i>
+        <i class="fas fa-search" id="searchIcon" aria-label="بحث"></i>
         <div class="cart-badge">
-          <i class="fas fa-shopping-bag" id="cartIcon"></i>
+          <i class="fas fa-shopping-bag" id="cartIcon" aria-label="سلة التسوق"></i>
           <span class="badge-count" id="cartCount">0</span>
         </div>
-        <div class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></div>
+        <div class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="القائمة"><i class="fas fa-bars"></i></div>
       </div>
     </div>
   </header>
@@ -264,17 +353,25 @@
   <!-- Cart Page -->
   <main class="cart-page">
     <div class="container">
+      
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="breadcrumb">
+        <a href="index.html">الرئيسية</a>
+        <span>←</span>
+        <span class="current">سلة التسوق</span>
+      </nav>
+
       <h1 class="cart-title">🛒 سلة التسوق</h1>
       <p class="cart-subtitle">مراجعة منتجاتك قبل إتمام الطلب</p>
 
-      <div id="cartContent">
+      <div id="cartContent" aria-live="polite">
         <!-- سيتم تعبئتها بواسطة JavaScript -->
       </div>
     </div>
   </main>
 
   <!-- Footer -->
-  <footer>
+  <footer id="contact">
     <div class="container">
       <div class="footer-grid">
         <div>
@@ -286,14 +383,14 @@
           <a href="index.html">الرئيسية</a>
           <a href="index.html#products">المنتجات</a>
           <a href="index.html#limitedOffer">العروض</a>
-          <a href="#">من نحن</a>
-          <a href="#">تواصل معنا</a>
+          <a href="index.html#about">من نحن</a>
+          <a href="index.html#contact">تواصل معنا</a>
         </div>
         <div>
           <div class="footer-social">
-            <i class="fab fa-facebook"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-whatsapp"></i>
+            <a href="https://www.facebook.com/purecosmo" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/purecosmo" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/201065031487" target="_blank" rel="noopener noreferrer" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
           </div>
           <p style="margin-top:12px;direction:ltr;text-align:right;">
             <a href="tel:01065031487" style="color:#bbb;text-decoration:none;">01065031487</a>
@@ -315,16 +412,94 @@
     (function() {
       // ========== PRODUCT DATA ==========
       const products = [
-        { id:1, slug:'elderi-marono-gel', name:'ELDERI MARONO GEL', short_desc:'عناية متقدمة للبشرة', price:'199', old_price:'299', badge:'الأكثر طلبًا', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=ELDERI+GEL', size:'100 مل' },
-        { id:2, slug:'vitamin-c-serum', name:'سيروم فيتامين سي', short_desc:'إشراق ونضارة', price:'169', old_price:'249', badge:'عرض خاص', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Vitamin+C', size:'30 مل' },
-        { id:3, slug:'pure-moisturizer', name:'كريم ترطيب نقي', short_desc:'ترطيب عميق', price:'129', old_price:'', badge:'', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Moisturizer', size:'50 مل' },
-        { id:4, slug:'omega-3-supplement', name:'مكمل غذائي أوميغا', short_desc:'دعم الصحة العامة', price:'215', old_price:'280', badge:'', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Omega+3', size:'60 كبسولة' },
-        { id:5, slug:'green-tea-slim', name:'شاي التخسيس الأخضر', short_desc:'نشاط وحرق', price:'89', old_price:'', badge:'', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Green+Tea', size:'20 كيس' },
-        { id:6, slug:'golden-clay-mask', name:'ماسك الطين الذهبي', short_desc:'تنقية البشرة', price:'149', old_price:'199', badge:'', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Clay+Mask', size:'100 جم' },
-        { id:7, slug:'argan-oil', name:'زيت الأرجان العضوي', short_desc:'ترطيب الشعر والبشرة', price:'179', old_price:'239', badge:'', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Argan+Oil', size:'50 مل' },
-        { id:8, slug:'marine-collagen', name:'كولاجين بحري', short_desc:'شد البشرة', price:'259', old_price:'349', badge:'', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Collagen', size:'150 جم' },
-        { id:9, slug:'gentle-face-wash', name:'غسول لطيف للبشرة', short_desc:'للبشرة الحساسة', price:'109', old_price:'', badge:'', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Face+Wash', size:'200 مل' },
-        { id:10, slug:'retinol-serum', name:'مصل الريتينول', short_desc:'تجديد الخلايا', price:'224', old_price:'299', badge:'', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Retinol', size:'30 مل' }
+        { 
+          id:1, 
+          slug:'elderi-marono-gel', 
+          name:'ELDERI MARONO GEL', 
+          short_desc:'جيل مؤخر موضعي للأداء والقوة الأصيلة', 
+          price:'199', 
+          old_price:'299', 
+          badge:'الأكثر طلبًا', 
+          img:'images/Elderi_Marono_Gel3.jpg', 
+          size:'30 مل' 
+        },
+        { 
+          id:2, 
+          slug:'fine-skin-cream', 
+          name:'Fine Skin Cream', 
+          short_desc:'تركيبة متطورة 10% Tranexamic Acid لتفتيح البشرة', 
+          price:'249', 
+          old_price:'329', 
+          badge:'عرض خاص', 
+          img:'images/fine_skin_cream.jpg', 
+          size:'50 مل' 
+        },
+        { 
+          id:3, 
+          slug:'bustobella-cream', 
+          name:'Bustobella Cream', 
+          short_desc:'للعناية المتكاملة بمناطق الأنوثة', 
+          price:'189', 
+          old_price:'259', 
+          badge:'', 
+          img:'images/Bustobella_Cream.jpg', 
+          size:'100 جم' 
+        },
+        { 
+          id:4, 
+          slug:'grofast-weight-gainer', 
+          name:'Grofast Weight Gainer', 
+          short_desc:'فاتح للشهية وداعم للمناعة لزيادة الوزن الصحي', 
+          price:'159', 
+          old_price:'219', 
+          badge:'عرض خاص', 
+          img:'images/GrofastWeightGainer.jpg', 
+          size:'30 كبسولة' 
+        },
+        { 
+          id:5, 
+          slug:'agility-firming-gel', 
+          name:'Agility Firming Gel', 
+          short_desc:'شد الترهلات وتقليل علامات التمدد', 
+          price:'169', 
+          old_price:'239', 
+          badge:'', 
+          img:'images/AgilityFirmingGel.jpg', 
+          size:'120 جم' 
+        },
+        { 
+          id:6, 
+          slug:'honey-baby-cream', 
+          name:'Honey Baby Cream', 
+          short_desc:'مهدئ ومطهر لالتهابات الحفاض والبشرة الحساسة', 
+          price:'99', 
+          old_price:'149', 
+          badge:'', 
+          img:'images/Honey-Baby2.jpg', 
+          size:'60 جم' 
+        },
+        { 
+          id:7, 
+          slug:'agility-massage-gel', 
+          name:'Agility Massage Gel', 
+          short_desc:'تسكين فوري لآلام العضلات والمفاصل والكدمات', 
+          price:'139', 
+          old_price:'199', 
+          badge:'', 
+          img:'images/AgilityMassageGel.jpg', 
+          size:'60 جم' 
+        },
+        { 
+          id:8, 
+          slug:'lissaney-hair-serum', 
+          name:'Lissaney Hair Serum', 
+          short_desc:'تغذية عميقة ولمعان فوري برائحة فاخرة', 
+          price:'179', 
+          old_price:'249', 
+          badge:'', 
+          img:'images/LissaneyHairSerum.jpg', 
+          size:'70 مل' 
+        }
       ];
 
       // ========== CART (localStorage) ==========
@@ -356,14 +531,18 @@
       function updateCartCounter() {
         const cart = getCart();
         const count = cart.items.reduce((sum, item) => sum + item.qty, 0);
-        document.getElementById('cartCount').textContent = count;
+        const counter = document.getElementById('cartCount');
+        if (counter) counter.textContent = count;
       }
 
       function showToast(msg) {
         const toast = document.getElementById('toast');
-        document.getElementById('toastMsg').textContent = msg;
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 3000);
+        const msgEl = document.getElementById('toastMsg');
+        if (toast && msgEl) {
+          msgEl.textContent = msg;
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 3000);
+        }
       }
 
       // ========== RENDER CART ==========
@@ -374,7 +553,7 @@
         if (cart.items.length === 0) {
           container.innerHTML = `
             <div class="empty-cart">
-              <i class="fas fa-shopping-bag"></i>
+              <i class="fas fa-shopping-bag" aria-hidden="true"></i>
               <h3>سلة فارغة</h3>
               <p>لم تقم بإضافة أي منتجات بعد</p>
               <a href="index.html#products" class="btn-primary" style="display:inline-block;padding:14px 40px;background:var(--gold);color:white;border-radius:60px;text-decoration:none;font-weight:700;">تصفح المنتجات</a>
@@ -386,40 +565,43 @@
         let itemsHtml = cart.items.map(item => {
           const product = products.find(p => p.id === item.id) || item;
           const total = (parseFloat(item.price) * item.qty).toFixed(0);
+          const productUrl = `product.html?slug=${item.slug || product.slug}`;
           return `
-            <div class="cart-item" data-id="${item.id}">
-              <img src="${item.image || product.img}" alt="${item.name}" loading="lazy">
+            <article class="cart-item" data-id="${item.id}">
+              <a href="${productUrl}" style="text-decoration:none;">
+                <img src="${item.image || product.img}" alt="${item.name} من PURE COSMO" loading="lazy" width="100" height="100">
+              </a>
               <div class="item-info">
-                <h4>${item.name}</h4>
+                <h4><a href="${productUrl}" style="text-decoration:none;color:inherit;">${item.name}</a></h4>
                 <div class="item-meta">${item.size || ''}</div>
                 <div class="item-price">${item.price} جنيه</div>
               </div>
               <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
                 <div class="qty-control">
-                  <button class="qty-dec">−</button>
-                  <span class="qty-val">${item.qty}</span>
-                  <button class="qty-inc">+</button>
+                  <button class="qty-dec" aria-label="تقليل الكمية">−</button>
+                  <span class="qty-val" aria-label="الكمية">${item.qty}</span>
+                  <button class="qty-inc" aria-label="زيادة الكمية">+</button>
                 </div>
                 <div class="item-total">${total} جنيه</div>
-                <button class="remove-btn" title="حذف">✕</button>
+                <button class="remove-btn" title="حذف" aria-label="حذف المنتج من السلة">✕</button>
               </div>
-            </div>
+            </article>
           `;
         }).join('');
 
         container.innerHTML = `
           <div class="cart-grid">
-            <div class="cart-items">
+            <section class="cart-items" aria-label="منتجات السلة">
               ${itemsHtml}
-            </div>
-            <div class="cart-summary">
+            </section>
+            <aside class="cart-summary" aria-label="ملخص الطلب">
               <h3>ملخص الطلب</h3>
               <div class="summary-row"><span>المنتجات</span><span>${cart.items.length}</span></div>
               <div class="summary-row"><span>إجمالي المنتجات</span><span>${cart.total} جنيه</span></div>
               <div class="summary-total"><span>الإجمالي</span><span>${cart.total} جنيه</span></div>
               <a href="Checkout.html" class="btn-checkout">متابعة الطلب</a>
               <a href="index.html#products" class="btn-shop">متابعة التسوق</a>
-            </div>
+            </aside>
           </div>
         `;
 
@@ -460,9 +642,9 @@
       renderCart();
       updateCartCounter();
 
-      // ========== SEARCH ICON (placeholder) ==========
+      // ========== SEARCH ICON ==========
       document.getElementById('searchIcon').addEventListener('click', function() {
-        alert('🔍 سيتم تفعيل البحث قريباً');
+        window.location.href = 'index.html';
       });
 
       // ========== CART ICON ==========
@@ -472,7 +654,6 @@
 
       // ========== MOBILE MENU ==========
       document.getElementById('mobileMenuToggle').addEventListener('click', function() {
-        // تنفيذ بسيط: يمكن إضافة قائمة منبثقة
         alert('📱 سيتم تفعيل القائمة الجانبية قريباً');
       });
 
