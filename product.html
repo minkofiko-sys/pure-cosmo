@@ -3,21 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">PURE COSMO - المنتج</title>
-    <meta name="description" id="pageDescription" content="">
     
+    <!-- ========================================= -->
+    <!-- SEO - BASIC META TAGS (ديناميكية)          -->
+    <!-- ========================================= -->
+    <title id="pageTitle">PURE COSMO | متجر مستحضرات التجميل والعناية</title>
+    <meta name="description" id="pageDescription" content="اكتشف منتجات PURE COSMO للعناية بالبشرة والشعر والجسم والجمال، مع عروض مميزة وطلب أونلاين وتوصيل داخل مصر.">
+    <meta name="keywords" id="pageKeywords" content="مستحضرات تجميل, منتجات العناية, PURE COSMO, كفر الشيخ, مصر">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="author" content="PURE COSMO">
+    <meta name="language" content="Arabic">
+
+    <!-- ========================================= -->
+    <!-- CANONICAL (ديناميكي)                       -->
+    <!-- ========================================= -->
+    <link rel="canonical" id="canonicalLink" href="https://purecosmo.shop/product.html">
+
+    <!-- ========================================= -->
+    <!-- OPEN GRAPH (ديناميكي)                      -->
+    <!-- ========================================= -->
+    <meta property="og:type" content="product">
+    <meta property="og:title" id="ogTitle" content="PURE COSMO">
+    <meta property="og:description" id="ogDescription" content="">
+    <meta property="og:url" id="ogUrl" content="https://purecosmo.shop/">
+    <meta property="og:site_name" content="PURE COSMO">
+    <meta property="og:locale" content="ar_EG">
+    <meta property="og:image" id="ogImage" content="https://purecosmo.shop/images/logo_cosmo.png">
+    <meta property="og:image:alt" id="ogImageAlt" content="PURE COSMO - مستحضرات التجميل والعناية">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="product:price:amount" id="ogPrice" content="0">
+    <meta property="product:price:currency" content="EGP">
+
+    <!-- ========================================= -->
+    <!-- TWITTER CARD (ديناميكي)                    -->
+    <!-- ========================================= -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" id="twitterTitle" content="PURE COSMO">
+    <meta name="twitter:description" id="twitterDescription" content="">
+    <meta name="twitter:image" id="twitterImage" content="https://purecosmo.shop/images/logo_cosmo.png">
+
+    <!-- ========================================= -->
+    <!-- FAVICON                                    -->
+    <!-- ========================================= -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <!-- ========================================= -->
+    <!-- FONTS & LIBRARIES                          -->
+    <!-- ========================================= -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+
+    <!-- ========================================= -->
+    <!-- JSON-LD PRODUCT SCHEMA (سيتم إضافته ديناميكياً) -->
+    <!-- ========================================= -->
+    <script type="application/ld+json" id="productSchema">
+        {
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "PURE COSMO Product",
+            "description": "منتج من PURE COSMO",
+            "brand": {
+                "@type": "Brand",
+                "name": "PURE COSMO"
+            },
+            "offers": {
+                "@type": "Offer",
+                "priceCurrency": "EGP",
+                "availability": "https://schema.org/InStock"
+            }
+        }
+    </script>
+
+    <!-- ========================================= -->
+    <!-- JSON-LD BREADCRUMB SCHEMA (سيتم إضافته ديناميكياً) -->
+    <!-- ========================================= -->
+    <script type="application/ld+json" id="breadcrumbSchema">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": []
+        }
+    </script>
+
     <style>
-        /* نفس الـ Styles الموجودة في index.html */
+        /* ========================================= */
+        /* RESET & BASE                             */
+        /* ========================================= */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Almarai', sans-serif;
             background: #fcf8f2;
             color: #2a2a2a;
             line-height: 1.6;
+            overflow-x: hidden;
         }
         :root {
             --gold: #b78c5a;
@@ -29,7 +110,9 @@
         }
         .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
 
-        /* Header - نفس الهيدر */
+        /* ========================================= */
+        /* HEADER                                    */
+        /* ========================================= */
         .sticky-header {
             position: sticky; top: 0; z-index: 100;
             background: rgba(255,255,255,0.88); backdrop-filter: blur(6px);
@@ -40,6 +123,7 @@
         .header-inner { display: flex; align-items: center; justify-content: space-between; }
         .logo h1 { font-size: 1.6rem; font-weight: 800; color: #1a1a1a; }
         .logo h1 span { color: var(--gold); }
+        .logo a { text-decoration: none; color: inherit; }
         .nav-links { display: flex; gap: 24px; font-weight: 400; color: #3a3a3a; }
         .nav-links a { text-decoration: none; color: inherit; font-size: 0.95rem; transition: 0.2s; }
         .nav-links a:hover { color: var(--gold); }
@@ -55,7 +139,9 @@
         }
         .mobile-menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
 
-        /* أزرار */
+        /* ========================================= */
+        /* BUTTONS                                   */
+        /* ========================================= */
         .btn-primary {
             background: var(--gold); border: none; color: white; padding: 14px 38px;
             border-radius: 60px; font-weight: 700; font-size: 1rem; cursor: pointer;
@@ -72,7 +158,9 @@
         }
         .btn-outline:hover { background: var(--gold); color: white; }
 
-        /* Toast */
+        /* ========================================= */
+        /* TOAST                                     */
+        /* ========================================= */
         .toast {
             position: fixed; top: 80px; left: 50%; transform: translateX(-50%);
             background: #1c1c1c; color: white; padding: 14px 28px; border-radius: 60px;
@@ -83,26 +171,16 @@
         .toast.show { display: flex; animation: slideDown 0.4s ease; }
         @keyframes slideDown { from { opacity:0; transform: translateX(-50%) translateY(-20px); } to { opacity:1; transform: translateX(-50%) translateY(0); } }
 
-        /* Footer - نفس الفوتر */
-        footer { background: #1c1c1c; color: #ddd; padding: 40px 0 24px; border-radius: 40px 40px 0 0; margin-top: 40px; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 30px; }
-        .footer-grid .logo h1 { color: #ddd; font-size: 1.4rem; }
-        .footer-grid .logo h1 span { color: var(--gold-light); }
-        .footer-grid .brand-tag { color: var(--gold-light); font-size: 0.8rem; letter-spacing: 1px; }
-        .footer-grid a { color: #bbb; text-decoration: none; display: block; margin: 8px 0; transition: 0.2s; }
-        .footer-grid a:hover { color: var(--gold); }
-        .footer-social i { font-size: 1.3rem; margin-left: 12px; color: #aaa; transition: 0.2s; cursor: pointer; }
-        .footer-social i:hover { color: var(--gold); }
-        .copy { text-align: center; border-top: 1px solid #333; padding-top: 24px; margin-top: 24px; font-size: 0.8rem; color: #888; }
-
-        /* Product Page Styles */
+        /* ========================================= */
+        /* PRODUCT PAGE STYLES                       */
+        /* ========================================= */
         .product-page { padding: 30px 0 50px; }
-        .breadcrumb { display: flex; gap: 8px; font-size: 0.9rem; color: #888; margin-bottom: 24px; }
-        .breadcrumb a { color: #888; text-decoration: none; }
+        .breadcrumb { display: flex; gap: 8px; font-size: 0.9rem; color: #888; margin-bottom: 24px; flex-wrap: wrap; }
+        .breadcrumb a { color: #888; text-decoration: none; transition: 0.2s; }
         .breadcrumb a:hover { color: var(--gold); }
         .breadcrumb .current { color: var(--gold); font-weight: 700; }
         .product-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .product-image { width: 100%; border-radius: 28px; background: #faf6f0; padding: 20px; }
+        .product-image { width: 100%; border-radius: 28px; background: #faf6f0; padding: 20px; object-fit: contain; }
         .product-thumbs { display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
         .product-thumbs img {
             width: 80px; height: 80px; object-fit: contain; border-radius: 16px;
@@ -115,7 +193,7 @@
             padding: 4px 16px; border-radius: 40px; font-size: 0.75rem;
             font-weight: 700; margin-bottom: 10px;
         }
-        .product-name { font-size: 2.2rem; font-weight: 800; }
+        .product-name { font-size: 2.2rem; font-weight: 800; margin-bottom: 8px; }
         .product-desc { color: #666; margin: 10px 0 16px; font-size: 1.05rem; }
         .product-price { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
         .product-price .current { font-size: 1.8rem; font-weight: 800; }
@@ -178,6 +256,23 @@
         .related-card h4 { margin: 8px 0 4px; font-size: 0.95rem; }
         .related-card .price { font-weight: 700; color: var(--gold); }
 
+        /* ========================================= */
+        /* FOOTER                                    */
+        /* ========================================= */
+        footer { background: #1c1c1c; color: #ddd; padding: 40px 0 24px; border-radius: 40px 40px 0 0; margin-top: 40px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 30px; }
+        .footer-grid .logo h1 { color: #ddd; font-size: 1.4rem; }
+        .footer-grid .logo h1 span { color: var(--gold-light); }
+        .footer-grid .brand-tag { color: var(--gold-light); font-size: 0.8rem; letter-spacing: 1px; }
+        .footer-grid a { color: #bbb; text-decoration: none; display: block; margin: 8px 0; transition: 0.2s; }
+        .footer-grid a:hover { color: var(--gold); }
+        .footer-social i, .footer-social a { font-size: 1.3rem; margin-left: 12px; color: #aaa; transition: 0.2s; cursor: pointer; display: inline-block; }
+        .footer-social i:hover, .footer-social a:hover { color: var(--gold); }
+        .copy { text-align: center; border-top: 1px solid #333; padding-top: 24px; margin-top: 24px; font-size: 0.8rem; color: #888; }
+
+        /* ========================================= */
+        /* RESPONSIVE                                */
+        /* ========================================= */
         @media (max-width: 992px) {
             .product-hero { grid-template-columns: 1fr; }
             .related-grid { grid-template-columns: repeat(2, 1fr); }
@@ -203,21 +298,21 @@
     <!-- Header -->
     <header class="sticky-header">
         <div class="container header-inner">
-            <div class="logo"><h1>PURE <span>COSMO</span></h1></div>
-            <div class="nav-links">
+            <div class="logo"><a href="index.html"><h1>PURE <span>COSMO</span></h1></a></div>
+            <nav class="nav-links" aria-label="القائمة الرئيسية">
                 <a href="index.html">الرئيسية</a>
                 <a href="index.html#products">المنتجات</a>
                 <a href="index.html#limitedOffer">العروض</a>
-                <a href="#">من نحن</a>
-                <a href="#">تواصل معنا</a>
-            </div>
+                <a href="index.html#about">من نحن</a>
+                <a href="index.html#contact">تواصل معنا</a>
+            </nav>
             <div class="header-actions">
-                <i class="fas fa-search" id="searchIcon"></i>
+                <i class="fas fa-search" id="searchIcon" aria-label="بحث"></i>
                 <div class="cart-badge">
-                    <i class="fas fa-shopping-bag" id="cartIcon"></i>
+                    <i class="fas fa-shopping-bag" id="cartIcon" aria-label="سلة التسوق"></i>
                     <span class="badge-count" id="cartCount">0</span>
                 </div>
-                <div class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></div>
+                <div class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="القائمة"><i class="fas fa-bars"></i></div>
             </div>
         </div>
     </header>
@@ -231,7 +326,7 @@
     </main>
 
     <!-- Footer -->
-    <footer>
+    <footer id="contact">
         <div class="container">
             <div class="footer-grid">
                 <div>
@@ -243,14 +338,14 @@
                     <a href="index.html">الرئيسية</a>
                     <a href="index.html#products">المنتجات</a>
                     <a href="index.html#limitedOffer">العروض</a>
-                    <a href="#">من نحن</a>
-                    <a href="#">تواصل معنا</a>
+                    <a href="index.html#about">من نحن</a>
+                    <a href="index.html#contact">تواصل معنا</a>
                 </div>
                 <div>
                     <div class="footer-social">
-                        <i class="fab fa-facebook"></i>
-                        <i class="fab fa-instagram"></i>
-                        <i class="fab fa-whatsapp"></i>
+                        <a href="https://www.facebook.com/purecosmo" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/purecosmo" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/201065031487" target="_blank" rel="noopener noreferrer" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
                     </div>
                     <p style="margin-top:12px;direction:ltr;text-align:right;">
                         <a href="tel:01065031487" style="color:#bbb;text-decoration:none;">01065031487</a>
@@ -270,24 +365,198 @@
 
     <!-- بيانات المنتجات -->
     <script>
-        // ========== PRODUCT DATA ==========
+        // =============================================
+        // PRODUCT DATA - نفس بيانات index.html بالضبط
+        // =============================================
         const productsData = [
-            { id:1, slug:'elderi-marono-gel', name:'ELDERI MARONO GEL', short_desc:'عناية متقدمة للبشرة', description:'جيل فاخر للعناية اليومية بتركيبة متطورة تعزز نضارة البشرة وتمنحها الترطيب العميق.', size:'100 مل', price:'199', old_price:'299', badge:'الأكثر طلبًا', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=ELDERI+GEL', features:['ترطيب عميق','مضاد للأكسدة','لجميع أنواع البشرة'], usage:'يوضع صباحاً ومساءً على بشرة نظيفة.' },
-            { id:2, slug:'vitamin-c-serum', name:'سيروم فيتامين سي', short_desc:'إشراق ونضارة', description:'سيروم غني بفيتامين سي لتبييض البشرة وتوحيد اللون.', size:'30 مل', price:'169', old_price:'249', badge:'عرض خاص', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Vitamin+C', features:['تفتيح البشرة','تقليل التصبغات','حماية من الجذور الحرة'], usage:'يوضع على بشرة نظيفة قبل المرطب.' },
-            { id:3, slug:'pure-moisturizer', name:'كريم ترطيب نقي', short_desc:'ترطيب عميق', description:'كريم خفيف غني بالمرطبات الطبيعية.', size:'50 مل', price:'129', old_price:'', badge:'', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Moisturizer', features:['ترطيب 24 ساعة','غير دهني','مناسب للبشرة الحساسة'], usage:'يوضع بعد التنظيف صباحاً ومساءً.' },
-            { id:4, slug:'omega-3-supplement', name:'مكمل غذائي أوميغا', short_desc:'دعم الصحة العامة', description:'مكمل غذائي غني بأحماض أوميغا 3 الدهنية.', size:'60 كبسولة', price:'215', old_price:'280', badge:'', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Omega+3', features:['صحة القلب','دعم الدماغ','مضاد للالتهابات'], usage:'كبسولة واحدة يومياً مع الوجبة الرئيسية.' },
-            { id:5, slug:'green-tea-slim', name:'شاي التخسيس الأخضر', short_desc:'نشاط وحرق', description:'شاي أخضر طبيعي لدعم عملية التمثيل الغذائي.', size:'20 كيس', price:'89', old_price:'', badge:'', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Green+Tea', features:['حرق الدهون','مضاد للأكسدة','طاقة طبيعية'], usage:'اشرب كوباً قبل الوجبات الرئيسية.' },
-            { id:6, slug:'golden-clay-mask', name:'ماسك الطين الذهبي', short_desc:'تنقية البشرة', description:'ماسك طيني غني بالمعادن لتنقية البشرة.', size:'100 جم', price:'149', old_price:'199', badge:'', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Clay+Mask', features:['امتصاص الزيوت','تقليل المسام','تغذية البشرة'], usage:'يوضع لمدة 10-15 دقيقة ثم يشطف بالماء الفاتر.' },
-            { id:7, slug:'argan-oil', name:'زيت الأرجان العضوي', short_desc:'ترطيب الشعر والبشرة', description:'زيت أرجان عضوي نقي للشعر والبشرة.', size:'50 مل', price:'179', old_price:'239', badge:'', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Argan+Oil', features:['ترطيب عميق','تغذية الشعر','مضاد للتجاعيد'], usage:'يوضع على البشرة أو أطراف الشعر.' },
-            { id:8, slug:'marine-collagen', name:'كولاجين بحري', short_desc:'شد البشرة', description:'مكمل كولاجين بحري لدعم صحة البشرة والمفاصل.', size:'150 جم', price:'259', old_price:'349', badge:'', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Collagen', features:['شد البشرة','دعم المفاصل','مضاد للشيخوخة'], usage:'ملعقة يومياً مع الماء أو العصير.' },
-            { id:9, slug:'gentle-face-wash', name:'غسول لطيف للبشرة', short_desc:'للبشرة الحساسة', description:'غسول خالي من الصابون للبشرة الحساسة.', size:'200 مل', price:'109', old_price:'', badge:'', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Face+Wash', features:['لطيف على البشرة','خالي من العطور','توازن الـpH'], usage:'يوضع على بشرة مبللة ويدلك بلطف ثم يشطف.' },
-            { id:10, slug:'retinol-serum', name:'مصل الريتينول', short_desc:'تجديد الخلايا', description:'مصل غني بالريتينول لتجديد خلايا البشرة.', size:'30 مل', price:'224', old_price:'299', badge:'', img:'https://placehold.co/400x400/F5EDE4/B78C5A?text=Retinol', features:['تجديد الخلايا','تقليل التجاعيد','تحسين ملمس البشرة'], usage:'يوضع ليلاً على بشرة نظيفة وجافة.' }
+            { 
+                id:1, 
+                slug:'elderi-marono-gel', 
+                name:'ELDERI MARONO GEL', 
+                short_desc:'جيل مؤخر موضعي للأداء والقوة الأصيلة', 
+                description:'صُمم Elderi Marono Gel خصيصاً للرجل الذي يبحث عن القوة، الأداء الممتد، والثقة المطلقة. يجمع هذا الجيل المطور بين الفعالية العالية والتركيبة الآمنة، حيث يحتوي على نسبة 4.3% من مادة الليدوكايين الموضعية المصممة لتقليل الحساسية المفرطة وتأخير القذف بشكل متوازن وبدون التقليل من المتعة.', 
+                size:'30 مل', 
+                price:'199', 
+                old_price:'299', 
+                badge:'الأكثر طلبًا', 
+                img:'images/Elderi_Marono_Gel3.jpg',
+                img2:'images/Elderi_Marono_Gel.jpg',
+                img3:'images/Elderi_Marono_Gel2.jpg',
+                features:[
+                    'تركيبة متطورة (4.3% Lidocaine) لتأخير موضعي متوازن',
+                    'امتصاص سريع ونسيج خفيف غير زيتي',
+                    'جودة صناعة تركية وفق أعلى المعايير',
+                    'عبوة بخاخ احترافية لتحديد الجرعة بدقة'
+                ], 
+                usage:'قم بوضع كمية بسيطة (بخّة إلى بخّتين) على المنطقة المطلوبة قبل الجماع بـ 15 إلى 20 دقيقة. يتم تدليك الجيل برفق حتى يمتصه الجلد تماماً. يُفضل غسل المنطقة بالماء الفاتر قبل الجماع للحصول على أفضل تجربة.'
+            },
+            {         
+                id:2, 
+                slug:'fine-skin-cream', 
+                name:'Fine Skin Cream', 
+                short_desc:'تركيبة متطورة 10% Tranexamic Acid لتفتيح البشرة', 
+                description:'تألقي ببشرة ناصعة ومشرقة مع Fine Skin Cream المقدم من Pure Cosmo. تم تطوير هذا الكريم بتركيبة متقدمة تحتوي على 10% من حمض الترانيكساميك (Tranexamic Acid) المعروف بفاعليته الفائقة في استهداف التصبغات والبقع الداكنة، يعمل على توحيد لون البشرة وإعادة النضارة والإشراقة الطبيعية لها بأمان وبشكل تدريجي.', 
+                size:'50 مل', 
+                price:'249', 
+                old_price:'329', 
+                badge:'عرض خاص', 
+                img:'images/fine_skin_cream.jpg',
+                img2:'images/fine_skin_cream_2.jpg',
+                img3:'images/fine_skin_cream_3.jpg',
+                features:[
+                    'تركيبة تفتيح قوية (10% Tranexamic Acid): تساعد على تقليل مظهر التصبغات وآثار الشمس والتصنع الداكن.',
+                    'توحيد لون البشرة: يعيد للبشرة توازنها ونضارتها الطبيعية لمظهر أكثر شباباً وحيوية.',
+                    'ترطيب وتنعيم: يمنح البشرة ملمساً ناعماً ورطباً دون ترك أي ملمس زيتي ثقيل.',
+                    'مناسب للاستخدام اليومي: مصمم بعناية ليناسب مختلف أنواع البشرة.',
+                    'عبوة سعة 50 مل (50 ml): مع علبة خارجية أنيقة تحافظ على جودة وفاعلية المكونات.'
+                ], 
+                usage:'تنظف البشرة جيداً وتجفف بلطف. تُوضع كمية مناسبة من الكريم على الوجه أو المناطق المراد تفتيحها. يُدلك بحركات دائرية خفيفة حتى يمتصه الجلد بالكامل. يُفضل الاستخدام مرتين يومياً (صباحاً ومساءً) مع ضرورة استخدام واقي الشمس خلال النهار.'
+            },
+            { 
+                id:3, 
+                slug:'bustobella-cream', 
+                name:'Bustobella Cream',  
+                short_desc:'للعناية المتكاملة بمناطق الأنوثة', 
+                description:'تقدم لكِ Pure Cosmo منتجها المتميز Bustobella Cream المخصص للعناية المتكاملة بمناطق الأنوثة واستعادة مرونة ونضارة البشرة. يعتمد الكريم على تركيبة مغذية ومطورة تعمل على تعزيز مظهر البشرة ومنحها ملمساً مشدوداً وأكثر امتلاءً وتناسقاً بشكل طبيعي وآمن.', 
+                size:'100 جم', 
+                price:'189', 
+                old_price:'259', 
+                badge:'', 
+                img:'images/Bustobella_Cream.jpg',
+                img2:'images/Bustobella_Cream_2.jpg',
+                img3:'images/Bustobella_Cream_3.jpg',
+                features:[
+                    'عناية متكاملة للأنوثة: مصمم خصيصاً لتغدية وتحسين مظهر مناطق الأنوثة (مثل منطقة الصدر).',
+                    'دعم مرونة البشرة: يساعد في تحسين مرونة الجلد وشده لمنحك مظهراً متناسقاً ومفعماً بالحيوية.',
+                    'تركيبة غنية وسريعة الامتصاص: كريم ناعم يمتصه الجلد بسهولة دون ترك أي أثر دهني.',
+                    'عبوة بحجم 100 جم (Net Weight: 100 gm): توفر لكِ استخداماً ممتداً ونتائج ملحوظة مع الانتظام.',
+                    'جودة عالية أصلية: إحدى إبداعات علامة Pure Cosmo للعناية والجمال.'
+                ], 
+                usage:'تنظف المنطقة المستهدفة جيداً بماء فاتر وتجفف بلطف. تُوضع كمية مناسبة من كريم بوستوبيلا على الكفين. يُدلك الكريم بحركات دائرية خفيفة من الأسفل إلى الأعلى لمدة 5 إلى 10 دقائق حتى يمتصه الجلد تماماً. يُفضل الاستخدام مرتين يومياً (صباحاً ومساءً) للحصول على أفضل النتائج.'
+            },
+            { 
+                id:4, 
+                slug:'grofast-weight-gainer', 
+                name:'Grofast Weight Gainer', 
+                short_desc:'فاتح للشهية وداعم للمناعة لزيادة الوزن الصحي', 
+                description:'تُمثل عبوة Grofast Weight Gainer الحل الأمثل والآمن لكل من يسعى لزيادة وزنه وبناء جسم صحي ومثالي. يعتمد كبسولات جروفاست على تركيبات غذائية غنية تجمع بين الفيتامينات الأساسية (Vit C, Vit E, Zinc)، الأحماض الأمينية، والمعادن لفتح الشهية بطريقة طبيعية وتحسين عملية التمثيل الغذائي.', 
+                size:'30 كبسولة', 
+                price:'159', 
+                old_price:'219', 
+                badge:'عرض خاص', 
+                img:'images/GrofastWeightGainer.jpg',
+                img2:'images/GrofastWeightGainer_2.jpg',
+                img3:'images/GrofastWeightGainer_3.jpg',
+                features:[
+                    'فاتح للشهية طبيعي (Increase Appetite): يساعد على تحفيز الرغبة في تناول الطعام بانتظام.',
+                    'يعزز زيادة الوزن الصحي (Promote Weight Gain): يزود الجسم بالعناصر والبروتينات اللازمة لبناء كتلة صحية.',
+                    'غني بالفيتامينات والمعادن: يحتوي على فيتامين C وفيتامين E والزنك لدعم الصحة العامة.',
+                    'يدعم المناعة (Immunity Booster): بفضل تركيبة الأحماض الأمينية الأساسية ومضادات الأكسدة.',
+                    'عبوة تحتوي على 30 كبسولة (30 Capsules): مصممة بجرعات دقيقة لنتائج ممتازة.'
+                ], 
+                usage:'تُؤخذ كبسولتان مرتين يومياً (بعد وجبتي الإفطار والعشاء) أو حسب إرشادات الطبيب/المختص.'
+            },
+            { 
+                id:5, 
+                slug:'agility-firming-gel', 
+                name:'Agility Firming Gel', 
+                short_desc:'شد الترهلات وتقليل علامات التمدد بتركيبة طبيعية فعالة', 
+                description:'احصلي على بشرة مشدودة ونشطة مع Agility Firming Gel المطور من Pure Cosmo (النقاوة كوزمو). يعتمد هذا الجيل المبتكر على قوة الخلاصة الطبيعية المركزة مثل الكافيين، مستخلص الشاي الأخضر، وزيت شجرة الشاي (Caffeine, Green Tea Extract, Tea Tree Oil) ليعمل بفعالية على شد الترهلات، تقليل مظهر علامات التمدد (Stretch Marks)، وتنعيم البشرة في المناطق المستهدفة كالمعدة، الأرداف، الفخذين، والذراعين.', 
+                size:'120 جم', 
+                price:'169', 
+                old_price:'239', 
+                badge:'', 
+                img:'images/AgilityFirmingGel.jpg',
+                img2:'images/AgilityFirmingGel_2.jpg',
+                img3:'images/AgilityFirmingGel_3.jpg',
+                features:[
+                    'شد الترهلات وتقليل علامات التمدد: يساعد على تحسين مرونة الجلد وتقليل الخطوط البيضاء والحمراء.',
+                    'تركيبة طبيعية فعالة: يحتوي على الكافيين والشاي الأخضر وزيت شجرة الشاي والصبار لتحفيز الدورة الدموية وتغذية الجلد.',
+                    'ترطيب عميق ومستمر: ينعم البشرة ويحافظ على رطوبتها حتى 8 ساعات متواصلة.',
+                    'سهل الامتصاص: جيل خفيف لا يترك أثراً دهنياً، ومناسب للاستخدام اليومي دون الحاجة للشطف.',
+                    'عبوة بحجم 120 غرام (Net Weight: 120g): توفر لكِ استخداماً منتظماً لنتائج ملحوظة.'
+                ], 
+                usage:'توضع كمية مناسبة من الجيل على المناطق المراد العناية بها (المعدة، الأرداف، الفخذين، أو الذراعين). يُدلك الجيل برفق بحركات دائرية حتى يتم امتصاصه بالكامل (بدون شطف). يُكرر الاستخدام من 2 إلى 3 مرات يومياً للحصول على أفضل النتائج.'
+            },
+            {  
+                id:6, 
+                slug:'honey-baby-cream', 
+                name:'Honey Baby Cream', 
+                short_desc:'مهدئ ومطهر لالتهابات الحفاض والبشرة الحساسة', 
+                description:'يقدم كريم Honey-Baby Antiseptic Healing Cream العناية الحانية والحماية المتكاملة لبشرة طفلك الرقيقة والأنواع المختلفة من الجلد الحساس. يعمل هذا الكريم كمطهر ومهدئ ممتاز يُشكل طبقة حماية عازلة تعزل الرطوبة والتهيج الخارجي عن جلد الطفل، مما يساعد على سرعة التئام البشرة وتهدئة احمرارها.', 
+                size:'60 جم', 
+                price:'99', 
+                old_price:'149', 
+                badge:'', 
+                img:'images/Honey-Baby2.jpg',
+                img2:'images/Honey-Baby.jpg',
+                img3:'images/Honey-Baby_3.jpg',
+                features:[
+                    'حماية وعزل للتهيج (Protective Barrier): يشكل طبقة عازلة تحمي بشرة الطفل من الرطوبة والمثيرات الخارجية الناتجة عن الحفاض.',
+                    'مهدئ ومطهر (Antiseptic Healing): يخفف الانزعاج، الحكة، واحمرار الجلد بشكل سريع وفعال.',
+                    'متعدد الاستخدامات: يدعم علاج التهابات الحفاض (Nappy Rash)، الأكزيما (Eczema)، الجروح السطحية (Surface Wounds)، حروق الشمس البسيطة، وحبوب البشرة.',
+                    'ترطيب وتغذية فائقة: يعزز تجدد خلايا البشرة ويحافظ على ملمسها ناعماً وطبيعياً.',
+                    'عبوة عملية سعة 60 غرام (60g e): محكمة الإغلاق ومناسبة لحقيبة الطفل اليومية.'
+                ], 
+                usage:'تُنظف المنطقة المصابة أو منطقة الحفاض جيداً وتُجفف بلطف. تُوضع طبقة رقيقة من كريم Honey-Baby وتُوزع برفق على الجلد. يُستخدم عند كل تغيير للحفاض أو عند الحاجة لتهدئة تهيج البشرة.'
+            },
+            {         
+                id:7, 
+                slug:'agility-massage-gel', 
+                name:'Agility Massage Gel', 
+                short_desc:'تسكين فوري لآلام العضلات والمفاصل والكدمات', 
+                description:'يقدم لك Agility Massage Gel من Pure Cosmo الحل السريع والفعال لتسكين الآلام المزعجة وتخفيف الشد العضلي. يتميز الجل بتركيبة متطورة وسريعة الامتصاص تعمل على تهدئة الأنسجة المتهبة، تحسين مرونة الحركة، وتوفير راحة فورية للعضلات والمفاصل بعد التمارين الرياضية أو المجهود اليومي.', 
+                size:'60 جم', 
+                price:'139', 
+                old_price:'199', 
+                badge:'', 
+                img:'images/AgilityMassageGel.jpg',
+                img2:'images/AgilityMassageGel_2.jpg',
+                img3:'images/AgilityMassageGel_3.jpg',
+                features:[
+                    'تسكين فوري للآلام: يخفف آلام العضلات، المفاصل، الكدمات، والروماتيزم بفاعلية وسرعة.',
+                    'تحسين الحركة ومرونة الأنسجة: يساعد على الاسترخاء العضلي وعلاج الأنسجة المجهدة.',
+                    'آمن وخالٍ من المواد الضارة: خالي من المواد الضارة والمواد المسرطنة لضمان استخدام آمن ومستمر.',
+                    'تركيبة منعشة: تحتوي على مستخلصات مهدئة تمنح شعوراً بالانتعاش والراحة عند التدليك.',
+                    'عبوة بحجم 60 غرام (60 gm): حجم مثالي ومناسب للاستخدام اليومي وحمله في الحقيبة الرياضية.'
+                ], 
+                usage:'توضع كمية مناسبة من جل أجيليتي على المنطقة المصابة. يُدلك المكان برفق بحركات دائرية حتى يمتص الجلد الجل بالكامل. يُكرر الاستخدام من 2 إلى 3 مرات يومياً عند الحاجة.'
+            },
+            { 
+                id:8, 
+                slug:'lissaney-hair-serum', 
+                name:'Lissaney Hair Serum', 
+                short_desc:'تغذية عميقة ولمعان فوري برائحة فاخرة', 
+                description:'انقلي العناية بشعرك وشعر طفلتك إلى مستوى آخر من الفخامة مع Lissaney Hair Serum المطور من Pure Cosmo. مصمم خصيصاً ليمنح الشعر مظهراً حيوياً ولامعاً كالأميرات، مع تركيبة خفيفة تغذي ألياف الشعر بعمق، تقلل الهيشان، وتوفر حماية يومية ضد العوامل الخارجية دون أي ملمس دهني ثقيل.', 
+                size:'70 مل', 
+                price:'179', 
+                old_price:'249', 
+                badge:'', 
+                img:'images/LissaneyHairSerum.jpg',
+                img2:'images/LissaneyHairSerum_2.jpg',
+                img3:'images/LissaneyHairSerum_3.jpg',
+                features:[
+                    'تغذية عميقة وفعالة (Helps Nourish Hair Deeply): يمر بتركيبته الغنية إلى أعماق ألياف الشعر لتقويته وحمايته من التقصف.',
+                    'لمعان فوري وسحر طبيعي (Instant Shine): يعيد للشعر إشراقته وحيويته فور وضعه لمظهر ناعم وحريري.',
+                    'لمسة عطرية فاخرة: معزز بنفحات عطرية ساحرة مستوحاة من عطور Victoria\'s Secret لمنح الشعر رائحة عذبة تدوم طوال اليوم.',
+                    'سهل التصفيف وفك التشابك: يجعل تمشيط الشعر تجربة سهلة وممتعة، خصوصاً لشعر الأطفال.',
+                    'تركيبة غنية بمكونات طبيعية: تحتوي على الليمونين واللينالول (Limonene & Linalool) لحماية الشعر وإضفاء النضارة.',
+                    'حجم العبوة (70 ml): عبوة ضاغطة عملية وأنيقة سهلة الاستخدام والتحكم في الجرعة.'
+                ], 
+                usage:'توضع بضع قطرات من السيروم على راحة اليد. يُوزع السيروم بالتساوي على شعر رطب أو جاف، مع التركيز على الأطراف والمناطق الجافة أو المجهدة. يُصفف الشعر كالمعتاد بمشط أو فرشة واسعة الأسنان. يمكن استخدامه يومياً قبل التصفيف أو كـ Finishing Touch لإضافة لمعان ورائحة مميزة.'
+            }
         ];
     </script>
 
     <!-- كود صفحة المنتج -->
     <script>
         (function() {
+            // =============================================
+            // CONFIGURATION
+            // =============================================
+            const SITE_URL = 'https://purecosmo.shop/';
+            const SITE_NAME = 'PURE COSMO';
+
             // ========== CART (localStorage) ==========
             const CART_KEY = 'pure_cosmo_cart';
             const VISITOR_KEY = 'pure_cosmo_visitor_id';
@@ -352,6 +621,88 @@
                 return params.get('slug');
             }
 
+            // ========== تحديث SEO ديناميكياً ==========
+            function updateSEO(product) {
+                const fullUrl = `${SITE_URL}product.html?slug=${product.slug}`;
+                const imageUrl = `${SITE_URL}${product.img}`;
+                const title = `${product.name} | ${SITE_NAME} - ${product.short_desc}`;
+                const description = (product.description || product.short_desc).substring(0, 160);
+
+                // Title & Description
+                document.title = title;
+                document.getElementById('pageDescription').content = description;
+                document.getElementById('pageKeywords').content = `${product.name}, ${product.short_desc}, PURE COSMO, مستحضرات تجميل, العناية بالبشرة, كفر الشيخ`;
+
+                // Canonical
+                document.getElementById('canonicalLink').href = fullUrl;
+
+                // Open Graph
+                document.getElementById('ogTitle').content = title;
+                document.getElementById('ogDescription').content = description;
+                document.getElementById('ogUrl').content = fullUrl;
+                document.getElementById('ogImage').content = imageUrl;
+                document.getElementById('ogImageAlt').content = `${product.name} - ${SITE_NAME}`;
+                document.getElementById('ogPrice').content = product.price;
+
+                // Twitter
+                document.getElementById('twitterTitle').content = title;
+                document.getElementById('twitterDescription').content = description;
+                document.getElementById('twitterImage').content = imageUrl;
+
+                // Product Schema (JSON-LD)
+                const productSchema = {
+                    "@context": "https://schema.org",
+                    "@type": "Product",
+                    "name": product.name,
+                    "description": product.description || product.short_desc,
+                    "image": [imageUrl, `${SITE_URL}${product.img2 || product.img}`, `${SITE_URL}${product.img3 || product.img}`],
+                    "brand": {
+                        "@type": "Brand",
+                        "name": SITE_NAME
+                    },
+                    "offers": {
+                        "@type": "Offer",
+                        "url": fullUrl,
+                        "priceCurrency": "EGP",
+                        "price": product.price,
+                        "availability": "https://schema.org/InStock",
+                        "priceValidUntil": new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+                        "seller": {
+                            "@type": "Organization",
+                            "name": SITE_NAME
+                        }
+                    }
+                };
+                document.getElementById('productSchema').textContent = JSON.stringify(productSchema);
+
+                // Breadcrumb Schema
+                const breadcrumbSchema = {
+                    "@context": "https://schema.org",
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "الرئيسية",
+                            "item": SITE_URL
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "المنتجات",
+                            "item": `${SITE_URL}#products`
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 3,
+                            "name": product.name,
+                            "item": fullUrl
+                        }
+                    ]
+                };
+                document.getElementById('breadcrumbSchema').textContent = JSON.stringify(breadcrumbSchema);
+            }
+
             // ========== عرض المنتج ==========
             function renderProduct() {
                 const slug = getProductSlug();
@@ -362,6 +713,7 @@
                         <div class="container" style="text-align:center;padding:60px 20px;">
                             <i class="fas fa-exclamation-circle" style="font-size:3rem;color:#d43f34;"></i>
                             <h2 style="margin-top:16px;">لم يتم تحديد المنتج</h2>
+                            <p style="color:#888;">يرجى اختيار منتج من الصفحة الرئيسية</p>
                             <a href="index.html" class="btn-primary" style="display:inline-block;margin-top:16px;">العودة للرئيسية</a>
                         </div>
                     `;
@@ -383,8 +735,13 @@
                 }
 
                 // تحديث SEO
-                document.title = `${product.name} - PURE COSMO`;
-                document.querySelector('meta[name="description"]').content = product.short_desc;
+                updateSEO(product);
+
+                // الصور المتوفرة
+                const availableImages = [];
+                if (product.img) availableImages.push(product.img);
+                if (product.img2) availableImages.push(product.img2);
+                if (product.img3) availableImages.push(product.img3);
 
                 const related = productsData.filter(p => p.id !== product.id).slice(0, 4);
                 const discount = product.old_price ? Math.round((1 - parseFloat(product.price)/parseFloat(product.old_price)) * 100) : 0;
@@ -392,22 +749,25 @@
                 container.innerHTML = `
                     <div class="container">
                         <!-- Breadcrumb -->
-                        <div class="breadcrumb">
+                        <nav class="breadcrumb" aria-label="breadcrumb">
                             <a href="index.html">الرئيسية</a>
                             <span>←</span>
                             <a href="index.html#products">المنتجات</a>
                             <span>←</span>
                             <span class="current">${product.name}</span>
-                        </div>
+                        </nav>
 
                         <!-- Product Hero -->
                         <div class="product-hero">
                             <div>
-                                <img src="${product.img}" id="mainProductImage" alt="${product.name}" class="product-image">
+                                <img src="${product.img}" id="mainProductImage" alt="${product.name} من PURE COSMO - ${product.short_desc}" class="product-image" width="500" height="500" fetchpriority="high" decoding="async">
                                 <div class="product-thumbs">
-                                    <img src="${product.img}" class="thumb-img active" onclick="document.getElementById('mainProductImage').src=this.src">
-                                    <img src="${product.img}" class="thumb-img" onclick="document.getElementById('mainProductImage').src=this.src">
-                                    <img src="https://placehold.co/400x400/F5EDE4/B78C5A?text=ALT+VIEW" class="thumb-img" onclick="document.getElementById('mainProductImage').src=this.src">
+                                    ${availableImages.map((img, i) => `
+                                        <img src="${img}" class="thumb-img ${i === 0 ? 'active' : ''}" 
+                                             onclick="document.getElementById('mainProductImage').src=this.src; document.querySelectorAll('.thumb-img').forEach(t=>t.classList.remove('active')); this.classList.add('active');"
+                                             alt="${product.name} - صورة ${i + 1}"
+                                             width="80" height="80" loading="lazy">
+                                    `).join('')}
                                 </div>
                             </div>
                             <div>
@@ -428,8 +788,8 @@
                                 </div>
 
                                 <div class="product-actions">
-                                    <label style="font-weight:700;">الكمية:</label>
-                                    <input type="number" id="detailQty" value="1" min="1">
+                                    <label style="font-weight:700;" for="detailQty">الكمية:</label>
+                                    <input type="number" id="detailQty" value="1" min="1" aria-label="الكمية">
                                     <button class="btn-add-cart" data-id="${product.id}"><i class="fas fa-cart-plus"></i> أضف إلى السلة</button>
                                     <button class="btn-buy-now" data-id="${product.id}"><i class="fas fa-bolt"></i> اطلب الآن</button>
                                 </div>
@@ -437,7 +797,7 @@
                         </div>
 
                         <!-- Product Details Tabs -->
-                        <div class="product-details-tabs">
+                        <section class="product-details-tabs">
                             <div class="tabs-header">
                                 <span class="tab-btn active" data-tab="desc">الوصف</span>
                                 <span class="tab-btn" data-tab="features">المميزات</span>
@@ -464,10 +824,10 @@
                                 <p><strong>نوع العبوة:</strong> عبوة أنيقة</p>
                                 <p><strong>بلد المنشأ:</strong> مصر</p>
                             </div>
-                        </div>
+                        </section>
 
                         <!-- FAQ -->
-                        <div class="faq-section">
+                        <section class="faq-section">
                             <h3 style="font-size:1.4rem;font-weight:800;margin-bottom:16px;">الأسئلة الشائعة حول ${product.name}</h3>
                             <div class="faq-item">
                                 <div class="faq-question" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
@@ -490,21 +850,21 @@
                                 </div>
                                 <div class="faq-answer">مدة الصلاحية موضحة على العبوة، وعادة ما تكون 24 شهراً من تاريخ الإنتاج.</div>
                             </div>
-                        </div>
+                        </section>
 
                         <!-- Related Products -->
-                        <div class="related-products">
+                        <section class="related-products">
                             <h3 style="font-size:1.6rem;font-weight:800;margin-bottom:20px;">🛍️ منتجات قد تهمك</h3>
                             <div class="related-grid">
                                 ${related.map(p => `
                                     <a href="product.html?slug=${p.slug}" class="related-card">
-                                        <img src="${p.img}" alt="${p.name}" loading="lazy">
+                                        <img src="${p.img}" alt="${p.name} من PURE COSMO" loading="lazy" width="200" height="120">
                                         <h4>${p.name}</h4>
                                         <div class="price">${p.price} جنيه</div>
                                     </a>
                                 `).join('')}
                             </div>
-                        </div>
+                        </section>
                     </div>
                 `;
 
@@ -517,7 +877,8 @@
 
                 container.querySelector('.btn-buy-now')?.addEventListener('click', function() {
                     const id = parseInt(this.dataset.id);
-                    addToCart(id, 1);
+                    const qty = parseInt(document.getElementById('detailQty').value) || 1;
+                    addToCart(id, qty);
                     window.location.href = 'cart.html';
                 });
 
@@ -531,15 +892,6 @@
                     });
                 });
 
-                // ========== Thumbnails ==========
-                document.querySelectorAll('.thumb-img').forEach(thumb => {
-                    thumb.addEventListener('click', function() {
-                        document.querySelectorAll('.thumb-img').forEach(t => t.classList.remove('active'));
-                        this.classList.add('active');
-                        document.getElementById('mainProductImage').src = this.src;
-                    });
-                });
-
                 updateCartCounter();
             }
 
@@ -550,7 +902,7 @@
 
             // ========== أيقونة البحث ==========
             document.getElementById('searchIcon').addEventListener('click', function() {
-                alert('🔍 سيتم تفعيل البحث قريباً');
+                window.location.href = 'index.html';
             });
 
             // ========== تشغيل الصفحة ==========
