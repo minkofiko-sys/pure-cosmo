@@ -1,9 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
+    <!-- ============================================ -->
+    <!-- الصفحة الرئيسية                              -->
+    <!-- ============================================ -->
     <url>
         <loc>https://purecosmo.shop/</loc>
         <lastmod>2026-09-10</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://purecosmo.shop/" />
+        <xhtml:link rel="alternate" hreflang="ar-EG" href="https://purecosmo.shop/" />
+        <image:image>
+            <image:loc>https://purecosmo.shop/images/logo_cosmo.png</image:loc>
+            <image:title>PURE COSMO - مستحضرات التجميل والعناية</image:title>
+            <image:caption>متجر PURE COSMO للعناية والجمال في مصر</image:caption>
+        </image:image>
+    </url>
+
+    <!-- ============================================ -->
+    <!-- صفحة ELDERI MARONO GEL                       -->
+    <!-- ============================================ -->
+    <url>
+        <loc>https://purecosmo.shop/product.html?slug=elderi-marono-gel</loc>
+        <lastmod>2026-09-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://purecosmo.shop/product.html?slug=elderi-marono-gel" />
+        <image:image>
+            <image:loc>https://purecosmo.shop/images/Elderi_Marono_Gel3.jpg</image:loc>
+            <image:title>ELDERI MARONO GEL من PURE COSMO</image:title>
+            <image:caption>جيل مؤخر موضعي للأداء والقوة الأصيلة - 30 مل</image:caption>
+        </image:image>
+    </url>
+
+    <!-- ============================================ -->
+    <!-- صفحة FINE SKIN CREAM                         -->
+    <!-- ============================================ -->
+    <url>
+        <loc>https://purecosmo.shop/product.html?slug=fine-skin-cream</loc>
+        <lastmod>2026-09-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://purecosmo.shop/product.html?slug=fine-skin-cream" />
+        <image:image>
+            <image:loc>https://purecosmo.shop/images/fine_skin_cream.jpg</image:loc>
+            <image:title>Fine Skin Cream من PURE COSMO</image:title>
+            <image:caption>كريم تفتيح البشرة بتركيبة 10% Tranexamic Acid - 50 مل</image:caption>
+        </image:image>
+    </url>
+
+    <!-- ============================================ -->
+    <!-- صفحة BUSTOBELLA CREAM                        -->
+    <!-- ============================================ -->
+    <url>
+        <loc>https://purecosmo.shop/product.html?slug=bustobella-cream</loc>
+        <lastmod>2026-09-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://purecosmo.shop/product.html?slug=bustobella-cream" />
+        <image:image>
+            <image:loc>https://purecosmo.shop/images/Bustobella_Cream.jpg</image:loc>
+            <image:title>Bustobella Cream من PURE COSMO</image:title>
+            <image:caption>كريم العناية المتكاملة بمناطق الأنوثة - 100 جم</image:caption>
+        </image:image>
+    </url>
+
+    <!-- ============================================ -->
+    <!-- صفحة GROFAST WEIGHT GAINER                   -->
+    <!-- ============================================ -->
+    <url>
+        <loc>https://purecosmo.shop/product.html?slug=grofast-weight-gainer</loc>
+        <lastmod>2026-09-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://purecosmo.shop/product.html?slug=grofast-weight-gainer" />
+        <image:image>
+            <image:loc>https://purecosmo.shop/images/GrofastWeightGainer.jpg</image:loc>
+            <image:title>Grofast Weight Gainer من PURE COSMO</image:title>
+            <image:caption>مكمل غذائي لفتح الشهية وزيادة الوزن الصحي - 30 كبسولة</image:caption>
+        </image:image>
+    </url>
+
+    <!-- ============================================ -->
+    <!-- صفحة AGILITY FIRMING GEL                     -->
+    <!-- ============================================ -->
+    <url>
+        <loc>https://purecosmo.shop/product.html?slug=agility-firming-gel</loc>
+        <lastmod>2026-09-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://purecosmo.shop/product.html?slug=agility-firming-gel" />
+        <image:image>
+            <image:loc>https://purecosmo.shop/images/AgilityFirmingGel.jpg</image:loc>
+            <image:title>Agility Firming Gel من PURE COSMO</image:title>
+            <image:caption>جيل شد الترهلات وتقليل علامات التمدد - 120 جم</image:caption>
+        </image:image>
+    </url>
+
+    <!-- ============================================ -->
+    <!-- صفحة HONEY BABY CREAM                        -->
+    <!-- ============================================ -->
+    <url>
+        <loc>https://purecosmo.shop/product.html?slug=honey-baby-cream</loc>
+        <lastmod>2026-09-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://purecosmo.shop/product.html?slug=honey-baby-cream" />
+        <image:image>
+            <image:loc>https://purecosmo.shop/images/Honey-Baby2.jpg</image:loc>
+            <image:title>Honey Baby Cream من PURE COSMO</image:title>
+            <image:caption>كريم مهدئ ومطهر لالتهابات الحفاض والبشرة الحساسة - 60 جم</image:caption>
+        </image:image>
+    </url>
+
+    <!-- ============================================ -->
+    <!-- صفحة AGILITY MASSAGE GEL                     -->
+    <!-- ============================================ -->
+    <url>
+        <loc>https://purecosmo.shop/product.html?slug=agility-massage-gel</loc>
+        <lastmod>2026-09-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://purecosmo.shop/product.html?slug=agility-massage-gel" />
+        <image:image>
+            <image:loc>https://purecosmo.shop/images/AgilityMassageGel.jpg</image:loc>
+            <image:title>Agility Massage Gel من PURE COSMO</image:title>
+            <image:caption>جل تسكين آلام العضلات والمفاصل والكدمات - 60 جم</image:caption>
+        </image:image>
+    </url>
+
+    <!-- ============================================ -->
+    <!-- صفحة LISSANEY HAIR SERUM                     -->
+    <!-- ============================================ -->
+    <url>
+        <loc>https://purecosmo.shop/product.html?slug=lissaney-hair-serum</loc>
+        <lastmod>2026-09-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://purecosmo.shop/product.html?slug=lissaney-hair-serum" />
+        <image:image>
+            <image:loc>https://purecosmo.shop/images/LissaneyHairSerum.jpg</image:loc>
+            <image:title>Lissaney Hair Serum من PURE COSMO</image:title>
+            <image:caption>سيروم تغذية ولمعان الشعر برائحة فاخرة - 70 مل</image:caption>
+        </image:image>
     </url>
 
 </urlset>
