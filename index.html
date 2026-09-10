@@ -1528,14 +1528,14 @@
                         <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill" style="width:90%;"></div></div>
                     </div>
                 </div>
-                <div class="offer-product">
-                    <img src="images/Elderi_Marono_Gel.jpg" alt="ELDERI MARONO GEL من PURE COSMO" loading="lazy" width="300" height="300">
-                    <div class="price-block">
-                        <span class="old-price">299 جنيه</span>
-                        <span class="new-price">199 جنيه</span>
-                    </div>
-                    <button class="btn-offer" id="offerOrderBtn"><i class="fas fa-fire"></i> اطلب الآن</button>
-                </div>
+<div class="offer-product">
+    <img src="images/Honey-Baby2.jpg" alt="Honey Baby Cream من PURE COSMO" loading="lazy" width="300" height="300">
+    <div class="price-block">
+        <span class="old-price">149 جنيه</span>
+        <span class="new-price">99 جنيه</span>
+    </div>
+    <button class="btn-offer" id="offerOrderBtn"><i class="fas fa-fire"></i> اطلب الآن</button>
+</div>
             </div>
         </section>
 
@@ -2164,21 +2164,21 @@
             // =============================================
             // OFFER BUTTONS
             // =============================================
-            const offerBtn = document.getElementById('offerOrderBtn');
-            if (offerBtn) {
-                offerBtn.addEventListener('click', function() {
-                    addToCart(1, 1);
-                    showToast('✅ تم إضافة ELDERI MARONO GEL إلى السلة');
-                });
-            }
-
+  
+const offerBtn = document.getElementById('offerOrderBtn');
+if (offerBtn) {
+    offerBtn.addEventListener('click', function() {
+        addToCart(6, 1); // Honey Baby Cream - id = 6
+        showToast('✅ تم إضافة Honey Baby Cream إلى السلة');
+    });
+        }
             const stickyBtn = document.getElementById('stickyOrderBtn');
-            if (stickyBtn) {
-                stickyBtn.addEventListener('click', function() {
-                    addToCart(1, 1);
-                    showToast('✅ تم إضافة ELDERI MARONO GEL إلى السلة');
-                });
-            }
+if (stickyBtn) {
+    stickyBtn.addEventListener('click', function() {
+        addToCart(6, 1); // Honey Baby Cream - id = 6
+        showToast('✅ تم إضافة Honey Baby Cream إلى السلة');
+    });
+}
 
             // =============================================
             // CART ICON
