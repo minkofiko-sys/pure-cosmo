@@ -635,227 +635,242 @@
             </aside>
           </div>
         `;
+        
+// ===== ربط زر التأكيد =====
+document.getElementById('confirmOrderBtn').addEventListener('click', async function () {
 
-        // ===== ربط زر التأكيد =====
-        document.getElementById('confirmOrderBtn').addEventListener('click', function() {
-          const name = document.getElementById('checkName').value.trim();
-          const phone = document.getElementById('checkPhone').value.trim();
+    const name = document.getElementById('checkName').value.trim();
+    const phone = document.getElementById('checkPhone').value.trim();
+    const city = document.getElementById('checkCity').value.trim();
+    const address = document.getElementById('checkAddress').value.trim();
+    const notes = document.getElementById('checkNotes').value.trim();
 
-          if (!name || !phone) {
-            showToast('⚠️ يرجى إدخال الاسم ورقم الهاتف');
-            return;
-          }
+    // التحقق من البيانات الأساسية
+    if (!name || !phone) {
+        showToast('⚠️ يرجى إدخال الاسم ورقم الهاتف');
+        return;
+    }
 
-          const city = document.getElementById('checkCity').value.trim();
-          const address = document.getElementById('checkAddress').value.trim();
-          const notes = document.getElementById('checkNotes').value.trim();
-          const cart = getCart();
+    const cart = getCart();
 
-          if (cart.items.length === 0) {
-            showToast('⚠️ السلة فارغة');
-            return;
-          }
+    if (!cart.items || cart.items.length === 0) {
+        showToast('⚠️ السلة فارغة');
+        return;
+    }
 
-// ============================================================
-// إرسال الطلب إلى Pure Cosmo API
-// ============================================================
+    // ============================================================
+    // API
+    // ============================================================
 
-const API_URL = 'https://rstartsys.site/api/purecosmo-order.php';
+    const API_URL = 'https://rstartsys.site/api/purecosmo-order.php';
 
-const orderData = {
-    visitor_id: getVisitorId(),
+    const confirmButton = document.getElementById('confirmOrderBtn');
 
-    name: name,
-    phone: phone,
-    city: city,
-    address: address,
-    notes: notes,
+    // ============================================================
+    // منع الضغط المتكرر
+    // ============================================================
 
-    // المنتجات
-    items: cart.items,
-
-    // الإجمالي هنا للعرض فقط
-    // السيرفر سيعيد حساب الإجمالي الحقيقي
-    total: cart.total,
-
-    date: new Date().toISOString()
-};
-
-
-// ============================================================
-// منع الضغط المتكرر
-// ============================================================
-
-const confirmButton = document.getElementById('confirmOrderBtn');
-
-if (confirmButton) {
     confirmButton.disabled = true;
 
-    confirmButton.dataset.originalText =
-        confirmButton.innerHTML;
+    const originalButtonText = confirmButton.innerHTML;
 
-    confirmButton.innerHTML =
-        '⏳ جاري إرسال الطلب...';
-}
+    confirmButton.innerHTML = '⏳ جاري إرسال الطلب...';
 
 
-// ============================================================
-// إرسال الطلب
-// ============================================================
+    // ============================================================
+    // بيانات الطلب
+    // ============================================================
 
-try {
+    const orderData = {
+        visitor_id: getVisitorId(),
 
-    const response = await fetch(API_URL, {
+        name: name,
+        phone: phone,
+        city: city,
+        address: address,
+        notes: notes,
 
-        method: 'POST',
+        // المنتجات
+        items: cart.items,
 
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        // السيرفر لا يعتمد على هذا السعر
+        // وإنما يعيد حساب الإجمالي بنفسه
+        total: cart.total,
 
-        body: JSON.stringify(orderData)
-
-    });
-
-
-    // محاولة قراءة JSON
-    let result;
-
-    try {
-        result = await response.json();
-    } catch (jsonError) {
-
-        throw new Error(
-            'استجابة غير صحيحة من السيرفر'
-        );
-    }
-
-
-    // ========================================================
-    // فشل API
-    // ========================================================
-
-    if (!response.ok || !result.success) {
-
-        throw new Error(
-            result.message ||
-            'تعذر إرسال الطلب'
-        );
-    }
-
-
-    // ========================================================
-    // نجاح إرسال الطلب
-    // ========================================================
-
-    const savedOrder = {
-
-        ...orderData,
-
-        order_id: result.order_id,
-
-        server_total: result.total,
-
-        sent_at: new Date().toISOString()
-
+        date: new Date().toISOString()
     };
 
 
-    // حفظ آخر طلب بعد نجاح الإرسال فقط
-    localStorage.setItem(
-        'pure_cosmo_last_order',
-        JSON.stringify(savedOrder)
-    );
+    try {
+
+        // ========================================================
+        // إرسال الطلب
+        // ========================================================
+
+        const response = await fetch(API_URL, {
+
+            method: 'POST',
+
+            headers: {
+                'Content-Type': 'application/json'
+            },
+
+            body: JSON.stringify(orderData)
+
+        });
 
 
-    // ========================================================
-    // تفريغ السلة بعد نجاح الإرسال فقط
-    // ========================================================
+        // ========================================================
+        // قراءة استجابة السيرفر
+        // ========================================================
 
-    saveCart({
+        let result;
 
-        visitor_id: getVisitorId(),
+        try {
 
-        items: [],
+            result = await response.json();
 
-        total: 0,
+        } catch (jsonError) {
 
-        updated_at: new Date().toISOString()
+            throw new Error(
+                'السيرفر أرسل استجابة غير صحيحة.'
+            );
 
-    });
-
-
-    // تحديث عداد السلة
-    updateCartCounter();
+        }
 
 
-    // ========================================================
-    // إظهار رسالة النجاح
-    // ========================================================
+        // ========================================================
+        // فشل الطلب
+        // ========================================================
 
-    document.getElementById(
-        'successOverlay'
-    ).classList.add('show');
+        if (!response.ok || !result.success) {
 
+            throw new Error(
+                result.message ||
+                'تعذر إرسال الطلب، حاول مرة أخرى.'
+            );
 
-    // لو عندك عنصر لرقم الطلب داخل رسالة النجاح
-    const successOrderId =
-        document.getElementById('successOrderId');
-
-    if (successOrderId) {
-
-        successOrderId.textContent =
-            result.order_id || '';
-
-    }
+        }
 
 
-    // ========================================================
-    // Log بسيط بدون بيانات العميل
-    // ========================================================
+        // ========================================================
+        // نجاح الطلب
+        // ========================================================
 
-    console.log(
-        'Pure Cosmo order sent successfully:',
-        result.order_id
-    );
+        const savedOrder = {
 
+            ...orderData,
 
-} catch (error) {
+            order_id: result.order_id || '',
 
-    console.error(
-        'Pure Cosmo order error:',
-        error
-    );
+            server_total: result.total || 0,
 
+            sent_at: new Date().toISOString()
 
-    // ========================================================
-    // رسالة الخطأ
-    // ========================================================
-
-    alert(
-        error.message ||
-        'حدث خطأ أثناء إرسال الطلب. تأكد من اتصال الإنترنت وحاول مرة أخرى.'
-    );
+        };
 
 
-    // ========================================================
-    // إعادة تفعيل الزر
-    // ========================================================
+        // ========================================================
+        // حفظ آخر طلب
+        // ========================================================
 
-    if (confirmButton) {
+        localStorage.setItem(
+            'pure_cosmo_last_order',
+            JSON.stringify(savedOrder)
+        );
+
+
+        // ========================================================
+        // تفريغ السلة
+        //
+        // مهم:
+        // لن يتم تفريغ السلة إلا بعد نجاح API
+        // ========================================================
+
+        saveCart({
+
+            visitor_id: getVisitorId(),
+
+            items: [],
+
+            total: 0,
+
+            updated_at: new Date().toISOString()
+
+        });
+
+
+        // ========================================================
+        // تحديث العداد
+        // ========================================================
+
+        updateCartCounter();
+
+
+        // ========================================================
+        // رقم الطلب داخل رسالة النجاح
+        // ========================================================
+
+        const successOrderId =
+            document.getElementById('successOrderId');
+
+        if (successOrderId && result.order_id) {
+
+            successOrderId.textContent =
+                result.order_id;
+
+        }
+
+
+        // ========================================================
+        // إظهار رسالة النجاح
+        // ========================================================
+
+        document
+            .getElementById('successOverlay')
+            .classList.add('show');
+
+
+        // ========================================================
+        // Log بدون بيانات العميل
+        // ========================================================
+
+        console.log(
+            'Pure Cosmo order sent:',
+            result.order_id
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            'Pure Cosmo order error:',
+            error
+        );
+
+
+        // ========================================================
+        // في حالة الفشل:
+        // السلة تظل موجودة
+        // ========================================================
+
+        showToast(
+            error.message ||
+            'حدث خطأ أثناء إرسال الطلب.'
+        );
+
+
+        // ========================================================
+        // إعادة تفعيل الزر
+        // ========================================================
 
         confirmButton.disabled = false;
 
-        confirmButton.innerHTML =
-            confirmButton.dataset.originalText ||
-            'تأكيد الطلب';
+        confirmButton.innerHTML = originalButtonText;
 
     }
 
-}
-
-          console.log('✅ Order placed:', orderData);
-        });
+});
 
         updateCartCounter();
       }
