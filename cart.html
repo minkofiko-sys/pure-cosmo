@@ -410,15 +410,15 @@
 
   <script>
     (function() {
-      // ========== PRODUCT DATA ==========
+      // ========== PRODUCT DATA (محدث بالأسعار الصحيحة) ==========
       const products = [
         { 
           id:1, 
           slug:'elderi-marono-gel', 
           name:'ELDERI MARONO GEL', 
           short_desc:'جيل مؤخر موضعي للأداء والقوة الأصيلة', 
-          price:'199', 
-          old_price:'299', 
+          price:'250', 
+          old_price:'300', 
           badge:'الأكثر طلبًا', 
           img:'images/Elderi_Marono_Gel3.jpg', 
           size:'30 مل' 
@@ -428,8 +428,8 @@
           slug:'fine-skin-cream', 
           name:'Fine Skin Cream', 
           short_desc:'تركيبة متطورة 10% Tranexamic Acid لتفتيح البشرة', 
-          price:'249', 
-          old_price:'329', 
+          price:'250', 
+          old_price:'330', 
           badge:'عرض خاص', 
           img:'images/fine_skin_cream.jpg', 
           size:'50 مل' 
@@ -439,8 +439,8 @@
           slug:'bustobella-cream', 
           name:'Bustobella Cream', 
           short_desc:'للعناية المتكاملة بمناطق الأنوثة', 
-          price:'189', 
-          old_price:'259', 
+          price:'150', 
+          old_price:'190', 
           badge:'', 
           img:'images/Bustobella_Cream.jpg', 
           size:'100 جم' 
@@ -450,8 +450,8 @@
           slug:'grofast-weight-gainer', 
           name:'Grofast Weight Gainer', 
           short_desc:'فاتح للشهية وداعم للمناعة لزيادة الوزن الصحي', 
-          price:'159', 
-          old_price:'219', 
+          price:'250', 
+          old_price:'300', 
           badge:'عرض خاص', 
           img:'images/GrofastWeightGainer.jpg', 
           size:'30 كبسولة' 
@@ -461,8 +461,8 @@
           slug:'agility-firming-gel', 
           name:'Agility Firming Gel', 
           short_desc:'شد الترهلات وتقليل علامات التمدد', 
-          price:'169', 
-          old_price:'239', 
+          price:'90', 
+          old_price:'160', 
           badge:'', 
           img:'images/AgilityFirmingGel.jpg', 
           size:'120 جم' 
@@ -472,8 +472,8 @@
           slug:'honey-baby-cream', 
           name:'Honey Baby Cream', 
           short_desc:'مهدئ ومطهر لالتهابات الحفاض والبشرة الحساسة', 
-          price:'99', 
-          old_price:'149', 
+          price:'110', 
+          old_price:'150', 
           badge:'', 
           img:'images/Honey-Baby2.jpg', 
           size:'60 جم' 
@@ -483,8 +483,8 @@
           slug:'agility-massage-gel', 
           name:'Agility Massage Gel', 
           short_desc:'تسكين فوري لآلام العضلات والمفاصل والكدمات', 
-          price:'139', 
-          old_price:'199', 
+          price:'90', 
+          old_price:'160', 
           badge:'', 
           img:'images/AgilityMassageGel.jpg', 
           size:'60 جم' 
@@ -494,13 +494,37 @@
           slug:'lissaney-hair-serum', 
           name:'Lissaney Hair Serum', 
           short_desc:'تغذية عميقة ولمعان فوري برائحة فاخرة', 
-          price:'179', 
-          old_price:'249', 
+          price:'280', 
+          old_price:'360', 
           badge:'', 
           img:'images/LissaneyHairSerum.jpg', 
           size:'70 مل' 
+        },
+        { 
+          id:9, 
+          slug:'grofast-weight-gainer-sachets', 
+          name:'Grofast Weight Gainer Sachets', 
+          short_desc:'أكياس جروفاست لزيادة الوزن وفتح الشهية', 
+          price:'250', 
+          old_price:'300', 
+          badge:'جديد', 
+          img:'images/GrofastWeightGainerSachets.jpg', 
+          size:'10 أكياس' 
         }
       ];
+
+      // ========== PRODUCT FILE NAMES (روابط الملفات المنفصلة) ==========
+      const productFileNames = {
+        'elderi-marono-gel': 'product-elderi-marono-gel.html',
+        'fine-skin-cream': 'product-fine-skin-cream.html',
+        'bustobella-cream': 'product-bustobella-cream.html',
+        'grofast-weight-gainer': 'product-grofast-weight-gainer.html',
+        'agility-firming-gel': 'product-agility-firming-gel.html',
+        'honey-baby-cream': 'product-honey-baby-cream.html',
+        'agility-massage-gel': 'product-agility-massage-gel.html',
+        'lissaney-hair-serum': 'product-lissaney-hair-serum.html',
+        'grofast-weight-gainer-sachets': 'product-grofast-weight-gainer-sachets.html'
+      };
 
       // ========== CART (localStorage) ==========
       const CART_KEY = 'pure_cosmo_cart';
@@ -565,7 +589,7 @@
         let itemsHtml = cart.items.map(item => {
           const product = products.find(p => p.id === item.id) || item;
           const total = (parseFloat(item.price) * item.qty).toFixed(0);
-          const productUrl = `product.html?slug=${item.slug || product.slug}`;
+          const productUrl = productFileNames[item.slug || product.slug] || `product.html?slug=${item.slug || product.slug}`;
           return `
             <article class="cart-item" data-id="${item.id}">
               <a href="${productUrl}" style="text-decoration:none;">
