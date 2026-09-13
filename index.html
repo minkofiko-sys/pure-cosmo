@@ -2040,9 +2040,6 @@
                 });
 
                 info.querySelector('.btn-buy-now-modal').addEventListener('click', function() {
-                    const id = parseInt(this.dataset.id);
-                    const qty = parseInt(document.getElementById('modalQty').value) || 1;
-                    addToCart(id, qty);
                     window.location.href = 'cart.html';
                 });
 
