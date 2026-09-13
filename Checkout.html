@@ -10,11 +10,6 @@
   <title>إتمام الطلب | PURE COSMO</title>
   <meta name="description" content="أكمل طلبك من PURE COSMO بسهولة. أدخل بياناتك وأكد طلبك مع توصيل داخل مصر." />
   <meta name="keywords" content="إتمام الطلب, PURE COSMO, تأكيد الطلب, توصيل مصر" />
-  
-  <!-- ========================================= -->
-  <!-- IMPORTANT: NOINDEX, NOFOLLOW FOR CHECKOUT -->
-  <!-- صفحة الدفع حساسة جداً ولا يجب فهرستها      -->
-  <!-- ========================================= -->
   <meta name="robots" content="noindex, nofollow" />
   <meta name="author" content="PURE COSMO" />
   <meta name="language" content="Arabic" />
@@ -142,12 +137,14 @@
       transition: 0.2s;
     }
     .form-group input:focus,
-    .form-group textarea:focus {
+    .form-group textarea:focus,
+    .form-group select:focus {
       border-color: var(--gold);
       outline: none;
       box-shadow: 0 0 0 3px rgba(183,140,90,0.1);
     }
     .form-group textarea { border-radius: 20px; resize: vertical; min-height: 60px; }
+    .form-group select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b78c5a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e"); background-repeat: no-repeat; background-position: left 16px center; background-size: 18px; padding-left: 44px; }
 
     /* Order Summary */
     .order-summary {
@@ -196,6 +193,13 @@
       padding: 6px 0;
       font-size: 0.95rem;
       color: #555;
+    }
+    .summary-row.shipping-row {
+      background: #f8f4ee;
+      padding: 8px 12px;
+      border-radius: 12px;
+      margin: 4px 0;
+      font-weight: 700;
     }
     .summary-total {
       display: flex;
@@ -343,23 +347,21 @@
 </head>
 <body>
 
-  <!-- Toast -->
   <div class="toast" id="toast" role="status" aria-live="polite">
     <i class="fas fa-check-circle" style="color:var(--gold);"></i> 
     <span id="toastMsg">تم التحديث</span>
   </div>
 
-  <!-- Success Modal -->
   <div class="success-overlay" id="successOverlay" role="dialog" aria-modal="true" aria-labelledby="successTitle">
     <div class="success-modal">
       <i class="fas fa-check-circle" aria-hidden="true"></i>
       <h2 id="successTitle">✅ تم استلام طلبك!</h2>
       <p>شكراً لك على ثقتك بمنتجات PURE COSMO. سنقوم بتأكيد الطلب والتواصل معك قريباً.</p>
+      <p style="font-size:0.85rem;color:#999;">رقم الطلب: <span id="successOrderId">—</span></p>
       <a href="index.html" class="btn-home">العودة للرئيسية</a>
     </div>
   </div>
 
-  <!-- Header -->
   <header class="sticky-header">
     <div class="container header-inner">
       <div class="logo"><a href="index.html"><h1>PURE <span>COSMO</span></h1></a></div>
@@ -381,11 +383,9 @@
     </div>
   </header>
 
-  <!-- Checkout Page -->
   <main class="checkout-page">
     <div class="container">
 
-      <!-- Breadcrumb -->
       <nav class="breadcrumb" aria-label="breadcrumb">
         <a href="index.html">الرئيسية</a>
         <span>←</span>
@@ -397,13 +397,10 @@
       <h1 class="checkout-title">📋 إتمام الطلب</h1>
       <p class="checkout-subtitle">أدخل بياناتك لتأكيد طلبك</p>
 
-      <div id="checkoutContent" aria-live="polite">
-        <!-- سيتم تعبئتها بواسطة JavaScript -->
-      </div>
+      <div id="checkoutContent" aria-live="polite"></div>
     </div>
   </main>
 
-  <!-- Footer -->
   <footer id="contact">
     <div class="container">
       <div class="footer-grid">
@@ -443,75 +440,78 @@
 
   <script>
     (function() {
-      // ========== PRODUCT DATA ==========
+      // =============================================
+      // PRODUCT DATA (أسعار محدّثة)
+      // =============================================
       const products = [
-        { 
-          id:1, 
-          slug:'elderi-marono-gel', 
-          name:'ELDERI MARONO GEL', 
-          price:'199', 
-          img:'images/Elderi_Marono_Gel3.jpg', 
-          size:'30 مل' 
-        },
-        { 
-          id:2, 
-          slug:'fine-skin-cream', 
-          name:'Fine Skin Cream', 
-          price:'249', 
-          img:'images/fine_skin_cream.jpg', 
-          size:'50 مل' 
-        },
-        { 
-          id:3, 
-          slug:'bustobella-cream', 
-          name:'Bustobella Cream', 
-          price:'189', 
-          img:'images/Bustobella_Cream.jpg', 
-          size:'100 جم' 
-        },
-        { 
-          id:4, 
-          slug:'grofast-weight-gainer', 
-          name:'Grofast Weight Gainer', 
-          price:'159', 
-          img:'images/GrofastWeightGainer.jpg', 
-          size:'30 كبسولة' 
-        },
-        { 
-          id:5, 
-          slug:'agility-firming-gel', 
-          name:'Agility Firming Gel', 
-          price:'169', 
-          img:'images/AgilityFirmingGel.jpg', 
-          size:'120 جم' 
-        },
-        { 
-          id:6, 
-          slug:'honey-baby-cream', 
-          name:'Honey Baby Cream', 
-          price:'99', 
-          img:'images/Honey-Baby2.jpg', 
-          size:'60 جم' 
-        },
-        { 
-          id:7, 
-          slug:'agility-massage-gel', 
-          name:'Agility Massage Gel', 
-          price:'139', 
-          img:'images/AgilityMassageGel.jpg', 
-          size:'60 جم' 
-        },
-        { 
-          id:8, 
-          slug:'lissaney-hair-serum', 
-          name:'Lissaney Hair Serum', 
-          price:'179', 
-          img:'images/LissaneyHairSerum.jpg', 
-          size:'70 مل' 
-        }
+        { id:1, slug:'elderi-marono-gel', name:'ELDERI MARONO GEL', price:'250', img:'images/Elderi_Marono_Gel3.jpg', size:'30 مل' },
+        { id:2, slug:'fine-skin-cream', name:'Fine Skin Cream', price:'250', img:'images/fine_skin_cream.jpg', size:'50 مل' },
+        { id:3, slug:'bustobella-cream', name:'Bustobella Cream', price:'150', img:'images/Bustobella_Cream.jpg', size:'100 جم' },
+        { id:4, slug:'grofast-weight-gainer', name:'Grofast Weight Gainer', price:'250', img:'images/GrofastWeightGainer.jpg', size:'30 كبسولة' },
+        { id:5, slug:'agility-firming-gel', name:'Agility Firming Gel', price:'90', img:'images/AgilityFirmingGel.jpg', size:'120 جم' },
+        { id:6, slug:'honey-baby-cream', name:'Honey Baby Cream', price:'110', img:'images/Honey-Baby2.jpg', size:'60 جم' },
+        { id:7, slug:'agility-massage-gel', name:'Agility Massage Gel', price:'90', img:'images/AgilityMassageGel.jpg', size:'60 جم' },
+        { id:8, slug:'lissaney-hair-serum', name:'Lissaney Hair Serum', price:'280', img:'images/LissaneyHairSerum.jpg', size:'70 مل' },
+        { id:9, slug:'grofast-weight-gainer-sachets', name:'Grofast Weight Gainer Sachets', price:'250', img:'images/GrofastWeightGainerSachets.jpg', size:'10 أكياس' }
       ];
 
-      // ========== CART (localStorage) ==========
+      // =============================================
+      // PRODUCT FILE NAMES
+      // =============================================
+      const productFileNames = {
+        'elderi-marono-gel': 'product-elderi-marono-gel.html',
+        'fine-skin-cream': 'product-fine-skin-cream.html',
+        'bustobella-cream': 'product-bustobella-cream.html',
+        'grofast-weight-gainer': 'product-grofast-weight-gainer.html',
+        'agility-firming-gel': 'product-agility-firming-gel.html',
+        'honey-baby-cream': 'product-honey-baby-cream.html',
+        'agility-massage-gel': 'product-agility-massage-gel.html',
+        'lissaney-hair-serum': 'product-lissaney-hair-serum.html',
+        'grofast-weight-gainer-sachets': 'product-grofast-weight-gainer-sachets.html'
+      };
+
+      // =============================================
+      // SHIPPING RATES
+      // =============================================
+      const KAFR_EL_SHEIKH_SHIPPING = 30;
+      const OTHER_GOVERNORATES_SHIPPING = 80;
+
+      // =============================================
+      // EGYPT GOVERNORATES LIST
+      // =============================================
+      const governorates = [
+        'كفر الشيخ',
+        'القاهرة',
+        'الجيزة',
+        'الإسكندرية',
+        'الدقهلية',
+        'الشرقية',
+        'الغربية',
+        'المنوفية',
+        'القليوبية',
+        'البحيرة',
+        'دمياط',
+        'بورسعيد',
+        'الإسماعيلية',
+        'السويس',
+        'شمال سيناء',
+        'جنوب سيناء',
+        'الفيوم',
+        'بني سويف',
+        'المنيا',
+        'أسيوط',
+        'سوهاج',
+        'قنا',
+        'الأقصر',
+        'أسوان',
+        'البحر الأحمر',
+        'الوادي الجديد',
+        'مطروح'
+      ];
+
+      // =============================================
+      // CART (localStorage)
+      // =============================================
       const CART_KEY = 'pure_cosmo_cart';
       const VISITOR_KEY = 'pure_cosmo_visitor_id';
 
@@ -554,7 +554,25 @@
         }
       }
 
-      // ========== RENDER CHECKOUT ==========
+      // =============================================
+      // GET SHIPPING COST
+      // =============================================
+      function getShippingCost(governorate) {
+        if (!governorate) return 0;
+        return governorate === 'كفر الشيخ' ? KAFR_EL_SHEIKH_SHIPPING : OTHER_GOVERNORATES_SHIPPING;
+      }
+
+      // =============================================
+      // BUILD GOVERNORATES OPTIONS
+      // =============================================
+      function buildGovernoratesOptions() {
+        return '<option value="">اختر المحافظة</option>' + 
+          governorates.map(gov => `<option value="${gov}">${gov}</option>`).join('');
+      }
+
+      // =============================================
+      // RENDER CHECKOUT
+      // =============================================
       function renderCheckout() {
         const cart = getCart();
         const container = document.getElementById('checkoutContent');
@@ -573,8 +591,7 @@
 
         let itemsHtml = cart.items.map(item => {
           const product = products.find(p => p.id === item.id) || item;
-          const total = (parseFloat(item.price) * item.qty).toFixed(0);
-          const productUrl = `product.html?slug=${item.slug || product.slug}`;
+          const productUrl = productFileNames[item.slug || product.slug] || `product.html?slug=${item.slug || product.slug}`;
           return `
             <div class="order-item">
               <a href="${productUrl}" style="text-decoration:none;">
@@ -605,8 +622,10 @@
               </div>
 
               <div class="form-group">
-                <label for="checkCity">المحافظة</label>
-                <input type="text" id="checkCity" placeholder="مثل: القاهرة" autocomplete="address-level1">
+                <label for="checkCity">المحافظة *</label>
+                <select id="checkCity" required aria-required="true">
+                  ${buildGovernoratesOptions()}
+                </select>
               </div>
 
               <div class="form-group">
@@ -628,268 +647,175 @@
 
               <div class="summary-row"><span>عدد المنتجات</span><span>${cart.items.length}</span></div>
               <div class="summary-row"><span>إجمالي المنتجات</span><span>${cart.total} جنيه</span></div>
-              <div class="summary-total"><span>الإجمالي</span><span>${cart.total} جنيه</span></div>
+              
+              <div class="summary-row shipping-row" id="shippingRow" style="display:none;">
+                <span><i class="fas fa-truck" style="color:var(--gold);"></i> رسوم الشحن</span>
+                <span id="shippingCost">0 جنيه</span>
+              </div>
+
+              <div class="summary-total"><span>الإجمالي</span><span id="grandTotal">${cart.total} جنيه</span></div>
 
               <button class="btn-confirm" id="confirmOrderBtn">✅ تأكيد الطلب</button>
               <a href="cart.html" class="btn-back">← العودة إلى السلة</a>
             </aside>
           </div>
         `;
-        
-// ===== ربط زر التأكيد =====
-document.getElementById('confirmOrderBtn').addEventListener('click', async function () {
 
-    const name = document.getElementById('checkName').value.trim();
-    const phone = document.getElementById('checkPhone').value.trim();
-    const city = document.getElementById('checkCity').value.trim();
-    const address = document.getElementById('checkAddress').value.trim();
-    const notes = document.getElementById('checkNotes').value.trim();
+        // =============================================
+        // SHIPPING COST CALCULATION ON SELECT CHANGE
+        // =============================================
+        const citySelect = document.getElementById('checkCity');
+        const shippingRow = document.getElementById('shippingRow');
+        const shippingCostEl = document.getElementById('shippingCost');
+        const grandTotalEl = document.getElementById('grandTotal');
+        const cartTotal = parseFloat(cart.total);
 
-    // التحقق من البيانات الأساسية
-    if (!name || !phone) {
-        showToast('⚠️ يرجى إدخال الاسم ورقم الهاتف');
-        return;
-    }
-
-    const cart = getCart();
-
-    if (!cart.items || cart.items.length === 0) {
-        showToast('⚠️ السلة فارغة');
-        return;
-    }
-
-    // ============================================================
-    // API
-    // ============================================================
-
-    const API_URL = 'https://rstartsys.site/api/purecosmo-order.php';
-
-    const confirmButton = document.getElementById('confirmOrderBtn');
-
-    // ============================================================
-    // منع الضغط المتكرر
-    // ============================================================
-
-    confirmButton.disabled = true;
-
-    const originalButtonText = confirmButton.innerHTML;
-
-    confirmButton.innerHTML = '⏳ جاري إرسال الطلب...';
-
-
-    // ============================================================
-    // بيانات الطلب
-    // ============================================================
-
-    const orderData = {
-        visitor_id: getVisitorId(),
-
-        name: name,
-        phone: phone,
-        city: city,
-        address: address,
-        notes: notes,
-
-        // المنتجات
-        items: cart.items,
-
-        // السيرفر لا يعتمد على هذا السعر
-        // وإنما يعيد حساب الإجمالي بنفسه
-        total: cart.total,
-
-        date: new Date().toISOString()
-    };
-
-
-    try {
-
-        // ========================================================
-        // إرسال الطلب
-        // ========================================================
-
-        const response = await fetch(API_URL, {
-
-            method: 'POST',
-
-            headers: {
-                'Content-Type': 'application/json'
-            },
-
-            body: JSON.stringify(orderData)
-
+        citySelect.addEventListener('change', function() {
+          const selected = this.value;
+          if (!selected) {
+            shippingRow.style.display = 'none';
+            grandTotalEl.textContent = cartTotal + ' جنيه';
+            return;
+          }
+          const shipping = getShippingCost(selected);
+          shippingRow.style.display = 'flex';
+          shippingCostEl.textContent = shipping + ' جنيه';
+          grandTotalEl.textContent = (cartTotal + shipping) + ' جنيه';
         });
 
+        // =============================================
+        // CONFIRM ORDER
+        // =============================================
+        document.getElementById('confirmOrderBtn').addEventListener('click', async function() {
 
-        // ========================================================
-        // قراءة استجابة السيرفر
-        // ========================================================
+          const name = document.getElementById('checkName').value.trim();
+          const phone = document.getElementById('checkPhone').value.trim();
+          const city = document.getElementById('checkCity').value.trim();
+          const address = document.getElementById('checkAddress').value.trim();
+          const notes = document.getElementById('checkNotes').value.trim();
 
-        let result;
+          if (!name || !phone) {
+            showToast('⚠️ يرجى إدخال الاسم ورقم الهاتف');
+            return;
+          }
 
-        try {
+          if (!city) {
+            showToast('⚠️ يرجى اختيار المحافظة');
+            return;
+          }
 
-            result = await response.json();
+          const currentCart = getCart();
 
-        } catch (jsonError) {
+          if (!currentCart.items || currentCart.items.length === 0) {
+            showToast('⚠️ السلة فارغة');
+            return;
+          }
 
-            throw new Error(
-                'السيرفر أرسل استجابة غير صحيحة.'
-            );
+          const shippingCost = getShippingCost(city);
+          const productsTotal = parseFloat(currentCart.total);
+          const grandTotal = productsTotal + shippingCost;
 
-        }
+          const API_URL = 'https://rstartsys.site/api/purecosmo-order.php';
 
+          const confirmButton = document.getElementById('confirmOrderBtn');
+          confirmButton.disabled = true;
+          const originalButtonText = confirmButton.innerHTML;
+          confirmButton.innerHTML = '⏳ جاري إرسال الطلب...';
 
-        // ========================================================
-        // فشل الطلب
-        // ========================================================
-
-        if (!response.ok || !result.success) {
-
-            throw new Error(
-                result.message ||
-                'تعذر إرسال الطلب، حاول مرة أخرى.'
-            );
-
-        }
-
-
-        // ========================================================
-        // نجاح الطلب
-        // ========================================================
-
-        const savedOrder = {
-
-            ...orderData,
-
-            order_id: result.order_id || '',
-
-            server_total: result.total || 0,
-
-            sent_at: new Date().toISOString()
-
-        };
-
-
-        // ========================================================
-        // حفظ آخر طلب
-        // ========================================================
-
-        localStorage.setItem(
-            'pure_cosmo_last_order',
-            JSON.stringify(savedOrder)
-        );
-
-
-        // ========================================================
-        // تفريغ السلة
-        //
-        // مهم:
-        // لن يتم تفريغ السلة إلا بعد نجاح API
-        // ========================================================
-
-        saveCart({
-
+          const orderData = {
             visitor_id: getVisitorId(),
+            name: name,
+            phone: phone,
+            city: city,
+            address: address,
+            notes: notes,
+            items: currentCart.items,
+            subtotal: productsTotal,
+            shipping: shippingCost,
+            total: grandTotal,
+            date: new Date().toISOString()
+          };
 
-            items: [],
+          try {
+            const response = await fetch(API_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(orderData)
+            });
 
-            total: 0,
+            let result;
+            try {
+              result = await response.json();
+            } catch (jsonError) {
+              throw new Error('السيرفر أرسل استجابة غير صحيحة.');
+            }
 
-            updated_at: new Date().toISOString()
+            if (!response.ok || !result.success) {
+              throw new Error(result.message || 'تعذر إرسال الطلب، حاول مرة أخرى.');
+            }
+
+            const savedOrder = {
+              ...orderData,
+              order_id: result.order_id || '',
+              server_total: result.total || 0,
+              sent_at: new Date().toISOString()
+            };
+
+            localStorage.setItem('pure_cosmo_last_order', JSON.stringify(savedOrder));
+
+            saveCart({
+              visitor_id: getVisitorId(),
+              items: [],
+              total: 0,
+              updated_at: new Date().toISOString()
+            });
+
+            updateCartCounter();
+
+            const successOrderId = document.getElementById('successOrderId');
+            if (successOrderId && result.order_id) {
+              successOrderId.textContent = result.order_id;
+            }
+
+            document.getElementById('successOverlay').classList.add('show');
+
+            console.log('Pure Cosmo order sent:', result.order_id);
+
+          } catch (error) {
+            console.error('Pure Cosmo order error:', error);
+            showToast(error.message || 'حدث خطأ أثناء إرسال الطلب.');
+            confirmButton.disabled = false;
+            confirmButton.innerHTML = originalButtonText;
+          }
 
         });
-
-
-        // ========================================================
-        // تحديث العداد
-        // ========================================================
-
-        updateCartCounter();
-
-
-        // ========================================================
-        // رقم الطلب داخل رسالة النجاح
-        // ========================================================
-
-        const successOrderId =
-            document.getElementById('successOrderId');
-
-        if (successOrderId && result.order_id) {
-
-            successOrderId.textContent =
-                result.order_id;
-
-        }
-
-
-        // ========================================================
-        // إظهار رسالة النجاح
-        // ========================================================
-
-        document
-            .getElementById('successOverlay')
-            .classList.add('show');
-
-
-        // ========================================================
-        // Log بدون بيانات العميل
-        // ========================================================
-
-        console.log(
-            'Pure Cosmo order sent:',
-            result.order_id
-        );
-
-
-    } catch (error) {
-
-        console.error(
-            'Pure Cosmo order error:',
-            error
-        );
-
-
-        // ========================================================
-        // في حالة الفشل:
-        // السلة تظل موجودة
-        // ========================================================
-
-        showToast(
-            error.message ||
-            'حدث خطأ أثناء إرسال الطلب.'
-        );
-
-
-        // ========================================================
-        // إعادة تفعيل الزر
-        // ========================================================
-
-        confirmButton.disabled = false;
-
-        confirmButton.innerHTML = originalButtonText;
-
-    }
-
-});
 
         updateCartCounter();
       }
 
-      // ========== INIT ==========
+      // =============================================
+      // INIT
+      // =============================================
       renderCheckout();
       updateCartCounter();
 
-      // ========== SEARCH ICON ==========
+      // =============================================
+      // SEARCH ICON
+      // =============================================
       document.getElementById('searchIcon').addEventListener('click', function() {
         window.location.href = 'index.html';
       });
 
-      // ========== CART ICON ==========
+      // =============================================
+      // CART ICON
+      // =============================================
       document.getElementById('cartIcon').addEventListener('click', function() {
         window.location.href = 'cart.html';
       });
 
-      // ========== MOBILE MENU ==========
+      // =============================================
+      // MOBILE MENU
+      // =============================================
       document.getElementById('mobileMenuToggle').addEventListener('click', function() {
         alert('📱 سيتم تفعيل القائمة الجانبية قريباً');
       });
