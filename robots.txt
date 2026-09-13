@@ -1,7 +1,7 @@
 # ============================================
 # robots.txt for PURE COSMO
 # Website: https://purecosmo.shop/
-# Last Updated: 2026-09-10
+# Last Updated: 2026-09-14
 # ============================================
 
 # ============================================
@@ -9,6 +9,7 @@
 # ============================================
 User-agent: *
 Allow: /
+Allow: /product-*.html
 Disallow: /cart.html
 Disallow: /Checkout.html
 Disallow: /checkout.html
@@ -21,7 +22,7 @@ Disallow: /*?search=
 # ============================================
 User-agent: Googlebot
 Allow: /
-Allow: /product.html
+Allow: /product-*.html
 Disallow: /cart.html
 Disallow: /Checkout.html
 Disallow: /checkout.html
@@ -44,6 +45,7 @@ Allow: /*.webp$
 # ============================================
 User-agent: Bingbot
 Allow: /
+Allow: /product-*.html
 Disallow: /cart.html
 Disallow: /Checkout.html
 Disallow: /checkout.html
