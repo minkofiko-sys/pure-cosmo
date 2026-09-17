@@ -415,7 +415,7 @@
                     <a href="product-agility-firming-gel.html" class="related-card">
                         <img src="images/AgilityFirmingGel.jpg" alt="جيل أجيليتي لشد الجسم من PURE COSMO" loading="lazy" width="200" height="120">
                         <h4>Agility Firming Gel</h4>
-                        <div class="price">90 جنيه</div>
+                        <div class="price">160 جنيه</div>
                     </a>
                 </div>
             </section>
@@ -524,7 +524,9 @@
                     document.getElementById(`tab-${this.dataset.tab}`).classList.add('active');
                 });
             });
-
+            document.getElementById('searchIcon').addEventListener('click', function() {
+                window.location.href = 'search.html';
+            });
             document.getElementById('cartIcon').addEventListener('click', function() {
                 window.location.href = 'cart.html';
             });
