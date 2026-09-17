@@ -1,7 +1,7 @@
 # ============================================
 # robots.txt for PURE COSMO
 # Website: https://purecosmo.shop/
-# Last Updated: 2026-09-14
+# Last Updated: 2026-09-17
 # ============================================
 
 # ============================================
@@ -10,12 +10,17 @@
 User-agent: *
 Allow: /
 Allow: /product-*.html
-Disallow: /cart.html
-Disallow: /Checkout.html
+
+# الصفحات الحساسة
 Disallow: /checkout.html
-Disallow: /?search=*
-Disallow: /search
+Disallow: /Checkout.html
+
+# الباراميترز الديناميكية
 Disallow: /*?search=
+Disallow: /*?utm_
+Disallow: /*?fbclid=
+Disallow: /*?add=
+Disallow: /*?remove=
 
 # ============================================
 # Google Bot
@@ -23,10 +28,8 @@ Disallow: /*?search=
 User-agent: Googlebot
 Allow: /
 Allow: /product-*.html
-Disallow: /cart.html
-Disallow: /Checkout.html
 Disallow: /checkout.html
-Disallow: /?search=*
+Disallow: /Checkout.html
 Disallow: /*?search=
 
 # ============================================
@@ -46,17 +49,19 @@ Allow: /*.webp$
 User-agent: Bingbot
 Allow: /
 Allow: /product-*.html
-Disallow: /cart.html
-Disallow: /Checkout.html
 Disallow: /checkout.html
+Disallow: /Checkout.html
 
 # ============================================
-# Social Media Bots (للسماح بمشاركة الروابط)
+# Social Media Bots
 # ============================================
 User-agent: facebookexternalhit
 Allow: /
 
 User-agent: WhatsApp
+Allow: /
+
+User-agent: Twitterbot
 Allow: /
 
 # ============================================
