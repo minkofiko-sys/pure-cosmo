@@ -10,13 +10,13 @@
 User-agent: *
 Allow: /
 Allow: /product-*.html
+Allow: /search.html
 
-# الصفحات الحساسة
+# احظر الصفحات الحساسة
 Disallow: /checkout.html
 Disallow: /Checkout.html
 
-# الباراميترز الديناميكية
-Disallow: /*?search=
+# احظر الباراميترز الديناميكية
 Disallow: /*?utm_
 Disallow: /*?fbclid=
 Disallow: /*?add=
@@ -28,9 +28,9 @@ Disallow: /*?remove=
 User-agent: Googlebot
 Allow: /
 Allow: /product-*.html
+Allow: /search.html
 Disallow: /checkout.html
 Disallow: /Checkout.html
-Disallow: /*?search=
 
 # ============================================
 # Google Images
@@ -49,6 +49,7 @@ Allow: /*.webp$
 User-agent: Bingbot
 Allow: /
 Allow: /product-*.html
+Allow: /search.html
 Disallow: /checkout.html
 Disallow: /Checkout.html
 
