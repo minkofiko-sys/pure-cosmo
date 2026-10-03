@@ -4,26 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     
-    <!-- ========================================= -->
-    <!-- SEO - BASIC META TAGS                      -->
-    <!-- ========================================= -->
     <title>البحث في منتجات PURE COSMO | ابحث عن منتجك المفضل</title>
     <meta name="description" content="ابحث في جميع منتجات PURE COSMO للعناية بالبشرة والشعر والجسم. اعثر على منتجك المفضل بسهولة مع البحث الذكي.">
     <meta name="keywords" content="البحث في منتجات PURE COSMO, ابحث عن منتج, كريمات, سيرومات, العناية بالبشرة, العناية بالشعر">
     
-    <!-- ========================================= -->
-    <!-- IMPORTANT: NOINDEX FOR SEARCH RESULTS      -->
-    <!-- صفحة البحث نفسها لا تُفهرس، لكن الصفحة الأساسية قابلة للفهرسة -->
-    <!-- ========================================= -->
     <meta name="robots" content="noindex, follow" />
     <meta name="author" content="PURE COSMO">
     <meta name="language" content="Arabic">
     <meta name="geo.region" content="EG" />
     <meta name="geo.placename" content="Kafr El Sheikh, Egypt" />
+    <link rel="canonical" href="https://purecosmo.shop/search.html" />
 
-    <!-- ========================================= -->
-    <!-- OPEN GRAPH                                 -->
-    <!-- ========================================= -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="البحث في منتجات PURE COSMO" />
     <meta property="og:description" content="ابحث في جميع منتجات PURE COSMO للعناية بالبشرة والشعر والجسم." />
@@ -32,9 +23,6 @@
     <meta property="og:locale" content="ar_EG" />
     <meta property="og:image" content="https://purecosmo.shop/images/logo_cosmo.png" />
 
-    <!-- ========================================= -->
-    <!-- TWITTER CARD                              -->
-    <!-- ========================================= -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="البحث في منتجات PURE COSMO" />
     <meta name="twitter:description" content="ابحث في جميع منتجات PURE COSMO." />
@@ -42,15 +30,11 @@
 
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
 
-    <!-- FONTS & LIBRARIES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- ========================================= -->
-    <!-- BREADCRUMB SCHEMA                         -->
-    <!-- ========================================= -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -68,7 +52,6 @@
         :root { --gold: #b78c5a; --gold-light: #dbbd8f; --gold-pale: #f0e4d4; --beige: #f5ede4; --shadow-card: 0 8px 24px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.02); --radius-card: 20px; }
         .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
 
-        /* Header */
         .sticky-header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.88); backdrop-filter: blur(6px); box-shadow: 0 2px 12px rgba(0,0,0,0.02); border-bottom: 1px solid rgba(183,140,90,0.12); padding: 10px 0; }
         .header-inner { display: flex; align-items: center; justify-content: space-between; }
         .logo h1 { font-size: 1.6rem; font-weight: 800; color: #1a1a1a; }
@@ -84,116 +67,33 @@
         .cart-badge .badge-count { position: absolute; top: -8px; right: -10px; background: #d43f34; color: white; font-size: 0.65rem; font-weight: 700; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
         .mobile-menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
 
-        /* Breadcrumb */
         .breadcrumb { display: flex; gap: 8px; font-size: 0.9rem; color: #888; margin: 24px 0 12px; flex-wrap: wrap; }
         .breadcrumb a { color: #888; text-decoration: none; transition: 0.2s; }
         .breadcrumb a:hover { color: var(--gold); }
         .breadcrumb .current { color: var(--gold); font-weight: 700; }
 
-        /* Search Page */
         .search-page { padding: 10px 0 60px; }
         .search-title { font-size: 2.4rem; font-weight: 800; margin-bottom: 8px; text-align: center; }
         .search-subtitle { color: #888; margin-bottom: 30px; text-align: center; font-size: 1.05rem; }
 
-        /* Search Form */
-        .search-form-wrapper {
-            max-width: 700px;
-            margin: 0 auto 40px;
-        }
-        .search-form {
-            background: white;
-            border-radius: 60px;
-            padding: 8px 24px;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 8px 30px rgba(183,140,90,0.12);
-            border: 2px solid transparent;
-            transition: 0.25s;
-        }
-        .search-form:focus-within {
-            border-color: var(--gold);
-            box-shadow: 0 8px 30px rgba(183,140,90,0.25);
-        }
-        .search-form input {
-            flex: 1;
-            border: none;
-            padding: 16px 12px;
-            font-size: 1.1rem;
-            background: transparent;
-            font-family: 'Almarai', sans-serif;
-            outline: none;
-            color: #2a2a2a;
-        }
+        .search-form-wrapper { max-width: 700px; margin: 0 auto 40px; }
+        .search-form { background: white; border-radius: 60px; padding: 8px 24px; display: flex; align-items: center; box-shadow: 0 8px 30px rgba(183,140,90,0.12); border: 2px solid transparent; transition: 0.25s; }
+        .search-form:focus-within { border-color: var(--gold); box-shadow: 0 8px 30px rgba(183,140,90,0.25); }
+        .search-form input { flex: 1; border: none; padding: 16px 12px; font-size: 1.1rem; background: transparent; font-family: 'Almarai', sans-serif; outline: none; color: #2a2a2a; }
         .search-form input::placeholder { color: #aaa; }
-        .search-form button {
-            background: var(--gold);
-            border: none;
-            color: white;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.2s;
-            font-family: 'Almarai', sans-serif;
-        }
+        .search-form button { background: var(--gold); border: none; color: white; width: 48px; height: 48px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; transition: 0.2s; font-family: 'Almarai', sans-serif; }
         .search-form button:hover { background: #a07548; transform: scale(1.05); }
 
-        /* Search Info Bar */
-        .search-info {
-            text-align: center;
-            color: #666;
-            margin-bottom: 24px;
-            font-size: 1rem;
-        }
+        .search-info { text-align: center; color: #666; margin-bottom: 24px; font-size: 1rem; }
         .search-info strong { color: var(--gold); font-weight: 700; }
 
-        /* Filter Chips */
-        .filter-chips {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
-        }
-        .filter-chip {
-            background: white;
-            border: 1.5px solid #e8e0d8;
-            color: #555;
-            padding: 8px 20px;
-            border-radius: 60px;
-            cursor: pointer;
-            font-family: 'Almarai', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 700;
-            transition: 0.2s;
-        }
+        .filter-chips { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
+        .filter-chip { background: white; border: 1.5px solid #e8e0d8; color: #555; padding: 8px 20px; border-radius: 60px; cursor: pointer; font-family: 'Almarai', sans-serif; font-size: 0.9rem; font-weight: 700; transition: 0.2s; }
         .filter-chip:hover { border-color: var(--gold); color: var(--gold); }
         .filter-chip.active { background: var(--gold); color: white; border-color: var(--gold); }
 
-        /* Results Grid */
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-        }
-        .result-card {
-            background: white;
-            border-radius: var(--radius-card);
-            padding: 18px 16px 22px;
-            box-shadow: var(--shadow-card);
-            border: 1px solid rgba(183,140,90,0.06);
-            transition: all 0.25s;
-            text-align: center;
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-        }
+        .results-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .result-card { background: white; border-radius: var(--radius-card); padding: 18px 16px 22px; box-shadow: var(--shadow-card); border: 1px solid rgba(183,140,90,0.06); transition: all 0.25s; text-align: center; text-decoration: none; color: inherit; display: flex; flex-direction: column; cursor: pointer; }
         .result-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); border-color: var(--gold-light); }
         .result-card .badge-offer { position: absolute; top: 14px; left: 14px; background: var(--gold); color: white; font-size: 0.65rem; padding: 4px 14px; border-radius: 40px; font-weight: 700; }
         .result-card img { max-width: 100%; height: 140px; object-fit: contain; margin-bottom: 10px; background: #faf6f0; border-radius: 16px; padding: 6px; }
@@ -203,44 +103,18 @@
         .result-card .price { font-weight: 800; font-size: 1.2rem; color: #1e1e1e; }
         .result-card .old-price { font-size: 0.85rem; color: #999; text-decoration: line-through; }
 
-        /* Empty & Initial States */
-        .search-empty, .search-initial {
-            text-align: center;
-            padding: 60px 20px;
-            background: white;
-            border-radius: 32px;
-            box-shadow: var(--shadow-card);
-            max-width: 600px;
-            margin: 0 auto;
-        }
+        .search-empty, .search-initial { text-align: center; padding: 60px 20px; background: white; border-radius: 32px; box-shadow: var(--shadow-card); max-width: 600px; margin: 0 auto; }
         .search-empty i, .search-initial i { font-size: 4rem; color: #ddd; margin-bottom: 16px; display: block; }
         .search-empty h3, .search-initial h3 { font-size: 1.4rem; margin-bottom: 8px; color: #666; }
         .search-empty p, .search-initial p { color: #888; margin-bottom: 8px; }
-        .search-initial .popular-tags {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-        .search-initial .popular-tag {
-            background: #f5ede4;
-            color: #7a5d3a;
-            padding: 6px 16px;
-            border-radius: 40px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 700;
-            transition: 0.2s;
-        }
+        .search-initial .popular-tags { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+        .search-initial .popular-tag { background: #f5ede4; color: #7a5d3a; padding: 6px 16px; border-radius: 40px; text-decoration: none; font-size: 0.85rem; font-weight: 700; transition: 0.2s; }
         .search-initial .popular-tag:hover { background: var(--gold); color: white; }
 
-        /* Toast */
         .toast { position: fixed; top: 80px; left: 50%; transform: translateX(-50%); background: #1c1c1c; color: white; padding: 14px 28px; border-radius: 60px; font-weight: 700; z-index: 1000; box-shadow: 0 8px 30px rgba(0,0,0,0.2); display: none; align-items: center; gap: 12px; border-right: 4px solid var(--gold); font-family: 'Almarai', sans-serif; }
         .toast.show { display: flex; animation: slideDown 0.4s ease; }
         @keyframes slideDown { from { opacity:0; transform: translateX(-50%) translateY(-20px); } to { opacity:1; transform: translateX(-50%) translateY(0); } }
 
-        /* Footer */
         footer { background: #1c1c1c; color: #ddd; padding: 40px 0 24px; border-radius: 40px 40px 0 0; margin-top: 40px; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 30px; }
         .footer-grid .logo h1 { color: #ddd; font-size: 1.4rem; }
@@ -304,7 +178,6 @@
             <h1 class="search-title">🔍 ابحث عن منتجك</h1>
             <p class="search-subtitle">اكتب اسم المنتج أو وصفه في المربع بالأسفل</p>
 
-            <!-- Search Form -->
             <div class="search-form-wrapper">
                 <form class="search-form" id="searchForm" action="search.html" method="GET" role="search">
                     <input 
@@ -322,7 +195,6 @@
                 </form>
             </div>
 
-            <!-- Filter Chips -->
             <div class="filter-chips" id="filterChips">
                 <button class="filter-chip active" data-category="all">الكل</button>
                 <button class="filter-chip" data-category="skincare">العناية بالبشرة</button>
@@ -332,13 +204,9 @@
                 <button class="filter-chip" data-category="health">الصحة</button>
             </div>
 
-            <!-- Results Info -->
             <div class="search-info" id="searchInfo" style="display:none;"></div>
 
-            <!-- Results Container -->
-            <div id="resultsContainer">
-                <!-- يتم تعبئتها بـ JavaScript -->
-            </div>
+            <div id="resultsContainer"></div>
 
         </div>
     </main>
@@ -377,15 +245,12 @@
 
     <script>
         (function() {
-            // =============================================
-            // PRODUCT DATA (نفس البيانات في باقي الصفحات)
-            // =============================================
             const products = [
                 { id:1, slug:'elderi-marono-gel', name:'ELDERI MARONO GEL', short_desc:'جيل مؤخر موضعي للأداء والقوة الأصيلة', description:'صُمم Elderi Marono Gel خصيصاً للرجل الذي يبحث عن القوة، الأداء الممتد، والثقة المطلقة.', price:'250', old_price:'300', badge:'الأكثر طلبًا', img:'images/Elderi_Marono_Gel3.jpg', size:'30 مل', category:'health', keywords:['مؤخر', 'ليدوكايين', 'أداء', 'قوة'] },
                 { id:2, slug:'fine-skin-cream', name:'Fine Skin Cream', short_desc:'تركيبة متطورة 10% Tranexamic Acid لتفتيح البشرة', description:'كريم لتفتيح البشرة وتوحيد اللون وتقليل البقع الداكنة.', price:'250', old_price:'330', badge:'عرض خاص', img:'images/fine_skin_cream.jpg', size:'50 مل', category:'skincare', keywords:['تفتيح', 'بشرة', 'ترانيكساميك', 'بقع', 'تصبغات'] },
                 { id:3, slug:'bustobella-cream', name:'Bustobella Cream', short_desc:'للعناية المتكاملة بمناطق الأنوثة', description:'كريم العناية بمناطق الأنوثة واستعادة المرونة والنضارة.', price:'150', old_price:'190', badge:'', img:'images/Bustobella_Cream.jpg', size:'100 جم', category:'bodycare', keywords:['أنوثة', 'صدر', 'مرونة', 'جسم'] },
                 { id:4, slug:'grofast-weight-gainer', name:'Grofast Weight Gainer', short_desc:'فاتح للشهية وداعم للمناعة لزيادة الوزن الصحي', description:'مكمل غذائي لفتح الشهية وزيادة الوزن.', price:'250', old_price:'300', badge:'عرض خاص', img:'images/GrofastWeightGainer.jpg', size:'30 كبسولة', category:'health', keywords:['وزن', 'شهية', 'تسمين', 'مكمل'] },
-                { id:5, slug:'agility-firming-gel', name:'Agility Firming Gel', short_desc:'شد الترهلات وتقليل علامات التمدد', description:'جيل لشد الترهلات وعلامات التمدد بالكافيين والشاي الأخضر.', price:'90', old_price:'160', badge:'', img:'images/AgilityFirmingGel.jpg', size:'120 جم', category:'bodycare', keywords:['شد', 'ترهلات', 'تمدد', 'كافيين', 'جسم'] },
+                { id:5, slug:'agility-firming-gel', name:'Agility Firming Gel', short_desc:'شد الترهلات وتقليل علامات التمدد', description:'جيل لشد الترهلات وعلامات التمدد بالكافيين والشاي الأخضر.', price:'160', old_price:'200', badge:'', img:'images/AgilityFirmingGel.jpg', size:'120 جم', category:'bodycare', keywords:['شد', 'ترهلات', 'تمدد', 'كافيين', 'جسم'] },
                 { id:6, slug:'honey-baby-cream', name:'Honey Baby Cream', short_desc:'مهدئ ومطهر لالتهابات الحفاض والبشرة الحساسة', description:'كريم أطفال مهدئ ومطهر لالتهابات الحفاض.', price:'110', old_price:'150', badge:'', img:'images/Honey-Baby2.jpg', size:'60 جم', category:'baby', keywords:['أطفال', 'حفاض', 'اكزيما', 'ترطيب'] },
                 { id:7, slug:'agility-massage-gel', name:'Agility Massage Gel', short_desc:'تسكين فوري لآلام العضلات والمفاصل والكدمات', description:'جل مساج لتسكين آلام العضلات والمفاصل.', price:'90', old_price:'160', badge:'', img:'images/AgilityMassageGel.jpg', size:'60 جم', category:'health', keywords:['مساج', 'آلام', 'عضلات', 'مفاصل', 'كدمات'] },
                 { id:8, slug:'lissaney-hair-serum', name:'Lissaney Hair Serum', short_desc:'تغذية عميقة ولمعان فوري برائحة فاخرة', description:'سيروم للشعر بلمعان فوري وتغذية عميقة.', price:'280', old_price:'360', badge:'', img:'images/LissaneyHairSerum.jpg', size:'70 مل', category:'haircare', keywords:['شعر', 'سيروم', 'لمعان', 'تغذية', 'هيشان'] },
@@ -404,9 +269,6 @@
                 'grofast-weight-gainer-sachets': 'product-grofast-weight-gainer-sachets.html'
             };
 
-            // =============================================
-            // CART
-            // =============================================
             const CART_KEY = 'pure_cosmo_cart';
             const VISITOR_KEY = 'pure_cosmo_visitor_id';
 
@@ -431,9 +293,6 @@
                 if (counter) counter.textContent = count;
             }
 
-            // =============================================
-            // SEARCH LOGIC
-            // =============================================
             const searchForm = document.getElementById('searchForm');
             const searchInput = document.getElementById('searchQuery');
             const resultsContainer = document.getElementById('resultsContainer');
@@ -442,13 +301,11 @@
 
             let currentCategory = 'all';
 
-            // قراءة query من URL
             function getQueryFromUrl() {
                 const params = new URLSearchParams(window.location.search);
                 return params.get('q') || '';
             }
 
-            // تحديث URL بدون reload
             function updateUrl(query) {
                 const url = new URL(window.location);
                 if (query) {
@@ -459,7 +316,6 @@
                 window.history.replaceState({}, '', url);
             }
 
-            // البحث في المنتجات
             function searchProducts(query, category = 'all') {
                 let results = products;
 
@@ -482,11 +338,9 @@
                 });
             }
 
-            // عرض النتائج
             function renderResults(query, category = 'all') {
                 const results = searchProducts(query, category);
 
-                // إخفاء البحث info لو مفيش query
                 if (!query.trim() && category === 'all') {
                     resultsContainer.innerHTML = `
                         <div class="search-initial">
@@ -507,7 +361,6 @@
                     return;
                 }
 
-                // عرض عدد النتائج
                 if (query.trim()) {
                     searchInfo.innerHTML = `تم العثور على <strong>${results.length}</strong> نتيجة للبحث عن "<strong>${escapeHtml(query)}</strong>"`;
                 } else {
@@ -515,7 +368,6 @@
                 }
                 searchInfo.style.display = 'block';
 
-                // لو مفيش نتائج
                 if (results.length === 0) {
                     resultsContainer.innerHTML = `
                         <div class="search-empty">
@@ -529,11 +381,10 @@
                     return;
                 }
 
-                // عرض النتائج
                 resultsContainer.innerHTML = `
                     <div class="results-grid">
                         ${results.map(p => {
-                            const productUrl = productFileNames[p.slug] || `product.html?slug=${p.slug}`;
+                            const productUrl = productFileNames[p.slug] || `index.html#products`;
                             return `
                                 <a href="${productUrl}" class="result-card">
                                     ${p.badge ? `<span class="badge-offer">${escapeHtml(p.badge)}</span>` : ''}
@@ -551,28 +402,20 @@
                 `;
             }
 
-            // Escape HTML
             function escapeHtml(str) {
                 return String(str).replace(/[&<>"']/g, m => ({
                     '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
                 }[m]));
             }
 
-            // =============================================
-            // EVENT HANDLERS
-            // =============================================
-
-            // Submit form
             searchForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const query = searchInput.value.trim();
                 updateUrl(query);
                 renderResults(query, currentCategory);
-                // تمرير لأعلى لعرض النتائج
                 resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
 
-            // Live search (لكل حرف)
             let searchTimeout;
             searchInput.addEventListener('input', function() {
                 clearTimeout(searchTimeout);
@@ -583,7 +426,6 @@
                 }, 300);
             });
 
-            // Filter chips
             filterChips.forEach(chip => {
                 chip.addEventListener('click', function() {
                     filterChips.forEach(c => c.classList.remove('active'));
@@ -594,35 +436,27 @@
                 });
             });
 
-            // =============================================
-            // INIT
-            // =============================================
             const initialQuery = getQueryFromUrl();
             if (initialQuery) {
                 searchInput.value = initialQuery;
             }
             renderResults(initialQuery, currentCategory);
 
-            // Cart counter
             updateCartCounter();
 
-            // Cart icon
             document.getElementById('cartIcon').addEventListener('click', function() {
                 window.location.href = 'cart.html';
             });
 
-            // Search icon (focus on input)
             document.getElementById('searchIcon').addEventListener('click', function() {
                 searchInput.focus();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-            // Mobile menu
             document.getElementById('mobileMenuToggle').addEventListener('click', function() {
                 alert('📱 سيتم تفعيل القائمة الجانبية قريباً');
             });
 
-            console.log('🔍 Search Page loaded successfully!');
         })();
     </script>
 </body>
